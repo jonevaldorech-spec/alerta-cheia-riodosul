@@ -1,4 +1,4 @@
-# Estado da bacia — 2026-08-27 16:45 (local −03)
+# Estado da bacia — 2026-08-27 17:18 (local −03)
 
 **Rio do Sul:** 2.2 m — **Normal** · tendência subindo
 **Chuva 24h máx (drivers):** 0.2 mm
@@ -20,9 +20,9 @@
 | DCSC-00035 | Trombudo Central 2 | 1.47 | 0.0 |
 | DCSC-00010 | Rio do Campo | — | 0.0 |
 | DCSC-00016 | Alfredo Wagner | — | 0.0 |
-| DCSC-00024 | Vidal Ramos | 2.37 | 0.0 |
+| DCSC-00024 | Vidal Ramos | 2.35 | 0.0 |
 | DCSC-00008 | Aurora | — | 0.0 |
-| DCSC-00038 | Barragem Sul (montante) | 17.69 | 0.0 |
+| DCSC-00038 | Barragem Sul (montante) | 17.81 | 0.0 |
 | DCSC-00040 | Barragem Oeste (montante) | 2.7 | 0.0 |
 
 ## Barragens (Asthon)
