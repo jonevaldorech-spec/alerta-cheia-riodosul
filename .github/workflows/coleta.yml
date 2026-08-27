@@ -4,7 +4,12 @@ name: Coleta e alerta de cheia (Rio do Sul)
 on:
   schedule:
     - cron: "*/30 * * * *"   # a cada 30 min (UTC). Para 15 min use "*/15 * * * *" (repo PÚBLICO = minutos ilimitados)
-  workflow_dispatch: {}        # botão "Run workflow" para rodar na hora
+  workflow_dispatch:           # botão "Run workflow" para rodar na hora
+    inputs:
+      teste_email:
+        description: "Enviar um e-mail de TESTE (mesmo sem evento)?"
+        type: boolean
+        default: false
 
 # evita duas rodadas empurrando commit ao mesmo tempo
 concurrency:
@@ -48,7 +53,7 @@ jobs:
       # --- ALERTA POR E-MAIL (só em evento) ---------------------------------
       # Opção A: e-mail direto via Gmail (se você cadastrar os secrets — ver README)
       - name: E-mail de alerta (Gmail SMTP)
-        if: steps.coleta.outputs.evento == 'SIM' && env.HAS_MAIL == 'true'
+        if: ${{ (steps.coleta.outputs.evento == 'SIM' || github.event.inputs.teste_email == 'true') && env.HAS_MAIL == 'true' }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -56,7 +61,7 @@ jobs:
           secure: true
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: ${{ steps.coleta.outputs.assunto }}
+          subject: ${{ github.event.inputs.teste_email == 'true' && '[TESTE] Alerta Cheia Rio do Sul — envio de teste OK' || steps.coleta.outputs.assunto }}
           to: ${{ secrets.MAIL_TO || secrets.MAIL_USERNAME }}
           from: Alerta Cheia Rio do Sul <${{ secrets.MAIL_USERNAME }}>
           html_body: file://estado_atual.md
