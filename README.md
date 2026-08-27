@@ -78,9 +78,22 @@ fica desligado.
 - Rio do Sul subindo **e** chuva 24h ≥ 30 mm em algum driver; **ou**
 - chuva 24h ≥ 50 mm em algum driver.
 
-O pico estimado no e-mail usa a heurística do projeto
-(`pico ≈ 2,29 + 0,59·nível_inicial + 0,032·chuva_média48h + 1,0·vertimento`) —
-é uma **estimativa** de triagem, não a saída do estimador completo.
+O pico estimado no e-mail usa o **estimador completo v0.7** do projeto
+(`estimador.py`: curvas côncava + regressão + trânsito da chuva-acima + termo de
+barragem), alimentado automaticamente com:
+- **baseline** = mínimo do nível de Rio do Sul nas últimas 48 h (disciplina do
+  projeto: nunca usar o nível em subida como inicial);
+- **chuva-jusante** = acumulada 48 h por estação (`cj_representativa` decide
+  âncoras × drivers sozinho);
+- **barragens** = estado (% de ocupação / vertimento) da Asthon, em **modo
+  conservador**: classifica o estado mas **não credita o peak-shaving
+  volumétrico** (que exige a janela de montante do painel, interpolada à mão).
+  Para um alerta, não-creditar é o lado seguro — o pico automático fica
+  ~0,5–1 m **acima** do estimador rodado à mão nos eventos com barragem segurando.
+
+Para o número fino durante um evento, cole os dados no chat do projeto e rode o
+`estimador.py` com as janelas de montante. Se o `estimador.py` não puder ser
+importado, o coletor cai numa heurística simples de triagem.
 
 ## Ajustes rápidos
 - **Cadência:** linha `cron` no workflow. `*/15 * * * *` = 15 min (repo público).

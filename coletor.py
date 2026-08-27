@@ -31,6 +31,12 @@ import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+try:
+    import estimador  # estimador_pico_v0_7 (curvas V(h) + termo de barragem)
+    TEM_ESTIMADOR = True
+except Exception as _e:
+    TEM_ESTIMADOR = False
+
 LOCAL = timezone(timedelta(hours=-3))
 GQL = "https://monitoramento.defesacivil.sc.gov.br/graphql"
 CLIENT = "secretaria-de-defesa-civil"
@@ -62,6 +68,15 @@ ALVO = {
 # drivers de chuva a jusante das barragens (para o gatilho de evento)
 DRIVERS = ["DCSC-00013", "DCSC-00039", "DCSC-00041", "DCSC-00033",
            "DCSC-00025", "DCSC-00010", "DCSC-00016"]
+
+# código DCSC -> nome usado pelo estimador (chuva_jusante / cj_representativa)
+NOME_EST = {
+    "DCSC-00013": "Rio do Sul", "DCSC-00039": "Ituporanga", "DCSC-00041": "Taio",
+    "DCSC-00008": "Aurora", "DCSC-00022": "Rio do Oeste", "DCSC-00031": "Laurentino",
+    "DCSC-00033": "Pouso Redondo", "DCSC-00025": "Agrolandia",
+    "DCSC-00035": "Trombudo Central", "DCSC-00001": "Agronomica",
+    "DCSC-00010": "Rio do Campo", "DCSC-00016": "Alfredo Wagner",
+}
 
 _CTX = ssl.create_default_context()
 _CTX.check_hostname = False
@@ -148,6 +163,65 @@ def asthon_barragens():
     return linhas
 
 
+_HIST_Q = ('query Historic($stationCode: String!, $startDate: String!, '
+           '$endDate: String!, $interval: QueryInterval) { historic('
+           'system: Qualle_Hidrometeorologia, client: "%s", '
+           'stationCode: $stationCode, startDate: $startDate, '
+           'endDate: $endDate, interval: $interval, opts: { ordenacao: ASC }) }') % CLIENT
+
+
+def baseline_rds(horas=48):
+    """Baseline pré-evento = MÍNIMO do nível de Rio do Sul nas últimas `horas`.
+    Disciplina do projeto: nunca usar o nível em subida como inicial."""
+    fim = datetime.now(timezone.utc)
+    ini = fim - timedelta(hours=horas)
+    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    d = _post(GQL, {"operationName": "Historic", "query": _HIST_Q,
+                    "variables": {"stationCode": "DCSC-00013",
+                                  "startDate": iso(ini), "endDate": iso(fim),
+                                  "interval": "HOUR_1"}})
+    itens = ((d.get("data") or {}).get("historic") or {}).get("items", []) or []
+    niveis = [i.get("rio_nivel") for i in itens
+              if isinstance(i.get("rio_nivel"), (int, float))]
+    return round(min(niveis), 2) if niveis else None
+
+
+def estimativa_completa(snap, dams, niv_atual):
+    """Roda o estimador v0.7 com entradas automáticas. Retorna dict ou None.
+    Barragens em MODO CONSERVADOR: classifica o estado (%/vertimento) mas não
+    credita peak-shaving volumétrico (exige a janela de montante do painel,
+    feita à mão) — para um alerta, não-creditar é o lado seguro."""
+    if not TEM_ESTIMADOR:
+        return None
+    try:
+        base = baseline_rds() or niv_atual
+        if base is None:
+            return None
+        chuvas = {}
+        for code, nome in NOME_EST.items():
+            v = snap.get(code, {}).get("ch48h")
+            if v is not None:
+                chuvas[nome] = v
+        bars = []
+        for d in dams:
+            nb = d.get("barragem") or ""
+            nome = "Sul" if "Sul" in nb else "Oeste" if "Oeste" in nb else None
+            if not nome:
+                continue
+            vert = d.get("vertido") or 0
+            ext = float(vert) if isinstance(vert, (int, float)) and vert > 0 else 0.0
+            bars.append(estimador.BarragemV5(nome, 0.0, 0.0,
+                        ocupacao_pct=d.get("percent_use"), extravasor_m=ext))
+        est = estimador.estimar_pico_v5(base, chuvas, bars)
+        return {"baseline": base, "pico": round(est.pico_central, 1),
+                "banda": (round(est.banda[0], 1), round(est.banda[1], 1)),
+                "faixa": est.faixa, "cj": round(est.cj_efetiva_mm, 0),
+                "nota_bar": est.nota_barragens, "ant": est.antecedencia_h}
+    except Exception as e:
+        print(f"AVISO estimador: {e}", file=sys.stderr)
+        return None
+
+
 def _append(caminho, cabecalho, linhas):
     novo = not os.path.exists(caminho)
     with open(caminho, "a", newline="", encoding="utf-8") as f:
@@ -206,9 +280,16 @@ def main():
     vertendo = any((x.get("percent_use") or 0) >= 100 or x.get("vertido") for x in dams)
     evento = (faixa in ("ATENÇÃO", "ALERTA", "EMERGÊNCIA")
               or (subindo and ch24max >= 30) or ch24max >= 50)
+    # estimativa de pico: estimador completo v0.7; se faltar algo, heurística
+    est = estimativa_completa(snap, dams, niv)
     cjv = [snap.get(c, {}).get("ch48h") or 0 for c in ["DCSC-00013", "DCSC-00039", "DCSC-00041"]]
     cj = sum(cjv) / len(cjv) if cjv else 0
-    pico = round(2.29 + 0.59 * niv + 0.032 * cj + (1.0 if vertendo else 0.0), 1) if niv is not None else None
+    if est:
+        pico = est["pico"]
+    elif niv is not None:
+        pico = round(2.29 + 0.59 * niv + 0.032 * cj + (1.0 if vertendo else 0.0), 1)
+    else:
+        pico = None
 
     # estado_atual.md
     md = [f"# Estado da bacia — {ts} (local −03)", ""]
@@ -216,8 +297,19 @@ def main():
               f"tendência {'subindo' if subindo else 'estável/caindo'}")
     md.append(f"**Chuva 24h máx (drivers):** {round(ch24max,1)} mm")
     md.append(f"**EVENTO ATIVO:** {'🔴 SIM' if evento else '🟢 não'}")
-    if evento and pico is not None:
-        md.append(f"**Pico estimado (heurística):** ~{pico} m "
+    if evento and est:
+        lo, hi = est["banda"]
+        md.append(f"**Pico estimado (estimador v0.7):** ~{est['pico']} m "
+                  f"(banda {lo}–{hi} m) → **{est['faixa']}**")
+        md.append(f"- baseline pré-evento (mín 48h): {est['baseline']} m · "
+                  f"chuva-jusante efetiva: {est['cj']:.0f} mm · "
+                  f"antecedência ~{est['ant'][0]}–{est['ant'][1]} h")
+        md.append(f"- barragens: {est['nota_bar']}")
+        md.append("- *obs.: barragens em modo conservador (sem crédito de "
+                  "peak-shaving volumétrico; para o número fino, rodar o "
+                  "estimador à mão com a janela de montante do painel).*")
+    elif evento and pico is not None:
+        md.append(f"**Pico estimado (heurística de triagem):** ~{pico} m "
                   f"(nível inicial {niv} + chuva média 48h {round(cj,1)} mm"
                   f"{' + vertimento' if vertendo else ''})")
     md += ["", "## Estações", "", "| Código | Estação | Nível (m) | Chuva 24h |",
