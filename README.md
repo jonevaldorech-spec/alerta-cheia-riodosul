@@ -1,12 +1,23 @@
 # Alerta de Cheia — Rio do Sul (bacia do Alto Itajaí)
 
 Coleta automática, **na nuvem do GitHub (com o seu PC desligado)**, dos dados
-das estações da bacia que alimentam o modelo de previsão de cheia da 100 Frescura.
+das estações da bacia que alimentam o modelo de previsão de cheia da **cidade de
+Rio do Sul (SC)**.
 
 A cada 30 minutos, o GitHub roda o `coletor.py`, que puxa **duas fontes públicas
-oficiais**, guarda a série no próprio repositório (histórico automático dos
-eventos) e, **quando detecta um evento**, te manda um **e-mail de alerta** com o
-nível de Rio do Sul, o pico estimado e o estado das barragens.
+oficiais**, **funde as estações por município**, roda o **estimador v0.9**, guarda
+a série no próprio repositório (histórico automático dos eventos) e, **quando
+detecta um evento**, te manda um **e-mail de alerta** com o nível de Rio do Sul,
+o pico estimado e o estado das barragens.
+
+## Fusão de estações (fusao_estacoes v0.3)
+Antes do estimador, as réguas são fundidas por município (média das pares — ex.:
+Ituporanga = 00085+00039, Taió-jusante = 00041+00171), com **descarte de sensor
+travado** (leitura > 60 min atrasada) e de **0,0 anômalo** na chuva. O pico
+**OFICIAL** usa `cj_v07` (sem laterais — continuidade com a curva calibrada); um
+**pico-sombra** `cj_lat` (com as laterais Petrolândia/Atalanta/Mirim Doce/Braço
+do Trombudo) é calculado em paralelo e o Δ é logado, conforme o protocolo de
+calibração prospectiva do projeto.
 
 ## Fontes coletadas
 1. **Estado (Defesa Civil SC)** — `monitoramento.defesacivil.sc.gov.br/graphql`
@@ -16,9 +27,12 @@ nível de Rio do Sul, o pico estimado e o estado das barragens.
    **comporta a comporta** (% de ocupação, comportas A/F, montante).
 
 ## O que fica no repositório
-- `dados/serie_bacia.csv` — 1 linha por estação por coleta (a série cresce sozinha).
+- `coletor.py` — coletor + fusão + estimador (roda a cada 30 min).
+- `estimador.py` — estimador de pico v0.9 (cópia do `estimador_pico_v0_9.py`).
+- `fusao_estacoes.py` — fusão por município (cópia do `fusao_estacoes_v0_3.py`).
+- `dados/serie_bacia.csv` — 1 linha por **estação crua** por coleta (auditoria; a série cresce sozinha).
 - `dados/barragens.csv` — 1 linha por barragem por coleta.
-- `estado_atual.md` — a situação atual, legível aqui no GitHub (abre e vê a tabela).
+- `estado_atual.md` — a situação atual, legível aqui no GitHub (abre e vê as tabelas).
 - `evento.txt` — `SIM`/`NAO` (usado internamente para decidir o e-mail).
 
 ---
@@ -78,22 +92,24 @@ fica desligado.
 - Rio do Sul subindo **e** chuva 24h ≥ 30 mm em algum driver; **ou**
 - chuva 24h ≥ 50 mm em algum driver.
 
-O pico estimado no e-mail usa o **estimador completo v0.7** do projeto
+O pico estimado no e-mail usa o **estimador v0.9** do projeto
 (`estimador.py`: curvas côncava + regressão + trânsito da chuva-acima + termo de
 barragem), alimentado automaticamente com:
 - **baseline** = mínimo do nível de Rio do Sul nas últimas 48 h (disciplina do
   projeto: nunca usar o nível em subida como inicial);
-- **chuva-jusante** = acumulada 48 h por estação (`cj_representativa` decide
-  âncoras × drivers sozinho);
+- **chuva-jusante** = acumulada 48 h **fundida por município** (`fusao_estacoes`),
+  chamada com `usar_ancoras=False` (a lista DRIVERS já cobre âncoras + drivers);
 - **barragens** = estado (% de ocupação / vertimento) da Asthon, em **modo
   conservador**: classifica o estado mas **não credita o peak-shaving
   volumétrico** (que exige a janela de montante do painel, interpolada à mão).
   Para um alerta, não-creditar é o lado seguro — o pico automático fica
   ~0,5–1 m **acima** do estimador rodado à mão nos eventos com barragem segurando.
 
-Para o número fino durante um evento, cole os dados no chat do projeto e rode o
-`estimador.py` com as janelas de montante. Se o `estimador.py` não puder ser
-importado, o coletor cai numa heurística simples de triagem.
+O e-mail traz o pico **OFICIAL** (`cj_v07`, sem laterais) e, em paralelo, o
+**pico-sombra** (`cj_lat`, com laterais) + o Δ — protocolo de calibração
+prospectiva. Para o número fino durante um evento, cole os dados no chat do
+projeto e rode o `estimador.py` com as janelas de montante. Se `estimador.py`/
+`fusao_estacoes.py` não puderem ser importados, o coletor grava só os dados crus.
 
 ## Ajustes rápidos
 - **Cadência:** linha `cron` no workflow. `*/15 * * * *` = 15 min (repo público).

@@ -1,4 +1,22 @@
 """
+ESTIMADOR v0.9 — OPCAO 2 EXECUTADA: laterais jusante (Petrolandia, Atalanta,
+Mirim Doce, Braco do Trombudo) promovidas a DRIVERS (cj_representativa).
+Coeficientes INTACTOS. Justificativa e limites: aba "Auditoria Laterais cj
+(v20)" da planilha + Instrucoes v23. LOO/RMSE 0,48 segue valido: nenhum fold
+em dominio tinha dado lateral disponivel nos anexos para recomputo.
+
+---------------------------------------------------------------- v0.8 ----
+ESTIMADOR v0.8 — SÓ categorizacao: Taio_montante (00066) movido para ACIMA
+(entrada do reservatorio Oeste = chuva-acima, separada de Rio do Campo;
+Topologia v14 §12.2). NENHUM coeficiente tocado; ANCORAS/DRIVERS inalterados.
+A fusao de estacoes por municipio (Ituporanga 00085+00039, Taio-jusante
+00041+00171, Aurora 00067+00008, Rio do Oeste 00022+00179, Trombudo Central
+00035+00014) e a entrada das laterais (Petrolandia/Atalanta/Mirim Doce/Braco
+do Trombudo, em canal paralelo) sao feitas ANTES, no coletor
+fusao_estacoes_v0_1.py. Promover laterais ao cj exige recalibracao/LOO.
+LOO e RMSE 0,48 do v0.7 seguem validos (o conjunto ancora+driver nao mudou).
+
+---------------------------------------------------------------- v0.7 ----
 ESTIMADOR v0.7 — curvas V(h) recalibradas (unica mudanca vs v0.6).
 DQDH=700 e K_TRANSITO=0,35 MANTIDOS por decisao fundamentada em LOO 19/19
 (Instrucoes v17): DQDH implicito n=10 mediana 535, mas RMSE em dominio
@@ -267,9 +285,20 @@ def pico_regressao(nivel_inicial: float, chuva_jusante_mm: float, vertendo: bool
 # ----------------------------------------------------------------------
 DRIVERS = ["Rio do Sul", "Ituporanga", "Aurora", "Taio", "Salete",
            "Rio do Oeste", "Laurentino", "Pouso Redondo",
-           "Agrolandia", "Trombudo Central", "Agronomica"]
+           "Agrolandia", "Trombudo Central", "Agronomica",
+           # v0.9 (opcao 2): laterais jusante promovidas ao pool de drivers.
+           # Auditoria (planilha v20) mostrou que o cj do catalogo JA incluia
+           # laterais onde existiam (I2, Out22, Dez22) — a promocao alinha o
+           # runtime com essa pratica. Nenhum fold em dominio do LOO tinha
+           # dado lateral p/ recomputo -> RMSE 0,48 permanece a referencia.
+           "Petrolandia", "Atalanta", "Mirim Doce", "Braco do Trombudo"]
 ANCORAS = ["Rio do Sul", "Ituporanga", "Taio"]
-ACIMA = ["Rio do Campo", "Alfredo Wagner", "Chapadao do Lageado", "Imbuia"]
+# v0.8: Taio_montante (00066, entrada do reservatorio Oeste) e' chuva-ACIMA,
+# anotado a' parte de Rio do Campo (Topologia v14 §12.2). ANCORAS/DRIVERS
+# inalterados — a fusao por municipio e a entrada de laterais acontecem ANTES,
+# no coletor (fusao_estacoes_v0_1.py). Laterais NAO promovidas ao cj sem LOO.
+ACIMA = ["Rio do Campo", "Taio_montante", "Alfredo Wagner",
+         "Chapadao do Lageado", "Imbuia"]
 
 def cj_representativa(chuvas_mm: dict[str, float], limiar: float = 0.10) -> tuple[float, str]:
     """REGRA DE REPRESENTATIVIDADE ESPACIAL (lição do evento J, jul/2024):
