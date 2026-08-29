@@ -1,12 +1,12 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 20:15 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 20:30 (local −03)
 
 **Rio do Sul (00013):** 3.79 m — **Normal** · tendência subindo
-**Chuva 24h máx (drivers):** 48.7 mm
+**Chuva 24h máx (drivers):** 50.6 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (OFICIAL, v0.9 cj_v07):** ~3.5 m (banda 3.3–4.3 m) → **Normal**
 - baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 28 mm · antecedência ~10–15 h
-- **sombra (cj_lat, c/ laterais):** ~3.6 m (cj 29 mm · Δcj_lat−cj_v07 = 1.1 mm, n_laterais=4)
+- **sombra (cj_lat, c/ laterais):** ~3.6 m (cj 29 mm · Δcj_lat−cj_v07 = 1.2 mm, n_laterais=4)
 - barragens: Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~0%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~1%)
 - *barragens em modo conservador (sem crédito de peak-shaving volumétrico; para o número fino, rodar o estimador à mão).*
 
@@ -14,7 +14,7 @@
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Agrolandia | 48.4 |
+| Agrolandia | 50.6 |
 | Ituporanga | 39.2 |
 | Aurora | 29.6 |
 | Trombudo Central | 22.4 |
