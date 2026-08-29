@@ -5,7 +5,7 @@ on:
   schedule:
     # minutos 13 e 43 (evita :00/:30, os mais congestionados — a doc do GitHub
     # recomenda fugir do topo da hora para reduzir atraso/descarte do agendador).
-    - cron: "13,43 * * * *"   # a cada 30 min (UTC). Para 15 min: "13,28,43,58 * * * *"
+    - cron: "10,40 * * * *"   # a cada 30 min (UTC). Para 15 min: "13,28,43,58 * * * *"
   workflow_dispatch:           # botão "Run workflow" para rodar na hora
     inputs:
       teste_email:
