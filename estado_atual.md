@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 05:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 05:49 (local −03)
 
 **Rio do Sul (00013):** 2.11 m — **Normal** · tendência estável/caindo
 **Chuva 24h máx (drivers):** 0.2 mm
@@ -20,7 +20,7 @@
 | Trombudo Central | 0.0 |
 | Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Taio_montante 0.2, Alfredo Wagner 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Taio_montante 0.2, Alfredo Wagner 0.1
 
 ## Barragens (Asthon)
 
