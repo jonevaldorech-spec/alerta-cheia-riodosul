@@ -1,26 +1,26 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 08:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 08:49 (local −03)
 
 **Rio do Sul (00013):** 2.13 m — **Normal** · tendência estável/caindo
-**Chuva 24h máx (drivers):** 38.4 mm
+**Chuva 24h máx (drivers):** 39.5 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Agrolandia | 38.4 |
-| Ituporanga | 26.8 |
-| Aurora | 20.5 |
-| Trombudo Central | 13.1 |
-| Pouso Redondo | 10.8 |
-| Rio do Sul | 10.4 |
-| Laurentino | 9.0 |
-| Agronomica | 8.8 |
+| Agrolandia | 39.5 |
+| Ituporanga | 29.7 |
+| Aurora | 21.1 |
+| Trombudo Central | 13.6 |
+| Pouso Redondo | 11.3 |
+| Rio do Sul | 10.9 |
+| Laurentino | 9.2 |
+| Agronomica | 9.0 |
 | Rio do Oeste | 6.4 |
-| Taio | 3.1 |
+| Taio | 3.2 |
 | Salete | 0.2 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 6.8, Taio_montante 3.0, Rio do Campo 1.4
+_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 7.2, Taio_montante 3.0, Rio do Campo 1.4
 
 ## Barragens (Asthon)
 
