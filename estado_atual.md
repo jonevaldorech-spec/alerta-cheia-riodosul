@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 03:49 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 04:00 (local −03)
 
 **Rio do Sul (00013):** 2.11 m — **Normal** · tendência estável/caindo
 **Chuva 24h máx (drivers):** 0.2 mm
@@ -8,7 +8,7 @@
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Rio do Sul | 0.3 |
+| Rio do Sul | 0.4 |
 | Taio | 0.2 |
 | Ituporanga | 0.0 |
 | Aurora | 0.0 |
