@@ -1,6 +1,6 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 14:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 14:49 (local −03)
 
-**Rio do Sul (00013):** 2.77 m — **Normal** · tendência subindo
+**Rio do Sul (00013):** 2.87 m — **Normal** · tendência subindo
 **Chuva 24h máx (drivers):** 48.7 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -24,7 +24,7 @@
 | Agronomica | 16.4 |
 | Rio do Oeste | 13.8 |
 | Taio | 7.4 |
-| Salete | 1.0 |
+| Salete | 1.2 |
 
 _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 41.7, Taio_montante 9.2, Rio do Campo 1.9
 
