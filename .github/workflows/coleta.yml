@@ -2,11 +2,7 @@ name: Coleta e alerta de cheia (Rio do Sul)
 
 # Roda na nuvem do GitHub — PC pode estar desligado.
 on:
-  schedule:
-    # minutos 13 e 43 (evita :00/:30, os mais congestionados — a doc do GitHub
-    # recomenda fugir do topo da hora para reduzir atraso/descarte do agendador).
-    - cron: "10,40 * * * *"   # a cada 30 min (UTC). 
-  workflow_dispatch:           # botão "Run workflow" para rodar na hora
+   workflow_dispatch:           # botão "Run workflow" para rodar na hora
     inputs:
       teste_email:
         description: "Enviar um e-mail de TESTE (mesmo sem evento)?"
