@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 22:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 23:00 (local −03)
 
 **Rio do Sul (00013):** 3.83 m — **Normal** · tendência subindo
 **Chuva 24h máx (drivers):** 51.3 mm
