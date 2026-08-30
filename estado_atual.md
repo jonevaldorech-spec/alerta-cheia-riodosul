@@ -1,24 +1,24 @@
-# Cheia — Rio do Sul (SC) — 2026-08-30 17:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-30 17:30 (local −03)
 
-**Rio do Sul (00013):** 3.6 m — **Normal** · tendência subindo
-**Chuva 24h máx (drivers):** 35.3 mm
+**Rio do Sul (00013):** 3.56 m — **Normal** · tendência subindo
+**Chuva 24h máx (drivers):** 35.5 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (OFICIAL, v0.9 cj_v07):** ~4.8 m (banda 4.5–5.5 m) → **Atenção**
 - baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 60 mm · antecedência ~10–15 h
-- **sombra (cj_lat, c/ laterais):** ~4.8 m (cj 60 mm · Δcj_lat−cj_v07 = 0.3 mm, n_laterais=4)
-- barragens: Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~0%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~2%)
+- **sombra (cj_lat, c/ laterais):** ~4.8 m (cj 61 mm · Δcj_lat−cj_v07 = 0.4 mm, n_laterais=4)
+- barragens: Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~1%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~9%)
 - *barragens em modo conservador (sem crédito de peak-shaving volumétrico; para o número fino, rodar o estimador à mão).*
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Agrolandia | 80.6 |
-| Ituporanga | 64.3 |
+| Agrolandia | 80.8 |
+| Ituporanga | 64.5 |
 | Aurora | 52.4 |
 | Pouso Redondo | 47.1 |
-| Rio do Sul | 45.0 |
+| Rio do Sul | 45.2 |
 | Trombudo Central | 44.3 |
 | Laurentino | 35.2 |
 | Rio do Oeste | 29.2 |
@@ -26,14 +26,14 @@
 | Salete | 25.0 |
 | Taio | 21.2 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 75.4, Taio_montante 37.2, Rio do Campo 33.5
+_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 75.4, Taio_montante 37.2, Rio do Campo 34.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 0.02 | 0A/7F | 0 | 2.9 m |
-| Barragem Sul Ituporanga | 2.34 | 0A/5F | 0 | 12.0 m |
+| Barragem Oeste Taió | 0.83 | 0A/7F | 0 | 5.8 m |
+| Barragem Sul Ituporanga | 8.66 | 0A/5F | 0 | 15.9 m |
 
 ## ⚠ Avisos desta coleta
 
