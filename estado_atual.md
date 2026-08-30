@@ -1,12 +1,12 @@
-# Cheia — Rio do Sul (SC) — 2026-08-29 20:45 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-29 21:00 (local −03)
 
 **Rio do Sul (00013):** 3.81 m — **Normal** · tendência subindo
 **Chuva 24h máx (drivers):** 51.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**Pico estimado (OFICIAL, v0.9 cj_v07):** ~3.5 m (banda 3.3–4.3 m) → **Normal**
-- baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 28 mm · antecedência ~10–15 h
-- **sombra (cj_lat, c/ laterais):** ~3.6 m (cj 29 mm · Δcj_lat−cj_v07 = 1.2 mm, n_laterais=4)
+**Pico estimado (OFICIAL, v0.9 cj_v07):** ~3.6 m (banda 3.3–4.3 m) → **Normal**
+- baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 29 mm · antecedência ~10–15 h
+- **sombra (cj_lat, c/ laterais):** ~3.6 m (cj 30 mm · Δcj_lat−cj_v07 = 1.2 mm, n_laterais=4)
 - barragens: Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~0%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~1%)
 - *barragens em modo conservador (sem crédito de peak-shaving volumétrico; para o número fino, rodar o estimador à mão).*
 
@@ -15,7 +15,7 @@
 | Município | Chuva 48h (mm) |
 |---|---|
 | Agrolandia | 51.3 |
-| Ituporanga | 39.3 |
+| Ituporanga | 39.8 |
 | Aurora | 29.6 |
 | Trombudo Central | 22.4 |
 | Laurentino | 18.8 |
@@ -26,7 +26,7 @@
 | Taio | 7.4 |
 | Salete | 1.4 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 45.1, Taio_montante 9.2, Rio do Campo 2.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 50.8, Taio_montante 9.2, Rio do Campo 2.0
 
 ## Barragens (Asthon)
 
