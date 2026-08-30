@@ -1,12 +1,12 @@
-# Cheia — Rio do Sul (SC) — 2026-08-30 15:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-30 15:30 (local −03)
 
-**Rio do Sul (00013):** 3.7 m — **Normal** · tendência subindo
-**Chuva 24h máx (drivers):** 34.4 mm
+**Rio do Sul (00013):** 3.68 m — **Normal** · tendência subindo
+**Chuva 24h máx (drivers):** 35.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**Pico estimado (OFICIAL, v0.9 cj_v07):** ~4.7 m (banda 4.5–5.5 m) → **Atenção**
-- baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 59 mm · antecedência ~10–15 h
-- **sombra (cj_lat, c/ laterais):** ~4.8 m (cj 59 mm · Δcj_lat−cj_v07 = 0.4 mm, n_laterais=4)
+**Pico estimado (OFICIAL, v0.9 cj_v07):** ~4.8 m (banda 4.5–5.5 m) → **Atenção**
+- baseline (mín 48h): 2.1 m · chuva-jusante efetiva: 60 mm · antecedência ~10–15 h
+- **sombra (cj_lat, c/ laterais):** ~4.8 m (cj 60 mm · Δcj_lat−cj_v07 = 0.3 mm, n_laterais=4)
 - barragens: Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~0%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~2%)
 - *barragens em modo conservador (sem crédito de peak-shaving volumétrico; para o número fino, rodar o estimador à mão).*
 
@@ -14,19 +14,19 @@
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Agrolandia | 79.9 |
-| Ituporanga | 63.6 |
-| Aurora | 51.8 |
-| Pouso Redondo | 46.2 |
-| Rio do Sul | 43.8 |
-| Trombudo Central | 43.8 |
-| Laurentino | 34.8 |
-| Rio do Oeste | 28.6 |
-| Agronomica | 28.6 |
-| Salete | 23.6 |
-| Taio | 20.8 |
+| Agrolandia | 80.6 |
+| Ituporanga | 64.3 |
+| Aurora | 52.4 |
+| Pouso Redondo | 46.7 |
+| Rio do Sul | 44.8 |
+| Trombudo Central | 44.1 |
+| Laurentino | 35.2 |
+| Rio do Oeste | 29.2 |
+| Agronomica | 29.2 |
+| Salete | 24.2 |
+| Taio | 21.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 75.2, Taio_montante 36.0, Rio do Campo 31.6
+_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 75.2, Taio_montante 35.8, Rio do Campo 32.0
 
 ## Barragens (Asthon)
 
