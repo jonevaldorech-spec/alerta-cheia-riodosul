@@ -16,6 +16,8 @@ FONTES (públicas, sem login):
 
 Saídas (versionadas = histórico automático):
   dados/serie_bacia.csv   (append: 1 linha por ESTAÇÃO CRUA por coleta — auditoria)
+  dados/niveis_bacia.csv  (append: 1 linha por COLETA, colunas = nível de cada
+                           estação montante->jusante — p/ monitorar a onda)
   dados/barragens.csv     (append: barragens Sul/Oeste comporta a comporta)
   estado_atual.md         (situação + estimativa oficial e sombra, legível)
   evento.txt / assunto.txt (lidos pelo workflow p/ decidir/rotular o e-mail)
@@ -57,6 +59,40 @@ if TEM_MODELO:
 else:
     CODIGOS = ["00013", "00039", "00041", "00033", "00025", "00035",
                "00010", "00016", "00038", "00040"]
+
+# Ordem MONTANTE -> JUSANTE das estações COM régua de rio (só as já coletadas),
+# usada no painel de níveis (dados/niveis_bacia.csv, formato largo). Ler a linha
+# da esquerda p/ direita e, no tempo, de cima p/ baixo, mostra a onda "andando"
+# pelo canal até a âncora (00013). Estações só-pluviômetro ficam de fora.
+NIVEL_ORDEM = [
+    # cabeceiras / montante
+    ("00087", "Alfredo Wagner"),
+    ("00125", "Rio do Campo"),
+    ("00025", "Agrolandia"),
+    # médio
+    ("00067", "Aurora"),
+    ("00065", "Salete"),
+    ("00035", "Trombudo Central"),
+    ("00086", "Atalanta"),
+    # tronco médio / barragens
+    ("00085", "Ituporanga H"),
+    ("00039", "Ituporanga"),
+    ("00038", "Barragem Sul"),
+    ("00066", "Taio montante"),
+    ("00171", "Taio H"),
+    ("00041", "Taio"),
+    ("00040", "Barragem Oeste"),
+    # baixo / confluência
+    ("00162", "Mirim Doce"),
+    ("00022", "Rio do Oeste"),
+    ("00179", "Rio do Oeste novo"),
+    ("00033", "Pouso Redondo"),
+    ("00031", "Laurentino"),
+    ("00001", "Agronomica"),
+    ("00146", "Petrolandia"),
+    # âncora / tronco Rio do Sul
+    ("00013", "Rio do Sul"),
+]
 
 _CTX = ssl.create_default_context()
 _CTX.check_hostname = False
@@ -276,6 +312,15 @@ def main():
     _append(os.path.join(DADOS, "serie_bacia.csv"),
             ["coleta_local", "codigo", "nome", "leitura", "nivel_m", "tendencia",
              "chuva_1h", "chuva_24h", "chuva_48h", "chuva_72h"], linhas)
+
+    # --- painel de NÍVEIS (formato largo: 1 linha por coleta, colunas
+    # montante->jusante) — para monitorar a onda subindo/descendo o canal ---
+    cab_niv = ["coleta_local"] + [f"{c} {rot}" for c, rot in NIVEL_ORDEM]
+    linha_niv = [ts] + [
+        (raw.get(c, {}).get("nivel") if raw.get(c, {}).get("nivel") is not None
+         else "") for c, _ in NIVEL_ORDEM
+    ]
+    _append(os.path.join(DADOS, "niveis_bacia.csv"), cab_niv, [linha_niv])
 
     if dams:
         _append(os.path.join(DADOS, "barragens.csv"),
