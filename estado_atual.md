@@ -1,6 +1,6 @@
-# Cheia — Rio do Sul (SC) — 2026-08-30 18:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-30 19:00 (local −03)
 
-**Rio do Sul (00013):** 3.47 m — **Normal** · tendência subindo
+**Rio do Sul (00013):** 3.45 m — **Normal** · tendência subindo
 **Chuva 24h máx (drivers):** 35.7 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -17,7 +17,7 @@
 | Agrolandia | 80.8 |
 | Ituporanga | 64.6 |
 | Aurora | 52.4 |
-| Pouso Redondo | 47.1 |
+| Pouso Redondo | 47.2 |
 | Rio do Sul | 45.2 |
 | Trombudo Central | 44.3 |
 | Laurentino | 35.2 |
