@@ -31,6 +31,7 @@ import os
 import ssl
 import statistics
 import sys
+import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
@@ -50,6 +51,17 @@ CITY = 4214805
 UA = "Mozilla/5.0 (compatible; coletor-bacia-riodosul/2.0)"
 DADOS = "dados"
 LAG_MAX_MIN = 60   # R0: sensor com leitura mais velha que isso = TRAVADO (descartado)
+
+# ---- REFERÊNCIA DE NÍVEL DE RIO DO SUL --------------------------------------
+# Toda a calibração do projeto (limiares 4,5/5,5/6,5, baseline, estimador) é
+# referenciada à régua da DEFESA CIVIL DE RIO DO SUL (Ponte Dom Tito Buss), que
+# hoje vive na Asthon e lê ~0,24 m ABAIXO da SDC-00013. A SDC vinha inflando o
+# nível. Rollback trivial: troque para "SDC" e volta o comportamento antigo.
+REFERENCIA_NIVEL = "DC_RS"   # "DC_RS" (Asthon Ponte Dom Tito) | "SDC" (DCSC-00013)
+DOMTITO_UUID = "f6360951-219f-4859-935f-b2e2d13962f1"   # DC-RS Ponte Dom Tito Buss
+KANITZ_UUID = "30475400-b7ba-4551-9646-19df0c3bfa38"    # Ponte Ricardo Kanitz (checagem)
+OFFSET_SEMENTE = -0.24       # dc_rs − sdc medido (DC-RS mais baixa); só semente do fallback
+OFFSET_JANELA_H = 48         # janela p/ a mediana do offset de fallback
 
 # Estações a puxar (código DCSC 5 dígitos -> papel/nome), a partir do mapa
 # canônico da fusão + as barragens. Se o módulo de fusão não carregar, cai
@@ -203,6 +215,115 @@ def asthon_barragens():
                                 for c in b.get("comportas", []) or []),
         })
     return linhas
+
+
+def asthon_estacoes_live():
+    """dict uuid -> {'level': m, 'em': 'dd/mm HH:MM', 'em_dt': datetime} (Asthon live)."""
+    out = {}
+    try:
+        for e in _get(f"{ASTHON}/stations/live?city_id={CITY}"):
+            uid = e.get("station_id")
+            if not uid:
+                continue
+            em = _dt_local_naive(e.get("last_reading_at"))
+            out[uid] = {"level": _num(e.get("level_m"), 2),
+                        "em": em.strftime("%d/%m %H:%M") if em else "", "em_dt": em}
+    except Exception as ex:
+        print(f"AVISO asthon live: {ex}", file=sys.stderr)
+    return out
+
+
+def asthon_nivel_hist(uuid, horas=48):
+    """[(dt_local_naive, level)] das últimas `horas` de uma estação Asthon (ordenado)."""
+    fim = datetime.now(timezone.utc)
+    ini = fim - timedelta(hours=horas)
+    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    qs = urllib.parse.urlencode({"station_id": uuid, "start": iso(ini),
+                                 "end": iso(fim), "fields": "level"})
+    out = []
+    try:
+        d = _get(f"{ASTHON}/station-history?{qs}")
+        for p in d.get("level") or []:
+            dt = _dt_local_naive(p.get("timestamp"))
+            v = p.get("value")
+            if dt is not None and isinstance(v, (int, float)):
+                out.append((dt, float(v)))
+    except Exception as ex:
+        print(f"AVISO asthon hist {uuid[:8]}: {ex}", file=sys.stderr)
+    out.sort(key=lambda x: x[0])
+    return out
+
+
+def _ultima_linha(caminho):
+    """Última linha (dict) de um CSV com cabeçalho; None se vazio/ausente."""
+    if not os.path.exists(caminho):
+        return None
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            linhas = list(csv.DictReader(f))
+        return linhas[-1] if linhas else None
+    except Exception:
+        return None
+
+
+def offset_fallback(caminho, horas=OFFSET_JANELA_H):
+    """Mediana do offset_medido_m das últimas `horas` de nivel_rds.csv; senão semente."""
+    if not os.path.exists(caminho):
+        return OFFSET_SEMENTE
+    corte = datetime.now(LOCAL).replace(tzinfo=None) - timedelta(hours=horas)
+    vals = []
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                try:
+                    dt = datetime.strptime(row["coleta_local"], "%Y-%m-%d %H:%M")
+                    off = float(row["offset_medido_m"])
+                except (KeyError, ValueError, TypeError):
+                    continue
+                if dt >= corte:
+                    vals.append(off)
+    except Exception:
+        pass
+    return round(statistics.median(vals), 3) if vals else OFFSET_SEMENTE
+
+
+def resolver_referencia(sdc_niv, sdc_tend, base_sdc, dom_live, dom_hist, off_fb):
+    """Decide nível/baseline/tendência de referência conforme REFERENCIA_NIVEL, com
+    fallback DC-RS -> SDC+offset. Retorna dict (nivel, baseline, subindo, fonte, obs,
+    dc_rs, sdc, offset_medido). NUNCA fica sem nível se a SDC existir."""
+    dc_rs = dom_live
+    offset_medido = (round(dc_rs - sdc_niv, 3)
+                     if (dc_rs is not None and sdc_niv is not None) else None)
+    base_dc = round(min(v for _, v in dom_hist), 2) if dom_hist else None
+    # tendência DC-RS pela inclinação da última ~1h do histórico Asthon
+    subindo_dc = None
+    if len(dom_hist) >= 2:
+        ult_dt, ult_v = dom_hist[-1]
+        ref_pt = next(((dt, v) for dt, v in reversed(dom_hist)
+                       if (ult_dt - dt) >= timedelta(minutes=45)), dom_hist[0])
+        subindo_dc = (ult_v - ref_pt[1]) > 0.0
+
+    if REFERENCIA_NIVEL == "SDC":
+        return {"nivel": sdc_niv, "baseline": base_sdc, "subindo": (sdc_tend or 0) > 0,
+                "fonte": "SDC-00013", "obs": "", "dc_rs": dc_rs, "sdc": sdc_niv,
+                "offset_medido": offset_medido}
+
+    if dc_rs is not None:   # DC-RS disponível
+        base = base_dc if base_dc is not None else (
+            round(base_sdc + off_fb, 2) if base_sdc is not None else None)
+        obs = "" if base_dc is not None else f"baseline via SDC+offset ({off_fb})"
+        subindo = subindo_dc if subindo_dc is not None else (sdc_tend or 0) > 0
+        return {"nivel": dc_rs, "baseline": base, "subindo": subindo,
+                "fonte": "DC-RS (Asthon Ponte Dom Tito)", "obs": obs,
+                "dc_rs": dc_rs, "sdc": sdc_niv, "offset_medido": offset_medido}
+
+    # DC-RS indisponível -> SDC + offset (sinalizado)
+    niv = round(sdc_niv + off_fb, 2) if sdc_niv is not None else None
+    base = round(base_sdc + off_fb, 2) if base_sdc is not None else None
+    return {"nivel": niv, "baseline": base, "subindo": (sdc_tend or 0) > 0,
+            "fonte": f"SDC+offset (DC-RS indisponível, off={off_fb})",
+            "obs": "DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset",
+            "dc_rs": None, "sdc": sdc_niv, "offset_medido": None}
 
 
 def faixa_rds(n):
@@ -371,17 +492,13 @@ def _resumo_est(e):
             "nota_bar": e.nota_barragens, "ant": e.antecedencia_h}
 
 
-def estimar(raw, dams):
+def estimar(raw, dams, base):
     """Roda o estimador v0.9 em CONSERVADOR (guarda) e FINO (crédito de retenção
-    real das barragens, derivado do montante de dados/barragens.csv). Retorna dict."""
-    if not TEM_MODELO:
+    real das barragens, derivado do montante de dados/barragens.csv). `base` é o
+    baseline (mín 48h) no datum de referência escolhido. Retorna dict."""
+    if not TEM_MODELO or base is None:
         return None
     try:
-        base = baseline_rds()
-        if base is None:
-            base = raw.get("00013", {}).get("nivel")
-        if base is None:
-            return None
         leit = _leituras(raw)
         chuvas_v07, chuvas_lat = fus.dicts_para_estimador(leit)
         duplo = fus.cj_duplo(leit)
@@ -459,11 +576,37 @@ def main():
                 [[ts, d["barragem"], d["medida_em"], d["percent_use"], d["vertido"],
                   d["comportas"], d["montante_local_m"], d["detalhe"]] for d in dams])
 
-    # --- estado + gatilho de evento ---
-    rds = raw.get("00013", {})
-    niv = rds.get("nivel")
-    faixa = faixa_rds(niv)
-    subindo = (rds.get("tend") or 0) > 0
+    # --- NÍVEL DE REFERÊNCIA: DC-RS Ponte Dom Tito (Asthon); SDC em paralelo ---
+    live = asthon_estacoes_live()
+    dom_live = live.get(DOMTITO_UUID, {}).get("level")
+    dom_hist = asthon_nivel_hist(DOMTITO_UUID, 48)
+    sdc_niv = raw.get("00013", {}).get("nivel")
+    sdc_tend = raw.get("00013", {}).get("tend")
+    try:
+        base_sdc = baseline_rds()
+    except Exception as e:
+        base_sdc = None; erros.append(f"baseline SDC: {e}")
+    off_fb = offset_fallback(os.path.join(DADOS, "nivel_rds.csv"))
+    ref = resolver_referencia(sdc_niv, sdc_tend, base_sdc, dom_live, dom_hist, off_fb)
+
+    niv = ref["nivel"]; faixa = faixa_rds(niv); subindo = ref["subindo"]
+
+    # log paralelo das DUAS réguas + offset medido (dados/nivel_rds.csv)
+    _append(os.path.join(DADOS, "nivel_rds.csv"),
+            ["coleta_local", "dc_rs_m", "sdc_00013_m", "offset_medido_m", "fonte", "obs"],
+            [[ts, ref["dc_rs"], ref["sdc"], ref["offset_medido"], ref["fonte"], ref["obs"]]])
+
+    # Kanitz — CHECAGEM (datum NÃO calibrado; não entra no cj/estimador)
+    kz = live.get(KANITZ_UUID, {})
+    kz_niv, kz_em = kz.get("level"), kz.get("em")
+    kpath = os.path.join(DADOS, "kanitz.csv")
+    kz_ult = _ultima_linha(kpath)
+    kz_congelado = bool(kz_em and kz_ult and kz_ult.get("medida_em") == kz_em)
+    if kz_niv is not None:
+        _append(kpath, ["coleta_local", "medida_em", "nivel_m_raw", "fonte", "obs"],
+                [[ts, kz_em, kz_niv, "Asthon Ponte Ricardo Kanitz",
+                  "possível congelamento (medida_em inalterada)" if kz_congelado else ""]])
+
     # chuva 24h máx entre os municípios-driver (dado cru, p/ responsividade)
     driver_codes = []
     if TEM_MODELO:
@@ -473,12 +616,16 @@ def main():
     ch24max = max([raw.get(c, {}).get("ch24h") or 0 for c in driver_codes] or [0])
     vertendo = any((x.get("percent_use") or 0) >= 100 or x.get("vertido") for x in dams)
 
-    est = estimar(raw, dams)
+    # --- Fase 5: estimador em A(SDC) e B(DC-RS); primário = REFERENCIA_NIVEL ---
+    base_dcrs = ref["baseline"] if REFERENCIA_NIVEL == "DC_RS" else (
+        round(base_sdc + off_fb, 2) if base_sdc is not None else None)
+    est_sdc = estimar(raw, dams, base_sdc)
+    est_dcrs = estimar(raw, dams, base_dcrs)
+    est = est_dcrs if REFERENCIA_NIVEL == "DC_RS" else est_sdc
     stale = _stale(raw) if (TEM_MODELO and raw) else []
 
     # Classe que dispara o alerta = FINO (retenção real), ou CONSERVADOR se houver
-    # fallback de barragem. O gatilho de evento nunca é REBAIXADO pelo fino: mantém
-    # os gatilhos atuais (nível/chuva) e SOMA a classe prevista.
+    # fallback de barragem. O gatilho de evento nunca é REBAIXADO pelo fino/troca.
     classe_alerta = est["classe_alerta"] if est else faixa
     evento = (faixa in ("ATENÇÃO", "ALERTA", "EMERGÊNCIA")
               or (subindo and ch24max >= 30) or ch24max >= 50
@@ -486,8 +633,11 @@ def main():
 
     # --- estado_atual.md ---
     md = [f"# Cheia — Rio do Sul (SC) — {ts} (local −03)", ""]
-    md.append(f"**Rio do Sul (00013):** {niv} m — **{faixa}** · "
+    md.append(f"**Rio do Sul ({ref['fonte']}):** {niv} m — **{faixa}** · "
               f"tendência {'subindo' if subindo else 'estável/caindo'}")
+    md.append(f"- SDC-00013: {ref['sdc']} m · DC-RS Dom Tito: {ref['dc_rs']} m · "
+              f"offset medido DC-RS−SDC: {ref['offset_medido']} m"
+              + (f" · ⚠ {ref['obs']}" if ref["obs"] else ""))
     md.append(f"**Chuva 24h máx (drivers):** {round(ch24max,1)} mm")
     md.append(f"**EVENTO ATIVO:** {'🔴 SIM' if evento else '🟢 não'}")
     if evento and est:
@@ -543,7 +693,33 @@ def main():
         for d in dams:
             md.append(f"| {d['barragem']} | {d['percent_use']} | {d['comportas']} "
                       f"| {d['vertido']} | {d['montante_local_m']} m |")
+    # --- Fase 5: comparação de datum A(SDC) vs B(DC-RS) ---
+    def _lin(e, base_):
+        if not e:
+            return f"baseline {base_} m · (estimador indisponível)"
+        fpk = e["fino"]["pico"]; flo, fhi = e["fino"]["banda"]
+        return (f"baseline {base_} m · pico FINO ~{fpk} m (banda {flo}–{fhi}) "
+                f"→ **{e['fino']['faixa']}**")
+    md += ["", "## Referência de nível — DC-RS Dom Tito (troca de datum)", "",
+           f"Referência ATIVA: **{ref['fonte']}** · offset medido DC-RS−SDC: "
+           f"**{ref['offset_medido']} m** · fallback {off_fb} m",
+           f"- **A) SDC-00013 (como era):** " + _lin(est_sdc, base_sdc),
+           f"- **B) DC-RS Dom Tito (como fica):** " + _lin(est_dcrs, base_dcrs)]
+    if est_dcrs and est_sdc:
+        dpk = est_dcrs["fino"]["pico"] - est_sdc["fino"]["pico"]
+        mud = est_dcrs["fino"]["faixa"] != est_sdc["fino"]["faixa"]
+        md.append(f"- **Δ pico (B − A): {dpk:+.2f} m**"
+                  + (f" · ⚠ MUDA A CLASSE: {est_sdc['fino']['faixa']} → "
+                     f"{est_dcrs['fino']['faixa']}" if mud else " · classe inalterada"))
+    md.append(f"- nível atual: SDC {ref['sdc']} m · DC-RS {ref['dc_rs']} m"
+              + (f" · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): {kz_niv} m"
+                 if kz_niv is not None else ""))
+
     avisos = list(erros)
+    if "indisponível" in ref["fonte"]:
+        avisos.append(ref["obs"])
+    if kz_congelado:
+        avisos.append("Kanitz possivelmente congelada (medida_em inalterada) — só checagem")
     if stale:
         avisos.append("Sensores TRAVADOS (descartados na fusão): " + ", ".join(stale))
     if avisos:
