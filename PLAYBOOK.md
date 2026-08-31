@@ -39,6 +39,25 @@ https://raw.githubusercontent.com/jonevaldorech-spec/alerta-cheia-riodosul/main/
 Séries acumuladas: `dados/serie_bacia.csv` (estações cruas) e `dados/barragens.csv`
 no mesmo repo (troque o caminho na URL raw).
 
+## ⚠ Referência de nível = régua da DC-RS (Ponte Dom Tito), NÃO a SDC
+Toda a calibração do projeto (limiares 4,5/5,5/6,5, baseline, estimador) é da
+**régua da Defesa Civil de Rio do Sul (Ponte Dom Tito Buss)**. Hoje ela vive na
+**Asthon** (uuid `f6360951…`) e lê **~0,24 m ABAIXO da SDC-00013** (a SDC vinha
+inflando o nível). Desde 31/08/2026 o coletor usa `REFERENCIA_NIVEL = "DC_RS"`
+(Asthon Dom Tito) para nível atual, baseline (mín 48h), tendência e **classe de
+alerta**, com:
+- **fallback** `SDC + offset` (mediana das últimas 48h; semente −0,24) se a Asthon
+  cair — sinalizado, nunca fica sem nível;
+- **log duplo** das duas réguas + offset medido em `dados/nivel_rds.csv`;
+- **rollback** trivial: `REFERENCIA_NIVEL = "SDC"` volta o comportamento antigo.
+
+O impacto medido da troca no evento de 31/08: nível −0,24 m, pico −0,10 m (a curva
+côncava amortece), classe inalterada. O **boletim intranet** antigo
+(`boletimNivelPublica.php`) está **MORTO desde 28/07/2026** (aposentado na migração
+pro Asthon) — não serve como fonte. A **Ponte Ricardo Kanitz** (Asthon `30475400…`,
+`dados/kanitz.csv`) é só **checagem** — datum NÃO calibrado, não comparável aos
+limiares, fora do cj/estimador.
+
 ---
 
 # PLAYBOOK — acompanhar um evento ao vivo
