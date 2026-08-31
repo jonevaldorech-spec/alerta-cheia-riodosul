@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-08-31 03:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-08-31 03:30 (local −03)
 
-**Rio do Sul (00013):** 3.5 m — **Normal** · tendência subindo
-**Chuva 24h máx (drivers):** 54.3 mm
+**Rio do Sul (00013):** 3.52 m — **Normal** · tendência subindo
+**Chuva 24h máx (drivers):** 54.9 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (OFICIAL, v0.9 cj_v07):** ~5.5 m (banda 5.1–6.1 m) → **Atenção**
@@ -16,15 +16,15 @@
 |---|---|
 | Agrolandia | 94.7 |
 | Ituporanga | 75.8 |
-| Pouso Redondo | 74.1 |
+| Pouso Redondo | 74.6 |
 | Aurora | 69.4 |
 | Rio do Sul | 65.2 |
-| Trombudo Central | 63.9 |
-| Laurentino | 46.6 |
+| Trombudo Central | 64.4 |
+| Laurentino | 46.8 |
 | Agronomica | 40.4 |
-| Rio do Oeste | 38.8 |
+| Rio do Oeste | 39.0 |
 | Salete | 34.4 |
-| Taio | 26.8 |
+| Taio | 27.1 |
 
 _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 83.0, Rio do Campo 51.3, Taio_montante 45.0
 
@@ -32,7 +32,7 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 83.0, Rio do Ca
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 3.19 | 0A/7F | 0 | 8.3 m |
+| Barragem Oeste Taió | 3.39 | 0A/7F | 0 | 8.42 m |
 | Barragem Sul Ituporanga | 8.66 | 0A/5F | 0 | 15.9 m |
 
 ## ⚠ Avisos desta coleta
