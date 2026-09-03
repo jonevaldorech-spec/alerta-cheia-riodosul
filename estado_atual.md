@@ -1,15 +1,15 @@
-# Cheia — Rio do Sul (SC) — 2026-09-02 21:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-02 22:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.39 m — **ATENÇÃO** · tendência estável/caindo
-- SDC-00013: 5.54 m · DC-RS Dom Tito: 5.39 m · offset medido DC-RS−SDC: -0.15 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.38 m — **ATENÇÃO** · tendência estável/caindo
+- SDC-00013: 5.53 m · DC-RS Dom Tito: 5.38 m · offset medido DC-RS−SDC: -0.15 m
 **Chuva 24h máx (drivers):** 0.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (FINO — c/ retenção real das barragens):** ~5.7 m (banda 5.2–6.2 m) → **Alerta**
 **Guarda (CONSERVADOR — sem crédito de retenção):** ~5.7 m (banda 5.2–6.2 m) → **Alerta**
 **Classe que dispara o alerta/e-mail: Alerta** — usando o CONSERVADOR (há fallback de barragem; o fino não rebaixa alerta enquanto a retenção não é comprovada).
-- baseline (mín 48h): 5.39 m · chuva-jusante efetiva: 3 mm · antecedência ~6–12 h
-- sombra (cj_lat, c/ laterais): ~5.7 m (cj 3 mm · Δcj_lat−cj_v07 = -0.3 mm, n_laterais=4)
+- baseline (mín 48h): 5.38 m · chuva-jusante efetiva: 2 mm · antecedência ~6–12 h
+- sombra (cj_lat, c/ laterais): ~5.7 m (cj 2 mm · Δcj_lat−cj_v07 = -0.2 mm, n_laterais=4)
 
 ### Crédito de retenção por barragem (peak-shaving)
 
@@ -23,19 +23,19 @@
 
 | Município | Chuva 48h (mm) |
 |---|---|
-| Rio do Sul | 3.6 |
-| Aurora | 3.1 |
-| Trombudo Central | 3.0 |
-| Pouso Redondo | 2.9 |
-| Ituporanga | 2.8 |
-| Agrolandia | 2.6 |
-| Salete | 2.2 |
-| Laurentino | 2.0 |
-| Agronomica | 2.0 |
-| Rio do Oeste | 1.8 |
-| Taio | 1.2 |
+| Rio do Sul | 3.1 |
+| Aurora | 2.5 |
+| Ituporanga | 2.1 |
+| Trombudo Central | 1.9 |
+| Salete | 1.6 |
+| Laurentino | 1.4 |
+| Agrolandia | 1.4 |
+| Agronomica | 1.4 |
+| Rio do Oeste | 1.2 |
+| Pouso Redondo | 1.2 |
+| Taio | 0.7 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 3.0, Rio do Campo 2.4, Alfredo Wagner 1.4
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 2.2, Rio do Campo 1.3, Alfredo Wagner 1.0
 
 ## Barragens (Asthon)
 
@@ -47,10 +47,10 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 3.0, Rio do Camp
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.15 m** · fallback -0.17 m
-- **A) SDC-00013 (como era):** baseline 5.56 m · pico FINO ~5.9 m (banda 5.4–6.4) → **Alerta**
-- **B) DC-RS Dom Tito (como fica):** baseline 5.39 m · pico FINO ~5.7 m (banda 5.2–6.2) → **Alerta**
-- **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 5.54 m · DC-RS 5.39 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 4.1 m
+- **A) SDC-00013 (como era):** baseline 5.52 m · pico FINO ~5.8 m (banda 5.3–6.3) → **Alerta**
+- **B) DC-RS Dom Tito (como fica):** baseline 5.38 m · pico FINO ~5.7 m (banda 5.2–6.2) → **Alerta**
+- **Δ pico (B − A): -0.10 m** · classe inalterada
+- nível atual: SDC 5.53 m · DC-RS 5.38 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 4.13 m
 
 ## ⚠ Avisos desta coleta
 
