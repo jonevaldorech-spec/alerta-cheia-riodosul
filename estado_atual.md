@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-09-04 01:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-04 01:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.28 m — **ATENÇÃO** · tendência estável/caindo
-- SDC-00013: 5.45 m · DC-RS Dom Tito: 5.28 m · offset medido DC-RS−SDC: -0.17 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.27 m — **ATENÇÃO** · tendência estável/caindo
+- SDC-00013: 5.44 m · DC-RS Dom Tito: 5.27 m · offset medido DC-RS−SDC: -0.17 m
 **Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -15,9 +15,9 @@
 
 | Barragem | Ocupação | Montante ini→fim (m) | Taxa (m/h) | Retido (hm³) | Corte (m³/s) | Crédito |
 |---|---|---|---|---|---|---|
-| Oeste | 46.53% (curva 47.3%) | 17.31→16.83 | -0.06 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-| Sul | 53.09% (curva 53.2%) | 25.9→25.42 | -0.06 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~47%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~53%)
+| Oeste | 46.39% (curva 47.1%) | 17.28→16.8 | -0.06 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+| Sul | 52.88% (curva 53.0%) | 25.87→25.39 | -0.06 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~46%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~53%)
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
 
@@ -41,8 +41,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 0.2, Alfredo Wag
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 46.53 | 7A/0F | 0 | 16.8 m |
-| Barragem Sul Ituporanga | 53.09 | 4A/1F | 0 | 25.39 m |
+| Barragem Oeste Taió | 46.39 | 7A/0F | 0 | 16.78 m |
+| Barragem Sul Ituporanga | 52.88 | 4A/1F | 0 | 25.36 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
@@ -50,7 +50,7 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 - **A) SDC-00013 (como era):** baseline 5.42 m · pico FINO ~5.6 m (banda 5.1–6.1) → **Alerta**
 - **B) DC-RS Dom Tito (como fica):** baseline 5.25 m · pico FINO ~5.5 m (banda 5.0–6.0) → **Atenção**
 - **Δ pico (B − A): -0.10 m** · ⚠ MUDA A CLASSE: Alerta → Atenção
-- nível atual: SDC 5.45 m · DC-RS 5.28 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 5.5 m
+- nível atual: SDC 5.44 m · DC-RS 5.27 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 5.5 m
 
 ## ⚠ Avisos desta coleta
 
