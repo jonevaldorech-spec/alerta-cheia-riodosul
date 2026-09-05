@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-09-05 07:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-05 07:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.25 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.41 m · DC-RS Dom Tito: 5.25 m · offset medido DC-RS−SDC: -0.16 m
@@ -15,34 +15,34 @@
 
 | Barragem | Ocupação | Montante ini→fim (m) | Taxa (m/h) | Retido (hm³) | Corte (m³/s) | Crédito |
 |---|---|---|---|---|---|---|
-| Oeste | 34.52% (curva 35.4%) | 15.51→15.11 | -0.05 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-| Sul | 39.01% (curva 39.5%) | 23.89→23.25 | -0.08 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~35%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~39%)
+| Oeste | 34.19% (curva 35.2%) | 15.48→15.08 | -0.05 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+| Sul | 38.78% (curva 39.2%) | 23.85→23.21 | -0.08 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~34%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~39%)
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
 
 | Município | Chuva 48h (mm) |
 |---|---|
 | Laurentino | 6.0 |
-| Rio do Sul | 5.1 |
+| Rio do Sul | 5.3 |
 | Agronomica | 4.6 |
 | Salete | 3.6 |
 | Taio | 3.1 |
 | Rio do Oeste | 2.6 |
+| Pouso Redondo | 1.6 |
 | Trombudo Central | 1.6 |
-| Pouso Redondo | 1.5 |
 | Agrolandia | 0.7 |
 | Aurora | 0.7 |
 | Ituporanga | 0.3 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 13.8, Rio do Campo 9.5, Alfredo Wagner 0.1
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 13.8, Rio do Campo 9.6, Alfredo Wagner 0.1
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 34.52 | 7A/0F | 0 | 15.08 m |
-| Barragem Sul Ituporanga | 39.01 | 5A/0F | 0 | 23.21 m |
+| Barragem Oeste Taió | 34.19 | 7A/0F | 0 | 15.03 m |
+| Barragem Sul Ituporanga | 38.78 | 5A/0F | 0 | 23.17 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
