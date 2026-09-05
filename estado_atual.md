@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-09-05 10:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-05 10:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.23 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.39 m · DC-RS Dom Tito: 5.23 m · offset medido DC-RS−SDC: -0.16 m
@@ -9,40 +9,40 @@
 **Guarda (CONSERVADOR — sem crédito de retenção):** ~5.6 m (banda 5.1–6.1 m) → **Alerta**
 **Classe que dispara o alerta/e-mail: Alerta** — usando o CONSERVADOR (há fallback de barragem; o fino não rebaixa alerta enquanto a retenção não é comprovada).
 - baseline (mín 48h): 5.17 m · chuva-jusante efetiva: 6 mm · antecedência ~6–12 h
-- sombra (cj_lat, c/ laterais): ~5.6 m (cj 5 mm · Δcj_lat−cj_v07 = -0.5 mm, n_laterais=4)
+- sombra (cj_lat, c/ laterais): ~5.6 m (cj 6 mm · Δcj_lat−cj_v07 = -0.4 mm, n_laterais=4)
 
 ### Crédito de retenção por barragem (peak-shaving)
 
 | Barragem | Ocupação | Montante ini→fim (m) | Taxa (m/h) | Retido (hm³) | Corte (m³/s) | Crédito |
 |---|---|---|---|---|---|---|
-| Oeste | 33.35% (curva 34.2%) | 15.5→14.94 | -0.07 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-| Sul | 37.58% (curva 38.1%) | 23.65→23.01 | -0.08 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~33%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~38%)
+| Oeste | 33.22% (curva 34.0%) | 15.3→14.9 | -0.05 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+| Sul | 37.36% (curva 37.8%) | 23.6→22.96 | -0.08 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+- termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~33%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~37%)
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
 
 | Município | Chuva 48h (mm) |
 |---|---|
 | Laurentino | 6.0 |
-| Rio do Sul | 5.6 |
+| Rio do Sul | 5.7 |
 | Agronomica | 4.6 |
 | Taio | 4.2 |
-| Salete | 3.6 |
+| Salete | 4.0 |
 | Rio do Oeste | 2.6 |
 | Pouso Redondo | 1.7 |
-| Trombudo Central | 1.6 |
+| Trombudo Central | 1.7 |
 | Aurora | 0.8 |
 | Agrolandia | 0.7 |
 | Ituporanga | 0.3 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 15.2, Rio do Campo 9.9, Alfredo Wagner 0.1
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 15.4, Rio do Campo 11.0, Alfredo Wagner 0.1
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 33.35 | 7A/0F | 0 | 14.9 m |
-| Barragem Sul Ituporanga | 37.58 | 5A/0F | 0 | 22.96 m |
+| Barragem Oeste Taió | 33.22 | 7A/0F | 0 | 14.88 m |
+| Barragem Sul Ituporanga | 37.36 | 5A/0F | 0 | 22.92 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
