@@ -1,6 +1,6 @@
-# Cheia — Rio do Sul (SC) — 2026-09-06 21:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-06 22:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.11 m — **ATENÇÃO** · tendência subindo
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.11 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.26 m · DC-RS Dom Tito: 5.11 m · offset medido DC-RS−SDC: -0.15 m
 **Chuva 24h máx (drivers):** 0 mm
 **EVENTO ATIVO:** 🔴 SIM
@@ -15,8 +15,8 @@
 
 | Barragem | Ocupação | Montante ini→fim (m) | Taxa (m/h) | Retido (hm³) | Corte (m³/s) | Crédito |
 |---|---|---|---|---|---|---|
-| Oeste | 20.14% (curva 20.9%) | 13.32→12.76 | -0.07 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
-| Sul | 18.78% (curva 19.5%) | 20.19→19.07 | -0.14 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+| Oeste | 19.91% (curva 20.7%) | 13.29→12.73 | -0.07 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
+| Sul | 18.78% (curva 19.5%) | 19.63→19.07 | -0.07 | 0.0 | 0.0 | ⚠ 0 — não está enchendo (taxa ≤ 0) — sem crédito |
 - termo de barragem (fino): Oeste reteve 0.0 hm³ na janela (~0 m³/s; ocup.~20%) | Sul reteve 0.0 hm³ na janela (~0 m³/s; ocup.~19%)
 
 ## Chuva-jusante fundida (48h) — entra no cj oficial
@@ -35,13 +35,13 @@
 | Aurora | 0.9 |
 | Trombudo Central | 0.6 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 11.4, Taio_montante 6.2, Alfredo Wagner 0.1
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 11.2, Taio_montante 6.2, Alfredo Wagner 0.1
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 20.14 | 7A/0F | 0 | 12.73 m |
+| Barragem Oeste Taió | 19.91 | 7A/0F | 0 | 12.69 m |
 | Barragem Sul Ituporanga | 18.78 | 5A/0F | 0 | 19.07 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
