@@ -1,14 +1,14 @@
-# Cheia — Rio do Sul (SC) — 2026-09-07 12:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-07 13:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.36 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.49 m · DC-RS Dom Tito: 4.36 m · offset medido DC-RS−SDC: -0.13 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.28 m — **Normal** · tendência estável/caindo
+- SDC-00013: 4.41 m · DC-RS Dom Tito: 4.28 m · offset medido DC-RS−SDC: -0.13 m
 **Chuva 24h máx (drivers):** 0.1 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.38 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.174 m/h (anterior -0.15 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.3 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.171 m/h (anterior -0.167 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
-- o v1.0 vira **TETO** (~4.4 m); o número acima é o nowcast e DECIDE o alerta.
+- o v1.0 vira **TETO** (~4.3 m); o número acima é o nowcast e DECIDE o alerta.
 
 ## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
 
@@ -32,16 +32,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.2, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 14.48 | 7A/0F | 0 | 11.65 m |
+| Barragem Oeste Taió | 14.29 | 7A/0F | 0 | 11.61 m |
 | Barragem Sul Ituporanga | 15.07 | 0A/5F | 0 | 18.07 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.13 m** · fallback -0.16 m
-- **A) SDC-00013:** baseline 4.52 m · pico v1.0 ~4.5 m (banda 4.0–5.0) → **Atenção**
-- **B) DC-RS Dom Tito:** baseline 4.36 m · pico v1.0 ~4.4 m (banda 3.9–4.9) → **Normal**
-- **Δ pico (B − A): -0.10 m** · ⚠ MUDA A CLASSE: Atenção → Normal
-- nível atual: SDC 4.49 m · DC-RS 4.36 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.32 m
+- **A) SDC-00013:** baseline 4.43 m · pico v1.0 ~4.4 m (banda 3.9–4.9) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 4.27 m · pico v1.0 ~4.3 m (banda 3.8–4.8) → **Normal**
+- **Δ pico (B − A): -0.10 m** · classe inalterada
+- nível atual: SDC 4.41 m · DC-RS 4.28 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.09 m
 
 ## ⚠ Avisos desta coleta
 
