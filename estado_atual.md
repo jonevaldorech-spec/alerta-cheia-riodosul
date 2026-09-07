@@ -1,47 +1,27 @@
-# Cheia — Rio do Sul (SC) — 2026-09-07 13:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-07 14:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.2 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.33 m · DC-RS Dom Tito: 4.2 m · offset medido DC-RS−SDC: -0.13 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.12 m — **Normal** · tendência estável/caindo
+- SDC-00013: 4.26 m · DC-RS Dom Tito: 4.12 m · offset medido DC-RS−SDC: -0.14 m
 **Chuva 24h máx (drivers):** 0.1 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.22 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.122 m/h (anterior -0.21 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.15 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.159 m/h (anterior -0.174 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
-- o v1.0 vira **TETO** (~4.2 m); o número acima é o nowcast e DECIDE o alerta.
-
-## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
-
-| Município | Chuva do ato (mm) |
-|---|---|
-| Rio do Sul | 0.1 |
-| Trombudo Central | 0.1 |
-| Ituporanga | 0.0 |
-| Taio | 0.0 |
-| Aurora | 0.0 |
-| Salete | 0.0 |
-| Rio do Oeste | 0.0 |
-| Laurentino | 0.0 |
-| Pouso Redondo | 0.0 |
-| Agrolandia | 0.0 |
-| Agronomica | 0.0 |
-
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.2, Alfredo Wagner 0.0, Taio_montante 0.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante |
 |---|---|---|---|---|
-| Barragem Oeste Taió | 14.1 | 7A/0F | 0 | 11.57 m |
+| Barragem Oeste Taió | 13.91 | 7A/0F | 0 | 11.53 m |
 | Barragem Sul Ituporanga | 15.07 | 0A/5F | 0 | 18.07 m |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.13 m** · fallback -0.16 m
-- **A) SDC-00013:** baseline 4.36 m · pico v1.0 ~4.4 m (banda 3.9–4.9) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 4.2 m · pico v1.0 ~4.2 m (banda 3.7–4.7) → **Normal**
-- **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 4.33 m · DC-RS 4.2 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.95 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.16 m
+- **A) SDC-00013:** baseline 4.28 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 4.12 m · (estimador indisponível)
+- nível atual: SDC 4.26 m · DC-RS 4.12 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.87 m
 
 ## ⚠ Avisos desta coleta
 
