@@ -5,9 +5,20 @@ Projeto: Previsão e Alerta de Cheia — CIDADE DE RIO DO SUL (SC)
 
 Roda na nuvem do GitHub (PC desligado). Puxa as DUAS fontes públicas oficiais,
 aplica a FUSÃO DE ESTAÇÕES por município (fusao_estacoes v0.3: média das réguas
-pareadas, descarta sensor travado e 0,0 anômalo), roda o ESTIMADOR v0.9 em dois
-modos (cj_v07 = OFICIAL/decide · cj_lat = SOMBRA com laterais) e decide se há
-evento (para o workflow disparar o e-mail de alerta).
+pareadas, descarta sensor travado e 0,0 anômalo), roda o ESTIMADOR v1.0
+(estimador.py) com as grandezas DO ATO — baseline no VALE detectado na régua,
+chuva-jusante somada hora a hora DESDE O VALE (não o rolante 48 h), volume retido
+nas barragens desde o vale e fração de comportas abertas — em dois modos
+(cj_v07 = OFICIAL/decide · cj_lat = SOMBRA com laterais), guarda a previsão do
+v0.9 antigo para comparação e decide se há evento (e-mail de alerta).
+
+MODO CRISTA (nowcast na fase final): quando a chuva-driver encerrou E as réguas-
+líder (Pouso Redondo/Trombudo/Agrolândia) já cristaram E o rio ainda sobe mas
+DESACELERA, o número principal passa a ser a PROJEÇÃO DA TRAJETÓRIA
+(projetar_crista_pos_chuva, validado −0,03/+0,02 nos ev.15/16) e o v1.0 vira TETO.
+Doutrina Instruções v27 §E / v28 D-CRISTA: perto da crista o modelo "chuva entra,
+pico sai" perde para a trajetória observada. A classe do alerta segue a projeção,
+nunca abaixo da faixa atual do rio.
 
 FONTES (públicas, sem login):
   1. ESTADO — monitoramento.defesacivil.sc.gov.br/graphql (client
@@ -36,12 +47,16 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 try:
-    import estimador
+    import estimador                 # v1.0 (estimador_pico_v1_0.py) — OFICIAL
     import fusao_estacoes as fus
     TEM_MODELO = True
 except Exception as _e:
     TEM_MODELO = False
     print(f"AVISO: estimador/fusao indisponível: {_e}", file=sys.stderr)
+try:
+    import estimador_v09             # modelo antigo (v0.9) — só comparação no md
+except Exception:
+    estimador_v09 = None
 
 LOCAL = timezone(timedelta(hours=-3))
 GQL = "https://monitoramento.defesacivil.sc.gov.br/graphql"
@@ -333,6 +348,21 @@ def faixa_rds(n):
             else "ATENÇÃO" if n >= 4.5 else "Normal")
 
 
+import unicodedata as _ud
+_ORD_FAIXA = {"NORMAL": 0, "ATENCAO": 1, "ALERTA": 2, "EMERGENCIA": 3, "": 0}
+
+def _rank_faixa(f):
+    """Severidade da faixa (0 Normal .. 3 Emergência), robusta a caixa/acento/'?'."""
+    k = "".join(c for c in _ud.normalize("NFD", (f or "").upper()) if c.isalpha())
+    return _ORD_FAIXA.get(k, 0)
+
+def _mais_severa(a, b):
+    return a if _rank_faixa(a) >= _rank_faixa(b) else b
+
+def _e_alerta(f):
+    return _rank_faixa(f) >= 1
+
+
 def _append(caminho, cabecalho, linhas):
     novo = not os.path.exists(caminho)
     with open(caminho, "a", newline="", encoding="utf-8") as f:
@@ -365,168 +395,383 @@ def _stale(raw):
     return fora
 
 
-# ---- FINO das barragens: derivação robusta do montante (peak-shaving) --------
-GLITCH_M = 1.5            # salto de montante > isto num passo = degrau/glitch -> fora da taxa
-DATUM_TOL_PP = 3.0       # tolerância da checagem de datum (curva V(h) x painel), pontos %
-OCUP_TRAVA_CREDITO = 75.0  # salvaguarda JICA: >= isto, barragem não recebe crédito
-JANELA_RETEN_H = getattr(estimador, "JANELA_PICO_H", 8.0) if TEM_MODELO else 8.0
+# ---- ESTIMADOR v1.0: janela do ATO (vale -> agora) --------------------------
+# O v1.0 (estimador.py) é alimentado com grandezas DO ATO, não com acumulados
+# rolantes: cj = soma horária desde o VALE; ΔV = volume retido nas barragens
+# desde o vale (pelas % da Asthon); fração de comportas abertas desde o vale.
+VALE_SOBE_MIN = 0.25      # m — subida que separa um ato do anterior (detecção do vale)
+VALE_MAX_H = 96           # h — quanto olhar para trás ao procurar o vale
+COBERTURA_MIN = 0.7       # fração das horas do ato com snapshot p/ usar a soma horária
+VOL_TOTAL = {"Sul": 104.03, "Oeste": 99.96}   # hm³ (painel, ev.14)
+
+# ---- MODO CRISTA (nowcast na fase final; doutrina v27 §E: perto da crista o número
+# vem da TRAJETÓRIA observada, o v1.0 vira teto) ----------------------------------
+CRISTA_CHUVA_MAX = 2.0    # mm/h — chuva-driver acima disso = ainda chovendo (não ativa)
+CRISTA_JANELA_H = 2.0     # h — janela p/ medir a taxa de subida atual e a anterior
+CRISTA_TAXA_MIN = 0.02    # m/h — subida abaixo disso = crista essencialmente atingida
+CRISTA_SALTO_MAX = 0.5    # m — degrau horário maior que isso = spike/manobra -> não ativa
+CRISTA_LIDERES = {"00033": "Pouso Redondo", "00035": "Trombudo Central", "00025": "Agrolandia"}
 
 
-def _barragens_hist(caminho):
-    """Lê dados/barragens.csv -> {"Sul":[(dt,montante)], "Oeste":[...]} ordenado no tempo.
-    Usa as colunas reais (coleta_local, barragem, montante_local_m)."""
-    hist = {"Sul": [], "Oeste": []}
+def _mediana3(hist):
+    """Filtro de mediana (janela 3) na série [(dt, v)] — tira spikes de sensor."""
+    if len(hist) < 3:
+        return list(hist)
+    out = [hist[0]]
+    for i in range(1, len(hist) - 1):
+        out.append((hist[i][0], statistics.median([hist[i-1][1], hist[i][1], hist[i+1][1]])))
+    out.append(hist[-1])
+    return out
+
+
+def detectar_vale(hist, sobe_min=VALE_SOBE_MIN, max_h=VALE_MAX_H):
+    """VALE do ato atual (baseline do estimador = disciplina de baseline do projeto):
+    andando para trás a partir de agora, o vale é o mínimo encontrado ANTES de o rio
+    voltar a ficar mais de `sobe_min` acima dele (= recessão do ato anterior).
+    Num 2º/3º ato devolve o trough (convenção J2); numa subida única, o baseline
+    pré-evento. hist = [(dt_local_naive, nivel)] ordenado. Retorna (dt, nivel) ou None."""
+    h = _mediana3([(dt, v) for dt, v in hist if v is not None])
+    if not h:
+        return None
+    cur_dt, cur = h[-1]
+    vale_dt, vale = cur_dt, cur
+    for dt, v in reversed(h):
+        if (cur_dt - dt) > timedelta(hours=max_h):
+            break
+        if v <= vale:
+            vale, vale_dt = v, dt
+        elif v > vale + sobe_min and (vale_dt - dt) >= timedelta(hours=2):
+            break
+    return vale_dt, round(vale, 2)
+
+
+def historico_sdc(horas=VALE_MAX_H):
+    """[(dt_local_naive, nivel)] do DCSC-00013 (Historic HOUR_1) nas últimas `horas`."""
+    fim = datetime.now(timezone.utc)
+    ini = fim - timedelta(hours=horas)
+    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    d = _post(GQL, {"operationName": "Historic", "query": _HIST_Q,
+                    "variables": {"stationCode": "DCSC-00013",
+                                  "startDate": iso(ini), "endDate": iso(fim),
+                                  "interval": "HOUR_1"}})
+    itens = ((d.get("data") or {}).get("historic") or {}).get("items", []) or []
+    out = []
+    for i in itens:
+        v = i.get("rio_nivel")
+        t = i.get("timestamp") or i.get("data") or i.get("date")
+        if not isinstance(v, (int, float)):
+            continue
+        dt = None
+        if isinstance(t, str):
+            try:   # o Historic devolve horário LOCAL (Instruções: "ts local")
+                dt = datetime.fromisoformat(t.replace("Z", "").replace(" ", "T")[:19])
+            except ValueError:
+                dt = _dt_local_naive(t)
+        if dt is not None:
+            out.append((dt, float(v)))
+    out.sort(key=lambda x: x[0])
+    return out
+
+
+def _ler_csv(caminho):
     if not os.path.exists(caminho):
-        return hist
+        return []
     try:
         with open(caminho, encoding="utf-8") as f:
-            for row in csv.DictReader(f):
-                nb = row.get("barragem") or ""
-                nome = "Sul" if "Sul" in nb else "Oeste" if "Oeste" in nb else None
-                if not nome:
-                    continue
-                try:
-                    dt = datetime.strptime(row["coleta_local"], "%Y-%m-%d %H:%M")
-                    m = float(row["montante_local_m"])
-                except (KeyError, ValueError, TypeError):
-                    continue
-                hist[nome].append((dt, m))
+            return list(csv.DictReader(f))
     except Exception:
-        pass
+        return []
+
+
+def chuva_ato_estacoes(caminho, t_vale, agora):
+    """Soma HORÁRIA da chuva de cada estação desde o vale, a partir do histórico do
+    próprio coletor (dados/serie_bacia.csv, coluna chuva_1h = acumulado da última
+    hora na leitura da estação). Um snapshot por hora de leitura (o mais recente
+    dentro da hora) evita sobreposição entre coletas de 30 min.
+    Retorna (dict code5 -> mm, cobertura 0..1, n_horas)."""
+    horas = max(1.0, (agora - t_vale).total_seconds() / 3600.0)
+    por_est = {}
+    for row in _ler_csv(caminho):
+        try:
+            code5 = (row.get("codigo") or "").replace("DCSC-", "")
+            leit = datetime.strptime(row["leitura"], "%Y-%m-%d %H:%M")
+            ch = float(row["chuva_1h"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if leit <= t_vale or leit > agora + timedelta(minutes=30):
+            continue
+        balde = leit.replace(minute=0, second=0, microsecond=0)
+        d = por_est.setdefault(code5, {})
+        if balde not in d or leit > d[balde][0]:
+            d[balde] = (leit, ch)
+    soma = {c: round(sum(v for _, v in d.values()), 1) for c, d in por_est.items()}
+    n_h = max((len(d) for d in por_est.values()), default=0)
+    cobertura = min(1.0, n_h / horas)
+    return soma, cobertura, n_h
+
+
+def _acumulado_rolante(s, horas):
+    """Fallback: acumulado do painel cuja janela cobre as horas desde o vale."""
+    for h, k in ((6, "ch6h"), (24, "ch24h"), (48, "ch48h"), (72, "ch72h")):
+        if horas <= h:
+            return s.get(k), k
+    return s.get("ch72h"), "ch72h"
+
+
+def _leituras_ato(raw, t_vale, agora):
+    """dict code5 -> fus.Leitura com a CHUVA DO ATO (soma horária desde o vale;
+    fallback = acumulado rolante do painel com a janela mais próxima). Retorna
+    (leituras, metodo, cobertura)."""
+    horas = max(1.0, (agora - t_vale).total_seconds() / 3600.0)
+    soma, cob, n_h = chuva_ato_estacoes(os.path.join(DADOS, "serie_bacia.csv"), t_vale, agora)
+    usar_soma = cob >= COBERTURA_MIN and n_h >= 2
+    out = {}
+    janela = None
+    for code5, s in raw.items():
+        if usar_soma and code5 in soma:
+            ch = soma[code5]
+        else:
+            ch, janela = _acumulado_rolante(s, horas)
+        out[code5] = fus.Leitura(code5, ch, s.get("nivel"), s.get("ts"))
+    metodo = (f"soma horária desde o vale ({n_h} h, cobertura {cob:.0%})" if usar_soma
+              else f"acumulado rolante {janela or '?'} do painel (histórico do ato insuficiente: "
+                   f"{n_h} h, cobertura {cob:.0%})")
+    return out, metodo, cob
+
+
+def _comportas(txt):
+    """'3A/2F' -> (abertas, total)"""
+    try:
+        a, f = txt.upper().replace(" ", "").split("/")
+        a, f = int(a.rstrip("A")), int(f.rstrip("F"))
+        return a, a + f
+    except Exception:
+        return None, None
+
+
+def barragens_ato(caminho, dams, t_vale, agora):
+    """Estado das barragens NO ATO, por dados/barragens.csv + leitura atual (Asthon):
+    % no vale, % agora, ΔV retido (hm³), fração média de comportas ABERTAS desde o
+    vale, vertendo. Retorna lista de dicts (Sul, Oeste)."""
+    hist = {"Sul": [], "Oeste": []}
+    for row in _ler_csv(caminho):
+        nb = row.get("barragem") or ""
+        nome = "Sul" if "Sul" in nb else "Oeste" if "Oeste" in nb else None
+        if not nome:
+            continue
+        try:
+            dt = datetime.strptime(row["coleta_local"], "%Y-%m-%d %H:%M")
+        except (KeyError, ValueError, TypeError):
+            continue
+        pct = _num(row.get("percent_use"))
+        ab, tot = _comportas(row.get("comportas") or "")
+        hist[nome].append((dt, pct, ab, tot))
     for k in hist:
         hist[k].sort(key=lambda x: x[0])
-    return hist
 
-
-def _derivar_montante(serie, horas=3.0):
-    """Da série [(dt, montante)] devolve (fim, inicio, taxa_m_h, n) de forma ROBUSTA:
-      - taxa = MEDIANA das variações sucessivas, ignorando degraus/glitches (|Δ|>GLITCH_M);
-      - fim  = mediana das últimas 2-3 leituras (suaviza congelamento/spike);
-      - inicio = fim − taxa × janela de retenção (8 h).
-    Retorna None se houver < 3 leituras (cai no conservador)."""
-    if not serie or len(serie) < 3:
-        return None
-    ult = serie[-1][0]
-    janela = [(dt, m) for dt, m in serie if (ult - dt) <= timedelta(hours=horas)]
-    if len(janela) < 3:
-        janela = serie[-3:]
-    if len(janela) < 3:
-        return None
-    fim = statistics.median([m for _, m in janela[-3:]])
-    taxas = []
-    for (t0, m0), (t1, m1) in zip(janela, janela[1:]):
-        dt_h = (t1 - t0).total_seconds() / 3600.0
-        if dt_h <= 0:
-            continue
-        dh = m1 - m0
-        if abs(dh) > GLITCH_M:      # degrau (congelou e pulou) -> não conta na taxa
-            continue
-        taxas.append(dh / dt_h)
-    taxa = statistics.median(taxas) if taxas else 0.0
-    inicio = fim - taxa * JANELA_RETEN_H
-    return fim, inicio, taxa, len(janela)
-
-
-def _montar_barragens(dams, hist_bar):
-    """Constrói (conserv_bars, fino_bars, cred) — cada barragem em 2 versões:
-    CONSERVADOR (montante 0,0 -> retenção 0) e FINO (montante ini/fim derivados,
-    com as salvaguardas dos passos 3-4). `cred` traz o detalhe por barragem."""
-    conserv_bars, fino_bars, cred = [], [], []
+    out = []
     for d in dams:
         nb = d.get("barragem") or ""
         nome = "Sul" if "Sul" in nb else "Oeste" if "Oeste" in nb else None
         if not nome:
             continue
-        pct = d.get("percent_use")
+        pct_agora = d.get("percent_use")
         vert = d.get("vertido") or 0
-        ext = float(vert) if isinstance(vert, (int, float)) and vert > 0 else 0.0
-        conserv_bars.append(estimador.BarragemV5(nome, 0.0, 0.0,
-                            ocupacao_pct=pct, extravasor_m=ext))
-
-        info = {"nome": nome, "occ_pct": pct, "credito_ok": False, "motivo": "",
-                "montante_fim": None, "montante_ini": None, "taxa": None,
-                "occ_curva": None, "vol_hm3": 0.0, "q_m3s": 0.0}
-        der = _derivar_montante(hist_bar.get(nome, []))
-        verting = (ext > 0) or (isinstance(pct, (int, float)) and pct >= 100)
-        if der is None:
-            info["motivo"] = "histórico de montante insuficiente (<3 leituras) — conservador"
+        vertendo = (isinstance(vert, (int, float)) and vert > 0) or \
+                   (isinstance(pct_agora, (int, float)) and pct_agora >= 100)
+        h = hist[nome]
+        obs = ""
+        antes = [x for x in h if x[0] <= t_vale and x[1] is not None]
+        if antes:
+            pct_vale = antes[-1][1]
+        elif h and h[0][1] is not None:
+            pct_vale = h[0][1]
+            obs = f"histórico começa depois do vale ({h[0][0]:%d/%m %H:%M}) — ΔV pode estar subestimado"
         else:
-            fim, ini, taxa, n = der
-            info.update(montante_fim=round(fim, 2), montante_ini=round(ini, 2),
-                        taxa=round(taxa, 3))
-            occ_curva = estimador.ocupacao_de_montante(nome, fim)
-            info["occ_curva"] = round(occ_curva, 1)
-            datum_ok = (pct is not None) and abs(occ_curva - pct) <= DATUM_TOL_PP
-            # ordem das salvaguardas (passos 3-4 + vertimento)
-            if verting:
-                info["motivo"] = "vertendo/extravasor ativo — água-acima transita, sem crédito"
-            elif isinstance(pct, (int, float)) and pct >= OCUP_TRAVA_CREDITO:
-                info["motivo"] = (f"ocupação {pct}% ≥ {OCUP_TRAVA_CREDITO:.0f}% "
-                                  "(salvaguarda JICA) — sem crédito")
-            elif taxa <= 0:
-                info["motivo"] = "não está enchendo (taxa ≤ 0) — sem crédito"
-            elif not datum_ok:
-                info["motivo"] = (f"datum montante suspeito (curva {occ_curva:.1f}% vs "
-                                  f"painel {pct}% > {DATUM_TOL_PP:.0f}pp) — usando conservador")
-            else:
-                info["credito_ok"] = True
-
-        if info["credito_ok"]:
-            b = estimador.BarragemV5(nome, info["montante_ini"], info["montante_fim"],
-                                     ocupacao_pct=pct, extravasor_m=ext)
-            info["vol_hm3"] = round(b.volume_retido_hm3, 2)
-            info["q_m3s"] = round(b.q_retencao_m3s, 0)
+            pct_vale = pct_agora
+            obs = "sem histórico de barragem — ΔV = 0"
+        dv = 0.0
+        if isinstance(pct_agora, (int, float)) and isinstance(pct_vale, (int, float)):
+            dv = max(0.0, (pct_agora - pct_vale) / 100.0 * VOL_TOTAL[nome])
+        # fração aberta ponderada no tempo desde o vale (função-degrau) + estado atual
+        pontos = [(dt, ab / tot) for dt, _, ab, tot in h if dt >= t_vale and ab is not None and tot]
+        ab_now, tot_now = _comportas(d.get("comportas") or "")
+        if ab_now is not None and tot_now:
+            pontos.append((agora, ab_now / tot_now))
+        if pontos:
+            prev = [(dt, ab / tot) for dt, _, ab, tot in h if dt < t_vale and ab is not None and tot]
+            f0 = prev[-1][1] if prev else pontos[0][1]
+            seq = [(t_vale, f0)] + pontos
+            acc = tot_h = 0.0
+            for (t0, f), (t1, _) in zip(seq, seq[1:]):
+                dh = max(0.0, (t1 - t0).total_seconds() / 3600.0)
+                acc += f * dh; tot_h += dh
+            fracao = round(acc / tot_h, 2) if tot_h > 0 else pontos[-1][1]
         else:
-            # sem crédito: montante_fim == inicio -> retenção 0, mas preserva ocupacao_pct
-            mf = info["montante_fim"] if info["montante_fim"] is not None else 0.0
-            b = estimador.BarragemV5(nome, mf, mf, ocupacao_pct=pct, extravasor_m=ext)
-        fino_bars.append(b)
-        cred.append(info)
-    return conserv_bars, fino_bars, cred
+            fracao = None
+        out.append({"nome": nome, "pct_vale": pct_vale, "pct_agora": pct_agora, "dv_hm3": round(dv, 1),
+                    "fracao_aberta": fracao, "vertendo": vertendo, "comportas": d.get("comportas"),
+                    "montante": d.get("montante_local_m"), "obs": obs})
+    return out
 
 
-def _resumo_est(e):
+def _resumo_v1(e):
     return {"pico": round(e.pico_central, 1),
             "banda": (round(e.banda[0], 1), round(e.banda[1], 1)),
-            "faixa": e.faixa, "cj": round(e.cj_efetiva_mm, 0),
-            "nota_bar": e.nota_barragens, "ant": e.antecedencia_h}
+            "faixa": e.faixa, "cj_ef": round(e.cj_efetiva_mm, 0),
+            "termos": e.termos, "classe_banda": e.classe_banda}
 
 
-def estimar(raw, dams, base):
-    """Roda o estimador v0.9 em CONSERVADOR (guarda) e FINO (crédito de retenção
-    real das barragens, derivado do montante de dados/barragens.csv). `base` é o
-    baseline (mín 48h) no datum de referência escolhido. Retorna dict."""
-    if not TEM_MODELO or base is None:
+def _serie_estacao(caminho, code5, horas, agora, col="nivel_m", tcol="coleta_local"):
+    """[(dt, valor)] de uma estação em dados/serie_bacia.csv nas últimas `horas`."""
+    out = []
+    for row in _ler_csv(caminho):
+        if (row.get("codigo") or "").replace("DCSC-", "") != code5:
+            continue
+        try:
+            dt = datetime.strptime(row[tcol], "%Y-%m-%d %H:%M")
+            v = float(row[col])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if timedelta(0) <= (agora - dt) <= timedelta(hours=horas):
+            out.append((dt, v))
+    out.sort(key=lambda x: x[0])
+    return out
+
+
+def _taxa(hist, t0, t1):
+    """Taxa média (m/h) entre os pontos da série [(dt,v)] mais próximos de t0 e t1."""
+    if len(hist) < 2:
+        return None
+    near = lambda t: min(hist, key=lambda pt: abs((pt[0] - t).total_seconds()))
+    (ta, va), (tb, vb) = near(t0), near(t1)
+    dh = (tb - ta).total_seconds() / 3600.0
+    return (vb - va) / dh if abs(dh) >= 0.5 else None
+
+
+def _lider_cristou(caminho, code5, agora, horas=3.0):
+    """True/False se a régua-líder já virou (nível caindo no período); None sem dado."""
+    h = _mediana3(_serie_estacao(caminho, code5, horas + 1, agora, col="nivel_m", tcol="coleta_local"))
+    if len(h) < 3:
+        return None
+    return (h[-1][1] - h[0][1]) < -0.02
+
+
+def _chuva_driver_recente(caminho, agora, horas=2.0):
+    """Máx de chuva_1h entre as estações-driver nas últimas `horas` (mm/h); None sem dado."""
+    if not TEM_MODELO:
+        return None
+    driver5 = {c for muni, (papel, cods) in fus.MAPA_CJ.items()
+               if papel in ("ancora", "driver") for c in cods}
+    mx, achou = 0.0, False
+    for row in _ler_csv(caminho):
+        code5 = (row.get("codigo") or "").replace("DCSC-", "")
+        if code5 not in driver5:
+            continue
+        try:
+            dt = datetime.strptime(row["leitura"], "%Y-%m-%d %H:%M")
+            ch = float(row["chuva_1h"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if timedelta(0) <= (agora - dt) <= timedelta(hours=horas):
+            mx = max(mx, ch); achou = True
+    return mx if achou else None
+
+
+def modo_crista(ref_hist, caminho, niv, agora, teto_v1_0=None):
+    """Nowcast da crista na fase final do evento. Ativa quando, ao mesmo tempo:
+      (a) o rio ainda sobe mas DESACELERA (2ª diferença negativa), ou já virou;
+      (b) a chuva-driver ENCERROU (máx chuva_1h ≤ CRISTA_CHUVA_MAX nas últimas 2 h);
+      (c) as réguas-líder (Pouso Redondo/Trombudo/Agrolândia) já CRISTARAM.
+    Doutrina (Instruções v27 §E / v28 D-CRISTA): perto da crista o número vem da
+    TRAJETÓRIA (projetar_crista_pos_chuva, validado −0,03/+0,02 nos ev.15/16); o
+    estimador v1.0 vira TETO. Retorna dict ou None (condições não satisfeitas)."""
+    if not TEM_MODELO or niv is None or not ref_hist or len(ref_hist) < 4:
+        return None
+    h = _mediana3([(dt, v) for dt, v in ref_hist if v is not None])
+    if len(h) < 4:
+        return None
+    t = h[-1][0]
+    if abs(h[-1][1] - h[-2][1]) > CRISTA_SALTO_MAX:      # degrau/manobra/spike -> aguarda
+        return None
+    taxa = _taxa(h, t - timedelta(hours=CRISTA_JANELA_H), t)
+    taxa_prev = _taxa(h, t - timedelta(hours=2 * CRISTA_JANELA_H), t - timedelta(hours=CRISTA_JANELA_H))
+    if taxa is None or taxa_prev is None:
+        return None
+    subindo = taxa > CRISTA_TAXA_MIN
+    desacelera = taxa < taxa_prev - 0.005
+    ja_virou = taxa <= CRISTA_TAXA_MIN
+    if subindo and not desacelera:                       # sobe forte/acelerando -> ainda não
+        return None
+
+    ch = _chuva_driver_recente(caminho, agora, 2.0)
+    chuva_parou = (ch is not None and ch <= CRISTA_CHUVA_MAX)
+    if not chuva_parou:
+        return None
+
+    lideres = {nome: _lider_cristou(caminho, c, agora) for c, nome in CRISTA_LIDERES.items()}
+    viradas = [nome for nome, v in lideres.items() if v is True]
+    medidas = [nome for nome, v in lideres.items() if v is not None]
+    if medidas and len(viradas) < max(1, len(medidas) - 1):   # maioria das medidas deve ter virado
+        return None
+    conf_lideres = bool(viradas)
+
+    pico_proj, t_pico = estimador.projetar_crista_pos_chuva(niv, max(taxa, 0.0))
+    pico_obs = max(v for _, v in h[-6:])                 # já pode ter passado a crista
+    pico = round(max(pico_proj, pico_obs), 2)
+    return {
+        "ativo": True, "pico": pico, "t_ate_crista_h": round(t_pico, 1),
+        "taxa_atual": round(taxa, 3), "taxa_anterior": round(taxa_prev, 3),
+        "ja_virou": ja_virou, "chuva_driver_2h": (round(ch, 1) if ch is not None else None),
+        "lideres_viradas": viradas, "conf_lideres": conf_lideres,
+        "lideres_status": {n: ("virou" if v else ("subindo" if v is False else "sem dado"))
+                           for n, v in lideres.items()},
+        "teto_v1_0": teto_v1_0, "faixa": faixa_rds(pico),
+    }
+
+
+def estimar(raw, dams, base, t_vale, agora):
+    """Roda o estimador v1.0 (OFICIAL, decide o alerta) com as grandezas do ATO, a
+    SOMBRA com laterais (cj_lat) e, para comparação, o v0.9 conservador (modelo
+    antigo, sem crédito de retenção). Retorna dict ou None."""
+    if not TEM_MODELO or base is None or t_vale is None:
         return None
     try:
-        leit = _leituras(raw)
+        leit, metodo_cj, cob = _leituras_ato(raw, t_vale, agora)
         chuvas_v07, chuvas_lat = fus.dicts_para_estimador(leit)
         duplo = fus.cj_duplo(leit)
+        bars = barragens_ato(os.path.join(DADOS, "barragens.csv"), dams, t_vale, agora)
+        dv = sum(b["dv_hm3"] for b in bars)
+        fr = [b["fracao_aberta"] for b in bars if b["fracao_aberta"] is not None]
+        fracao = round(sum(fr) / len(fr), 2) if fr else None
+        vertendo = any(b["vertendo"] for b in bars)
 
-        hist_bar = _barragens_hist(os.path.join(DADOS, "barragens.csv"))
-        conserv_bars, fino_bars, cred = _montar_barragens(dams, hist_bar)
-        # fallback global de SEGURANÇA: qualquer barragem sem crédito (ou nenhuma barragem)
-        fallback_global = (not cred) or any(not c["credito_ok"] for c in cred)
+        cj, fonte_cj = estimador.cj_representativa(chuvas_v07)
+        acima = estimador._media(chuvas_v07, estimador.ACIMA) or 0.0
+        e_of = estimador.estimar_pico(base, cj, acima, fracao, dv, vertendo, rede_completa=True)
+        cj_lat = estimador._media(chuvas_lat, estimador.DRIVERS) or cj
+        e_sh = estimador.estimar_pico(base, cj_lat, acima, fracao, dv, vertendo, rede_completa=True)
 
-        # usar_ancoras=False: DRIVERS (v0.9) já inclui âncoras + laterais.
-        of_c = estimador.estimar_pico_v5(base, chuvas_v07, conserv_bars, usar_ancoras=False)
-        of_f = estimador.estimar_pico_v5(base, chuvas_v07, fino_bars, usar_ancoras=False)
-        sh = estimador.estimar_pico_v5(base, chuvas_lat, fino_bars, usar_ancoras=False)
-
-        # Classe que dispara o alerta: FINO, exceto se houver fallback -> CONSERVADOR
-        # (nunca rebaixar um alerta silenciosamente enquanto a retenção não é comprovada).
-        classe_alerta = of_c.faixa if fallback_global else of_f.faixa
+        antigo = None
+        if estimador_v09 is not None:
+            try:
+                bv = [estimador_v09.BarragemV5(b["nome"], 0.0, 0.0, ocupacao_pct=b["pct_agora"],
+                                               extravasor_m=(0.01 if b["vertendo"] else 0.0)) for b in bars]
+                a = estimador_v09.estimar_pico_v5(base, chuvas_v07, bv, usar_ancoras=False)
+                antigo = {"pico": round(a.pico_central, 1), "faixa": a.faixa}
+            except Exception as ex:
+                print(f"AVISO v0.9 sombra: {ex}", file=sys.stderr)
 
         return {
-            "baseline": base,
-            "conserv": _resumo_est(of_c),
-            "fino": _resumo_est(of_f),
-            "sombra": {"pico": round(sh.pico_central, 1), "cj": round(sh.cj_efetiva_mm, 0)},
-            "duplo": duplo,
-            "chuvas_v07": chuvas_v07,
-            "cred": cred,
-            "fallback_global": fallback_global,
-            "classe_alerta": classe_alerta,
+            "baseline": base, "t_vale": t_vale,
+            "oficial": _resumo_v1(e_of),
+            "sombra": {"pico": round(e_sh.pico_central, 1), "cj": round(cj_lat, 0)},
+            "antigo_v09": antigo,
+            "cj": round(cj, 1), "fonte_cj": fonte_cj, "acima": round(acima, 1),
+            "metodo_cj": metodo_cj, "cobertura": cob,
+            "duplo": duplo, "chuvas_v07": chuvas_v07, "bars": bars,
+            "dv_hm3": round(dv, 1), "fracao_aberta": fracao, "vertendo": vertendo,
+            "classe_alerta": e_of.faixa,
         }
     except Exception as e:
         print(f"AVISO estimador: {e}", file=sys.stderr)
@@ -579,15 +824,34 @@ def main():
     # --- NÍVEL DE REFERÊNCIA: DC-RS Ponte Dom Tito (Asthon); SDC em paralelo ---
     live = asthon_estacoes_live()
     dom_live = live.get(DOMTITO_UUID, {}).get("level")
-    dom_hist = asthon_nivel_hist(DOMTITO_UUID, 48)
+    dom_hist = asthon_nivel_hist(DOMTITO_UUID, VALE_MAX_H)
     sdc_niv = raw.get("00013", {}).get("nivel")
     sdc_tend = raw.get("00013", {}).get("tend")
     try:
-        base_sdc = baseline_rds()
+        sdc_hist = historico_sdc(VALE_MAX_H)
     except Exception as e:
-        base_sdc = None; erros.append(f"baseline SDC: {e}")
+        sdc_hist = []; erros.append(f"histórico SDC: {e}")
+    base_sdc = round(min(v for _, v in sdc_hist[-48:]), 2) if sdc_hist else None   # legado (mín 48h)
     off_fb = offset_fallback(os.path.join(DADOS, "nivel_rds.csv"))
     ref = resolver_referencia(sdc_niv, sdc_tend, base_sdc, dom_live, dom_hist, off_fb)
+
+    # --- VALE DO ATO (baseline do v1.0): na régua de referência; fallback SDC+offset ---
+    agora_naive = agora.replace(tzinfo=None)
+    vale = detectar_vale(dom_hist) if (REFERENCIA_NIVEL == "DC_RS" and dom_hist) else None
+    vale_fonte = "DC-RS"
+    if vale is None and sdc_hist:
+        v = detectar_vale(sdc_hist)
+        if v is not None:
+            vale = (v[0], round(v[1] + (off_fb if REFERENCIA_NIVEL == "DC_RS" else 0.0), 2))
+            vale_fonte = f"SDC{'+offset' if REFERENCIA_NIVEL == 'DC_RS' else ''}"
+    if vale is not None:
+        t_vale, base_vale = vale
+        ref["baseline"] = base_vale
+        ref["t_vale"] = t_vale
+    else:
+        t_vale = agora_naive - timedelta(hours=48)     # sem série: mantém 'mín 48h' antigo
+        ref["t_vale"] = None
+        vale_fonte = "indisponível (baseline = mín 48h)"
 
     niv = ref["nivel"]; faixa = faixa_rds(niv); subindo = ref["subindo"]
 
@@ -616,20 +880,40 @@ def main():
     ch24max = max([raw.get(c, {}).get("ch24h") or 0 for c in driver_codes] or [0])
     vertendo = any((x.get("percent_use") or 0) >= 100 or x.get("vertido") for x in dams)
 
-    # --- Fase 5: estimador em A(SDC) e B(DC-RS); primário = REFERENCIA_NIVEL ---
-    base_dcrs = ref["baseline"] if REFERENCIA_NIVEL == "DC_RS" else (
-        round(base_sdc + off_fb, 2) if base_sdc is not None else None)
-    est_sdc = estimar(raw, dams, base_sdc)
-    est_dcrs = estimar(raw, dams, base_dcrs)
-    est = est_dcrs if REFERENCIA_NIVEL == "DC_RS" else est_sdc
+    # --- ESTIMADOR v1.0 na régua de referência (+ leitura na outra régua p/ comparação) ---
+    base_ref = ref["baseline"]
+    est = estimar(raw, dams, base_ref, t_vale, agora_naive)
+    if REFERENCIA_NIVEL == "DC_RS":
+        est_dcrs = est
+        base_alt = round(base_ref - off_fb, 2) if base_ref is not None else None   # em SDC
+        est_sdc = estimar(raw, dams, base_alt, t_vale, agora_naive)
+        base_sdc_lin, base_dcrs_lin = base_alt, base_ref
+    else:
+        est_sdc = est
+        base_alt = round(base_ref + off_fb, 2) if base_ref is not None else None   # em DC-RS
+        est_dcrs = estimar(raw, dams, base_alt, t_vale, agora_naive)
+        base_sdc_lin, base_dcrs_lin = base_ref, base_alt
     stale = _stale(raw) if (TEM_MODELO and raw) else []
 
-    # Classe que dispara o alerta = FINO (retenção real), ou CONSERVADOR se houver
-    # fallback de barragem. O gatilho de evento nunca é REBAIXADO pelo fino/troca.
-    classe_alerta = est["classe_alerta"] if est else faixa
-    evento = (faixa in ("ATENÇÃO", "ALERTA", "EMERGÊNCIA")
+    # --- MODO CRISTA: nowcast na fase final (chuva encerrada, réguas-líder viradas) ---
+    ref_hist = dom_hist if (REFERENCIA_NIVEL == "DC_RS" and dom_hist) else sdc_hist
+    crista = modo_crista(ref_hist, os.path.join(DADOS, "serie_bacia.csv"), niv, agora_naive,
+                         teto_v1_0=(est["oficial"]["pico"] if est else None))
+
+    # Classe que dispara o alerta:
+    #  - regime normal: pico central do v1.0 (OFICIAL, cj sem laterais);
+    #  - MODO CRISTA ativo: a projeção da trajetória (nowcast mais preciso perto da
+    #    crista; o v1.0 vira teto), nunca ABAIXO da faixa atual do rio.
+    # O gatilho de EVENTO nunca é rebaixado (OU com a faixa atual e com a previsão v1.0).
+    if crista:
+        classe_alerta = _mais_severa(faixa if faixa != "?" else "Normal", crista["faixa"])
+        crista["classe_alerta"] = classe_alerta
+    else:
+        classe_alerta = est["classe_alerta"] if est else faixa
+    evento = (_e_alerta(faixa)
               or (subindo and ch24max >= 30) or ch24max >= 50
-              or classe_alerta in ("ATENÇÃO", "ALERTA", "EMERGÊNCIA"))
+              or _e_alerta(classe_alerta)
+              or (est is not None and _e_alerta(est["classe_alerta"])))
 
     # --- estado_atual.md ---
     md = [f"# Cheia — Rio do Sul (SC) — {ts} (local −03)", ""]
@@ -640,48 +924,60 @@ def main():
               + (f" · ⚠ {ref['obs']}" if ref["obs"] else ""))
     md.append(f"**Chuva 24h máx (drivers):** {round(ch24max,1)} mm")
     md.append(f"**EVENTO ATIVO:** {'🔴 SIM' if evento else '🟢 não'}")
-    if evento and est:
-        fn = est["fino"]; cs = est["conserv"]; s = est["sombra"]; dpl = est["duplo"]
-        flo, fhi = fn["banda"]; clo, chi = cs["banda"]
-        usa_cons = est["fallback_global"]
+    if crista:
+        cr = crista
+        st = " · ".join(f"{n}: {v}" for n, v in cr["lideres_status"].items())
         md.append("")
-        md.append(f"**Pico estimado (FINO — c/ retenção real das barragens):** "
-                  f"~{fn['pico']} m (banda {flo}–{fhi} m) → **{fn['faixa']}**")
-        md.append(f"**Guarda (CONSERVADOR — sem crédito de retenção):** "
-                  f"~{cs['pico']} m (banda {clo}–{chi} m) → **{cs['faixa']}**")
-        md.append(f"**Classe que dispara o alerta/e-mail: {est['classe_alerta']}** — "
-                  + ("usando o CONSERVADOR (há fallback de barragem; o fino não "
-                     "rebaixa alerta enquanto a retenção não é comprovada)."
-                     if usa_cons else
-                     "usando o FINO (retenção comprovada nas barragens)."))
-        md.append(f"- baseline (mín 48h): {est['baseline']} m · "
-                  f"chuva-jusante efetiva: {fn['cj']:.0f} mm · "
-                  f"antecedência ~{fn['ant'][0]}–{fn['ant'][1]} h")
+        md.append(f"**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** "
+                  f"pico ~{cr['pico']} m → **{cr['faixa']}**"
+                  + (" · crista já atingida/passando" if cr["ja_virou"]
+                     else f" · crista em ~{cr['t_ate_crista_h']:.0f} h"))
+        md.append(f"- método: projeção da trajetória (decaimento linear da taxa, "
+                  f"validado −0,03/+0,02 nos ev.15/16). Taxa atual {cr['taxa_atual']} m/h "
+                  f"(anterior {cr['taxa_anterior']} m/h) · chuva-driver 2h "
+                  f"{cr['chuva_driver_2h']} mm/h")
+        md.append(f"- réguas-líder: {st}"
+                  + ("" if cr["conf_lideres"] else " · ⚠ sem confirmação de régua-líder"))
+        if cr.get("teto_v1_0") is not None:
+            md.append(f"- o v1.0 vira **TETO** (~{cr['teto_v1_0']} m); o número acima é o "
+                      f"nowcast e DECIDE o alerta.")
+    if evento and est:
+        of = est["oficial"]; s = est["sombra"]; dpl = est["duplo"]; t = of["termos"]
+        flo, fhi = of["banda"]
+        tv = est["t_vale"]
+        md.append("")
+        rotulo = "v1.0 (TETO — modo crista ativo)" if crista else "v1.0, OFICIAL"
+        md.append(f"**Pico estimado ({rotulo}):** ~{of['pico']} m "
+                  f"(banda p10–p90 {flo}–{fhi} m) → **{of['faixa']}**")
+        md.append(f"**Classe que dispara o alerta/e-mail: {classe_alerta}**")
+        md.append(f"- baseline = VALE do ato: {est['baseline']} m em "
+                  f"{tv:%d/%m %H:%M} ({vale_fonte}) · subida até agora "
+                  f"{(niv - est['baseline']) if (niv is not None and est['baseline'] is not None) else '?'} m")
+        md.append(f"- chuva-jusante do ato: {est['cj']} mm ({est['fonte_cj']}; {est['metodo_cj']}) · "
+                  f"chuva-acima {est['acima']} mm")
+        md.append(f"- cj efetiva {of['cj_ef']:.0f} mm = cj {t['cj']:.0f} + trânsito-acima "
+                  f"{t['transito_acima']:.0f} (fração de comportas aberta {t['fracao_aberta']:.2f}) "
+                  f"+ pluviômetro-ΔV {t['pluviometro_dv']:.0f} (ΔV do ato {est['dv_hm3']} hm³)"
+                  + (" · **VERTENDO** (+%.2f m)" % estimador.V_VERT if est["vertendo"] else ""))
         md.append(f"- sombra (cj_lat, c/ laterais): ~{s['pico']} m "
                   f"(cj {s['cj']:.0f} mm · Δcj_lat−cj_v07 = "
                   f"{dpl.get('delta')} mm, n_laterais={dpl.get('n_lat_validas')})")
-        md += ["", "### Crédito de retenção por barragem (peak-shaving)", "",
-               "| Barragem | Ocupação | Montante ini→fim (m) | Taxa (m/h) | "
-               "Retido (hm³) | Corte (m³/s) | Crédito |",
+        if est.get("antigo_v09"):
+            md.append(f"- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): "
+                      f"~{est['antigo_v09']['pico']} m → {est['antigo_v09']['faixa']} (só comparação)")
+        md += ["", "### Barragens no ato (desde o vale)", "",
+               "| Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |",
                "|---|---|---|---|---|---|---|"]
-        for cc in est["cred"]:
-            mont = (f"{cc['montante_ini']}→{cc['montante_fim']}"
-                    if cc.get("montante_fim") is not None else "—")
-            occ = f"{cc['occ_pct']}%" + (f" (curva {cc['occ_curva']}%)"
-                                         if cc.get("occ_curva") is not None else "")
-            if cc["credito_ok"]:
-                credito = "✅ aplicado"
-            else:
-                credito = f"⚠ 0 — {cc['motivo']}"
-            md.append(f"| {cc['nome']} | {occ} | {mont} | {cc.get('taxa')} | "
-                      f"{cc['vol_hm3']} | {cc['q_m3s']} | {credito} |")
-        md.append(f"- termo de barragem (fino): {fn['nota_bar']}")
+        for b in est["bars"]:
+            fa = "—" if b["fracao_aberta"] is None else f"{b['fracao_aberta']:.2f}"
+            md.append(f"| {b['nome']} | {b['pct_vale']} → {b['pct_agora']} | {b['dv_hm3']} | {fa} | "
+                      f"{b['comportas']} | {b['montante']} m | {b['obs'] or ('vertendo' if b['vertendo'] else '')} |")
     if est and est.get("chuvas_v07"):
         cv = est["chuvas_v07"]
         drv = {k: v for k, v in cv.items() if k in getattr(estimador, "DRIVERS", [])}
         aci = {k: v for k, v in cv.items() if k in getattr(estimador, "ACIMA", [])}
-        md += ["", "## Chuva-jusante fundida (48h) — entra no cj oficial",
-               "", "| Município | Chuva 48h (mm) |", "|---|---|"]
+        md += ["", f"## Chuva-jusante fundida DO ATO — {est['metodo_cj']}",
+               "", "| Município | Chuva do ato (mm) |", "|---|---|"]
         for muni, v in sorted(drv.items(), key=lambda kv: -kv[1]):
             md.append(f"| {muni} | {v:.1f} |")
         if aci:
@@ -697,20 +993,20 @@ def main():
     def _lin(e, base_):
         if not e:
             return f"baseline {base_} m · (estimador indisponível)"
-        fpk = e["fino"]["pico"]; flo, fhi = e["fino"]["banda"]
-        return (f"baseline {base_} m · pico FINO ~{fpk} m (banda {flo}–{fhi}) "
-                f"→ **{e['fino']['faixa']}**")
+        fpk = e["oficial"]["pico"]; flo, fhi = e["oficial"]["banda"]
+        return (f"baseline {base_} m · pico v1.0 ~{fpk} m (banda {flo}–{fhi}) "
+                f"→ **{e['oficial']['faixa']}**")
     md += ["", "## Referência de nível — DC-RS Dom Tito (troca de datum)", "",
            f"Referência ATIVA: **{ref['fonte']}** · offset medido DC-RS−SDC: "
            f"**{ref['offset_medido']} m** · fallback {off_fb} m",
-           f"- **A) SDC-00013 (como era):** " + _lin(est_sdc, base_sdc),
-           f"- **B) DC-RS Dom Tito (como fica):** " + _lin(est_dcrs, base_dcrs)]
+           f"- **A) SDC-00013:** " + _lin(est_sdc, base_sdc_lin),
+           f"- **B) DC-RS Dom Tito:** " + _lin(est_dcrs, base_dcrs_lin)]
     if est_dcrs and est_sdc:
-        dpk = est_dcrs["fino"]["pico"] - est_sdc["fino"]["pico"]
-        mud = est_dcrs["fino"]["faixa"] != est_sdc["fino"]["faixa"]
+        dpk = est_dcrs["oficial"]["pico"] - est_sdc["oficial"]["pico"]
+        mud = est_dcrs["oficial"]["faixa"] != est_sdc["oficial"]["faixa"]
         md.append(f"- **Δ pico (B − A): {dpk:+.2f} m**"
-                  + (f" · ⚠ MUDA A CLASSE: {est_sdc['fino']['faixa']} → "
-                     f"{est_dcrs['fino']['faixa']}" if mud else " · classe inalterada"))
+                  + (f" · ⚠ MUDA A CLASSE: {est_sdc['oficial']['faixa']} → "
+                     f"{est_dcrs['oficial']['faixa']}" if mud else " · classe inalterada"))
     md.append(f"- nível atual: SDC {ref['sdc']} m · DC-RS {ref['dc_rs']} m"
               + (f" · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): {kz_niv} m"
                  if kz_niv is not None else ""))
@@ -730,17 +1026,26 @@ def main():
     with open("evento.txt", "w", encoding="utf-8") as f:
         f.write("SIM" if evento else "NAO")
 
-    pico_fino = est["fino"]["pico"] if est else None
+    pico_fino = est["oficial"]["pico"] if est else None
+    pico_msg = crista["pico"] if crista else pico_fino
     assunto = (f"[CHEIA {classe_alerta}] Rio do Sul {niv} m"
-               + (f" · pico~{pico_fino} m" if evento and pico_fino is not None else "")) if evento \
+               + (f" · pico~{pico_msg} m" + (" (crista)" if crista else "")
+                  if evento and pico_msg is not None else "")) if evento \
               else f"[ok] Rio do Sul normal — {niv} m"
     with open("assunto.txt", "w", encoding="utf-8") as f:
         f.write(assunto)
 
+    crista_msg = ""
+    if crista:
+        quando = "passou" if crista["ja_virou"] else f"+{crista['t_ate_crista_h']:.0f}h"
+        crista_msg = f" | MODO CRISTA ~{crista['pico']} m ({quando})"
     print(f"EVENTO={'SIM' if evento else 'NAO'} | Rio do Sul {niv} m [{faixa}] "
           f"| chuva24h máx {round(ch24max,1)} mm"
-          + (f" | FINO ~{pico_fino} m / guarda ~{est['conserv']['pico']} m "
-             f"[alerta {classe_alerta}]" if est else ""))
+          + (f" | v1.0 ~{pico_fino} m (banda {est['oficial']['banda'][0]}–{est['oficial']['banda'][1]}) "
+             f"vale {est['baseline']} m @ {est['t_vale']:%d/%m %H:%M} · cj {est['cj']} mm · "
+             f"ΔV {est['dv_hm3']} hm³" if est else "")
+          + crista_msg
+          + (f" [alerta {classe_alerta}]" if est or crista else ""))
     if avisos:
         print("AVISOS:", "; ".join(avisos), file=sys.stderr)
 

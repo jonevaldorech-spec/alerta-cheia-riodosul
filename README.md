@@ -5,7 +5,7 @@ das estações da bacia que alimentam o modelo de previsão de cheia da **cidade
 Rio do Sul (SC)**.
 
 A cada 30 minutos, o GitHub roda o `coletor.py`, que puxa **duas fontes públicas
-oficiais**, **funde as estações por município**, roda o **estimador v0.9**, guarda
+oficiais**, **funde as estações por município**, roda o **estimador v1.0**, guarda
 a série no próprio repositório (histórico automático dos eventos) e, **quando
 detecta um evento**, te manda um **e-mail de alerta** com o nível de Rio do Sul,
 o pico estimado e o estado das barragens.
@@ -28,7 +28,8 @@ calibração prospectiva do projeto.
 
 ## O que fica no repositório
 - `coletor.py` — coletor + fusão + estimador (roda a cada 30 min).
-- `estimador.py` — estimador de pico v0.9 (cópia do `estimador_pico_v0_9.py`).
+- `estimador.py` — estimador de pico **v1.0** (cópia do `estimador_pico_v1_0.py`; ver `Analise_Estimador_v1_0.md`).
+- `estimador_v09.py` — modelo antigo (v0.9), roda só para comparação no `estado_atual.md`.
 - `fusao_estacoes.py` — fusão por município (cópia do `fusao_estacoes_v0_3.py`).
 - `dados/serie_bacia.csv` — 1 linha por **estação crua** por coleta (auditoria; a série cresce sozinha).
 - `dados/barragens.csv` — 1 linha por barragem por coleta.
@@ -92,24 +93,44 @@ fica desligado.
 - Rio do Sul subindo **e** chuva 24h ≥ 30 mm em algum driver; **ou**
 - chuva 24h ≥ 50 mm em algum driver.
 
-O pico estimado no e-mail usa o **estimador v0.9** do projeto
-(`estimador.py`: curvas côncava + regressão + trânsito da chuva-acima + termo de
-barragem), alimentado automaticamente com:
-- **baseline** = mínimo do nível de Rio do Sul nas últimas 48 h (disciplina do
-  projeto: nunca usar o nível em subida como inicial);
-- **chuva-jusante** = acumulada 48 h **fundida por município** (`fusao_estacoes`),
-  chamada com `usar_ancoras=False` (a lista DRIVERS já cobre âncoras + drivers);
-- **barragens** = estado (% de ocupação / vertimento) da Asthon, em **modo
-  conservador**: classifica o estado mas **não credita o peak-shaving
-  volumétrico** (que exige a janela de montante do painel, interpolada à mão).
-  Para um alerta, não-creditar é o lado seguro — o pico automático fica
-  ~0,5–1 m **acima** do estimador rodado à mão nos eventos com barragem segurando.
+O pico estimado no e-mail usa o **estimador v1.0** do projeto (`estimador.py`:
+curva côncava suave + trânsito da chuva-acima por fração de comportas abertas +
+enchimento das barragens no ato como chuva implícita + vertimento; calibrado e
+validado em 43 atos de 2018–2026 — LOO 0,39 m nos atos calibráveis, 0,71 m no
+total). Ele é alimentado com as grandezas **do ato**, não com acumulados rolantes:
+- **baseline** = **vale do ato** detectado na régua de referência (últimas 96 h):
+  o mínimo antes de o rio voltar a ficar >0,25 m acima dele (= recessão do ato
+  anterior). Num 2º/3º ato é o trough entre atos (convenção J2); sem série, cai no
+  "mín 48 h" antigo e avisa;
+- **chuva-jusante** = **soma horária desde o vale**, por estação, a partir do
+  próprio histórico do coletor (`dados/serie_bacia.csv`, `chuva_1h`, um snapshot
+  por hora), **fundida por município** (`fusao_estacoes`) e com a regra
+  âncoras→drivers (>10 % de divergência). Se o histórico do ato tiver cobertura
+  < 70 %, usa o acumulado do painel cuja janela cobre as horas desde o vale
+  (6/24/48/72 h) e diz isso no md;
+- **barragens** = **ΔV retido desde o vale** (% da Asthon no vale → agora, ×
+  volume total) e **fração média de comportas abertas** desde o vale
+  (`dados/barragens.csv`), mais o flag de vertimento. Não existe mais "crédito
+  fino/conservador": o termo de barragem é observado, não estimado.
 
-O e-mail traz o pico **OFICIAL** (`cj_v07`, sem laterais) e, em paralelo, o
-**pico-sombra** (`cj_lat`, com laterais) + o Δ — protocolo de calibração
-prospectiva. Para o número fino durante um evento, cole os dados no chat do
-projeto e rode o `estimador.py` com as janelas de montante. Se `estimador.py`/
+O e-mail traz o pico **OFICIAL** (`cj_v07`, sem laterais; banda p10–p90 dos
+resíduos reais) e, em paralelo, o **pico-sombra** (`cj_lat`, com laterais) + o Δ,
+além do **pico do modelo antigo v0.9** (só comparação). A classe do alerta é a do
+pico central do v1.0 (ou a faixa atual do rio, o que for maior). Se `estimador.py`/
 `fusao_estacoes.py` não puderem ser importados, o coletor grava só os dados crus.
+
+Na **fase final do evento** entra o **MODO CRISTA** (nowcast): quando a
+chuva-driver encerrou, as réguas-líder (Pouso Redondo/Trombudo/Agrolândia) já
+cristaram e o rio ainda sobe mas desacelera, o número principal passa a ser a
+**projeção da trajetória** (`projetar_crista_pos_chuva`, validado a ~3 cm nos
+ev.15/16) e o v1.0 vira **teto**. Perto da crista, um modelo "chuva entra, pico
+sai" perde para a trajetória já observada; é aí que se chega à precisão de ~10 cm
+que a previsão antecipada não alcança. A classe do alerta segue a projeção, nunca
+abaixo da faixa atual do rio.
+
+> O histórico do ato vem do próprio repositório: nas primeiras horas depois de
+> ligar o robô (ou após uma lacuna de coleta) a soma desde o vale pode ficar
+> incompleta — o md informa a cobertura e o método usado.
 
 ## Ajustes rápidos
 - **Cadência:** linha `cron` no workflow. `*/15 * * * *` = 15 min (repo público).
