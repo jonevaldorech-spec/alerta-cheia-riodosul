@@ -952,7 +952,7 @@ def main():
         md.append(f"**Classe que dispara o alerta/e-mail: {classe_alerta}**")
         md.append(f"- baseline = VALE do ato: {est['baseline']} m em "
                   f"{tv:%d/%m %H:%M} ({vale_fonte}) · subida até agora "
-                  f"{(niv - est['baseline']) if (niv is not None and est['baseline'] is not None) else '?'} m")
+                  f"{round(niv - est['baseline'], 2) if (niv is not None and est['baseline'] is not None) else '?'} m")
         md.append(f"- chuva-jusante do ato: {est['cj']} mm ({est['fonte_cj']}; {est['metodo_cj']}) · "
                   f"chuva-acima {est['acima']} mm")
         md.append(f"- cj efetiva {of['cj_ef']:.0f} mm = cj {t['cj']:.0f} + trânsito-acima "
