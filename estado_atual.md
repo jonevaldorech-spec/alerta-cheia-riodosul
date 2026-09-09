@@ -1,15 +1,15 @@
-# Cheia — Rio do Sul (SC) — 2026-09-09 17:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-09 17:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.26 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.4 m · DC-RS Dom Tito: 3.26 m · offset medido DC-RS−SDC: -0.14 m
-**Chuva 24h máx (drivers):** 0.8 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.22 m — **Normal** · tendência estável/caindo
+- SDC-00013: 3.35 m · DC-RS Dom Tito: 3.22 m · offset medido DC-RS−SDC: -0.13 m
+**Chuva 24h máx (drivers):** 1.2 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
-| Salete | 0.6 |
+| Salete | 0.8 |
 | Aurora | 0.3 |
 | Rio do Sul | 0.1 |
 | Ituporanga | 0.0 |
@@ -21,7 +21,7 @@
 | Trombudo Central | 0.0 |
 | Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 1.5, Alfredo Wagner 0.0, Taio_montante 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 2.4, Taio_montante 0.2, Alfredo Wagner 0.0
 
 ## Barragens (Asthon)
 
@@ -32,11 +32,11 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 1.5, Alfredo Wagn
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.15 m
-- **A) SDC-00013:** baseline 3.41 m · pico v1.0 ~3.4 m (banda 2.9–3.9) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 3.26 m · pico v1.0 ~3.3 m (banda 2.8–3.8) → **Normal**
-- **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 3.4 m · DC-RS 3.26 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.37 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.13 m** · fallback -0.15 m
+- **A) SDC-00013:** baseline 3.37 m · pico v1.0 ~3.4 m (banda 2.9–3.9) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 3.22 m · pico v1.0 ~3.2 m (banda 2.7–3.7) → **Normal**
+- **Δ pico (B − A): -0.20 m** · classe inalterada
+- nível atual: SDC 3.35 m · DC-RS 3.22 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.34 m
 
 ## ⚠ Avisos desta coleta
 
