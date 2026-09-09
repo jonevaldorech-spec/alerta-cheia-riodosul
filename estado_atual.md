@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-09-09 00:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-09 00:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.4 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.56 m · DC-RS Dom Tito: 4.4 m · offset medido DC-RS−SDC: -0.16 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.38 m — **Normal** · tendência estável/caindo
+- SDC-00013: 4.54 m · DC-RS Dom Tito: 4.38 m · offset medido DC-RS−SDC: -0.16 m
 **Chuva 24h máx (drivers):** 0.3 mm
 **EVENTO ATIVO:** 🟢 não
 
@@ -36,7 +36,7 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 - **A) SDC-00013:** baseline 3.6 m · pico v1.0 ~3.6 m (banda 3.1–4.1) → **Normal**
 - **B) DC-RS Dom Tito:** baseline 3.45 m · pico v1.0 ~3.5 m (banda 3.0–4.0) → **Normal**
 - **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 4.56 m · DC-RS 4.4 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 4.7 m
+- nível atual: SDC 4.54 m · DC-RS 4.38 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 4.67 m
 
 ## ⚠ Avisos desta coleta
 
