@@ -1,8 +1,8 @@
-# Cheia — Rio do Sul (SC) — 2026-09-09 09:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-09 10:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.03 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.18 m · DC-RS Dom Tito: 4.03 m · offset medido DC-RS−SDC: -0.15 m
-**Chuva 24h máx (drivers):** 0.3 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.98 m — **Normal** · tendência estável/caindo
+- SDC-00013: 4.14 m · DC-RS Dom Tito: 3.98 m · offset medido DC-RS−SDC: -0.16 m
+**Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
@@ -21,7 +21,7 @@
 | Trombudo Central | 0.0 |
 | Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagner 0.0, Taio_montante 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.9, Alfredo Wagner 0.0, Taio_montante 0.0
 
 ## Barragens (Asthon)
 
@@ -32,11 +32,11 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagn
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.15 m** · fallback -0.15 m
-- **A) SDC-00013:** baseline 4.18 m · pico v1.0 ~4.2 m (banda 3.7–4.7) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 4.03 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
-- **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 4.18 m · DC-RS 4.03 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.78 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.16 m** · fallback -0.15 m
+- **A) SDC-00013:** baseline 4.12 m · pico v1.0 ~4.1 m (banda 3.6–4.6) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 3.97 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
+- **Δ pico (B − A): -0.10 m** · classe inalterada
+- nível atual: SDC 4.14 m · DC-RS 3.98 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.65 m
 
 ## ⚠ Avisos desta coleta
 
