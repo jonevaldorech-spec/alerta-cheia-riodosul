@@ -1,17 +1,17 @@
-# Cheia — Rio do Sul (SC) — 2026-09-10 02:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-10 03:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.05 m — **Normal** · tendência subindo
-- SDC-00013: 3.17 m · DC-RS Dom Tito: 3.05 m · offset medido DC-RS−SDC: -0.12 m
-**Chuva 24h máx (drivers):** 72.3 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.09 m — **Normal** · tendência subindo
+- SDC-00013: 3.23 m · DC-RS Dom Tito: 3.09 m · offset medido DC-RS−SDC: -0.14 m
+**Chuva 24h máx (drivers):** 77.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**Pico estimado (v1.0, OFICIAL):** ~4.3 m (banda p10–p90 3.9–4.8 m) → **Normal**
-**Classe que dispara o alerta/e-mail: Normal**
-- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.12 m
-- chuva-jusante do ato: 30.6 mm (drivers (divergiu -20% das ancoras); soma horária desde o vale (4 h, cobertura 100%)) · chuva-acima 28.4 mm
-- cj efetiva 42 mm = cj 31 + trânsito-acima 12 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
-- sombra (cj_lat, c/ laterais): ~4.3 m (cj 28 mm · Δcj_lat−cj_v07 = -2.3 mm, n_laterais=4)
-- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~4.8 m → Atenção (só comparação)
+**Pico estimado (v1.0, OFICIAL):** ~4.7 m (banda p10–p90 4.2–5.2 m) → **Atenção**
+**Classe que dispara o alerta/e-mail: Atenção**
+- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.16 m
+- chuva-jusante do ato: 39.1 mm (drivers (divergiu -16% das ancoras); soma horária desde o vale (5 h, cobertura 100%)) · chuva-acima 33.8 mm
+- cj efetiva 53 mm = cj 39 + trânsito-acima 14 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
+- sombra (cj_lat, c/ laterais): ~4.6 m (cj 36 mm · Δcj_lat−cj_v07 = -3.0 mm, n_laterais=4)
+- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.1 m → Atenção (só comparação)
 
 ### Barragens no ato (desde o vale)
 
@@ -19,23 +19,23 @@
 |---|---|---|---|---|---|---|
 | Sul | 0.0 → 0.0 | 0.0 | 1.00 | 5A/0F | 3.0 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (4 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (5 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
-| Taio | 55.0 |
-| Rio do Sul | 36.3 |
-| Pouso Redondo | 35.4 |
-| Rio do Oeste | 29.8 |
-| Trombudo Central | 28.9 |
-| Laurentino | 28.4 |
-| Agrolandia | 28.2 |
-| Aurora | 26.1 |
-| Salete | 24.0 |
-| Ituporanga | 23.2 |
-| Agronomica | 21.4 |
+| Taio | 63.9 |
+| Pouso Redondo | 47.1 |
+| Rio do Sul | 46.2 |
+| Trombudo Central | 38.6 |
+| Agrolandia | 37.9 |
+| Rio do Oeste | 36.8 |
+| Laurentino | 35.4 |
+| Aurora | 35.4 |
+| Salete | 30.8 |
+| Ituporanga | 30.4 |
+| Agronomica | 27.8 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 38.0, Rio do Campo 25.0, Alfredo Wagner 22.1
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 45.6, Rio do Campo 32.2, Alfredo Wagner 23.6
 
 ## Barragens (Asthon)
 
@@ -45,11 +45,11 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 38.0, Rio do Cam
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.12 m** · fallback -0.15 m
-- **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.5 m (banda 4.0–5.0) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.3 m (banda 3.9–4.8) → **Normal**
-- **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.17 m · DC-RS 3.05 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.47 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.15 m
+- **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.8 m (banda 4.3–5.3) → **Atenção**
+- **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.7 m (banda 4.2–5.2) → **Atenção**
+- **Δ pico (B − A): -0.10 m** · classe inalterada
+- nível atual: SDC 3.23 m · DC-RS 3.09 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.49 m
 
 ## ⚠ Avisos desta coleta
 
