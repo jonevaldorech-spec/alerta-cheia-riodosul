@@ -1,13 +1,13 @@
-# Cheia — Rio do Sul (SC) — 2026-09-10 07:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-10 07:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.55 m — **Normal** · tendência subindo
-- SDC-00013: 3.69 m · DC-RS Dom Tito: 3.55 m · offset medido DC-RS−SDC: -0.14 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.6 m — **Normal** · tendência subindo
+- SDC-00013: 3.73 m · DC-RS Dom Tito: 3.6 m · offset medido DC-RS−SDC: -0.13 m
 **Chuva 24h máx (drivers):** 83.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~4.7 m (banda p10–p90 4.2–5.2 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
-- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.62 m
+- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.67 m
 - chuva-jusante do ato: 38.7 mm (drivers (divergiu -19% das ancoras); soma horária desde o vale (9 h, cobertura 100%)) · chuva-acima 36.4 mm
 - cj efetiva 54 mm = cj 39 + trânsito-acima 15 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~4.6 m (cj 35 mm · Δcj_lat−cj_v07 = -3.4 mm, n_laterais=4)
@@ -45,12 +45,13 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 47.2, Rio do Cam
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.15 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.13 m** · fallback -0.15 m
 - **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.8 m (banda 4.3–5.3) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.7 m (banda 4.2–5.2) → **Atenção**
 - **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 3.69 m · DC-RS 3.55 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.49 m
+- nível atual: SDC 3.73 m · DC-RS 3.6 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.49 m
 
 ## ⚠ Avisos desta coleta
 
+- Kanitz possivelmente congelada (medida_em inalterada) — só checagem
 - Sensores TRAVADOS (descartados na fusão): 00022 (SDC-SC Rio do Oeste)
