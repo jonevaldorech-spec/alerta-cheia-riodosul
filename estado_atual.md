@@ -1,14 +1,14 @@
-# Cheia — Rio do Sul (SC) — 2026-09-10 08:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-10 08:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.65 m — **Normal** · tendência subindo
-- SDC-00013: 3.79 m · DC-RS Dom Tito: 3.65 m · offset medido DC-RS−SDC: -0.14 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.7 m — **Normal** · tendência subindo
+- SDC-00013: 3.84 m · DC-RS Dom Tito: 3.7 m · offset medido DC-RS−SDC: -0.14 m
 **Chuva 24h máx (drivers):** 83.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~4.7 m (banda p10–p90 4.2–5.2 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
-- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.72 m
-- chuva-jusante do ato: 38.7 mm (drivers (divergiu -19% das ancoras); soma horária desde o vale (10 h, cobertura 100%)) · chuva-acima 36.4 mm
+- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.77 m
+- chuva-jusante do ato: 38.7 mm (drivers (divergiu -19% das ancoras); soma horária desde o vale (10 h, cobertura 100%)) · chuva-acima 36.6 mm
 - cj efetiva 54 mm = cj 39 + trânsito-acima 15 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~4.6 m (cj 35 mm · Δcj_lat−cj_v07 = -3.4 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.2 m → Atenção (só comparação)
@@ -35,7 +35,7 @@
 | Ituporanga | 28.9 |
 | Agronomica | 27.2 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 47.2, Rio do Campo 38.1, Alfredo Wagner 23.9
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 47.2, Rio do Campo 38.6, Alfredo Wagner 23.9
 
 ## Barragens (Asthon)
 
@@ -49,9 +49,8 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 - **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.8 m (banda 4.3–5.3) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.7 m (banda 4.2–5.2) → **Atenção**
 - **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 3.79 m · DC-RS 3.65 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.49 m
+- nível atual: SDC 3.84 m · DC-RS 3.7 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 3.96 m
 
 ## ⚠ Avisos desta coleta
 
-- Kanitz possivelmente congelada (medida_em inalterada) — só checagem
 - Sensores TRAVADOS (descartados na fusão): 00022 (SDC-SC Rio do Oeste)
