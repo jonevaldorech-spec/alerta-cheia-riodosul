@@ -1,17 +1,17 @@
-# Cheia — Rio do Sul (SC) — 2026-09-10 01:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-10 02:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 2.96 m — **Normal** · tendência subindo
-- SDC-00013: 3.1 m · DC-RS Dom Tito: 2.96 m · offset medido DC-RS−SDC: -0.14 m
-**Chuva 24h máx (drivers):** 60.9 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.0 m — **Normal** · tendência subindo
+- SDC-00013: 3.13 m · DC-RS Dom Tito: 3.0 m · offset medido DC-RS−SDC: -0.13 m
+**Chuva 24h máx (drivers):** 66.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**Pico estimado (v1.0, OFICIAL):** ~4.0 m (banda p10–p90 3.5–4.5 m) → **Normal**
+**Pico estimado (v1.0, OFICIAL):** ~4.4 m (banda p10–p90 3.9–4.9 m) → **Normal**
 **Classe que dispara o alerta/e-mail: Normal**
-- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.03 m
-- chuva-jusante do ato: 21.8 mm (drivers (divergiu -25% das ancoras); soma horária desde o vale (3 h, cobertura 100%)) · chuva-acima 22.1 mm
-- cj efetiva 31 mm = cj 22 + trânsito-acima 9 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
-- sombra (cj_lat, c/ laterais): ~3.9 m (cj 20 mm · Δcj_lat−cj_v07 = -1.4 mm, n_laterais=4)
-- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~4.4 m → Normal (só comparação)
+- baseline = VALE do ato: 2.93 m em 09/09 23:09 (DC-RS) · subida até agora 0.07 m
+- chuva-jusante do ato: 30.4 mm (drivers (divergiu -21% das ancoras); soma horária desde o vale (4 h, cobertura 100%)) · chuva-acima 31.6 mm
+- cj efetiva 44 mm = cj 30 + trânsito-acima 13 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
+- sombra (cj_lat, c/ laterais): ~4.3 m (cj 28 mm · Δcj_lat−cj_v07 = -2.0 mm, n_laterais=4)
+- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~4.8 m → Atenção (só comparação)
 
 ### Barragens no ato (desde o vale)
 
@@ -19,23 +19,23 @@
 |---|---|---|---|---|---|---|
 | Sul | 0.0 → 0.0 | 0.0 | 1.00 | 5A/0F | 3.0 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (3 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (4 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
-| Taio | 45.8 |
-| Pouso Redondo | 25.0 |
-| Rio do Sul | 24.7 |
-| Rio do Oeste | 21.0 |
-| Laurentino | 20.4 |
-| Agrolandia | 19.8 |
-| Trombudo Central | 19.0 |
-| Aurora | 17.8 |
-| Ituporanga | 16.6 |
-| Salete | 15.6 |
-| Agronomica | 14.6 |
+| Taio | 58.2 |
+| Pouso Redondo | 36.4 |
+| Rio do Sul | 35.6 |
+| Rio do Oeste | 29.4 |
+| Laurentino | 28.2 |
+| Trombudo Central | 27.6 |
+| Agrolandia | 27.0 |
+| Salete | 25.4 |
+| Aurora | 24.1 |
+| Ituporanga | 21.4 |
+| Agronomica | 21.2 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 31.4, Alfredo Wagner 19.2, Rio do Campo 15.7
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 39.8, Rio do Campo 29.1, Alfredo Wagner 25.9
 
 ## Barragens (Asthon)
 
@@ -45,11 +45,11 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 31.4, Alfredo Wa
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.15 m
-- **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.1 m (banda 3.6–4.6) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
-- **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 3.1 m · DC-RS 2.96 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.31 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.13 m** · fallback -0.15 m
+- **A) SDC-00013:** baseline 3.08 m · pico v1.0 ~4.5 m (banda 4.0–5.0) → **Atenção**
+- **B) DC-RS Dom Tito:** baseline 2.93 m · pico v1.0 ~4.4 m (banda 3.9–4.9) → **Normal**
+- **Δ pico (B − A): -0.10 m** · ⚠ MUDA A CLASSE: Atenção → Normal
+- nível atual: SDC 3.13 m · DC-RS 3.0 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.4 m
 
 ## ⚠ Avisos desta coleta
 
