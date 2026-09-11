@@ -218,10 +218,11 @@ def asthon_barragens():
     linhas = []
     for b in dados:
         ab, tot = b.get("comportas_abertas"), b.get("comportas_total")
+        med_dt = _dt_local_naive(b.get("measured_at"))
         linhas.append({
             "barragem": b.get("name"),
-            "medida_em": _dt_local_naive(b.get("measured_at")).strftime("%d/%m %H:%M")
-                         if _dt_local_naive(b.get("measured_at")) else "",
+            "medida_em": med_dt.strftime("%d/%m %H:%M") if med_dt else "",
+            "medida_em_dt": med_dt,
             "percent_use": _num(b.get("percent_use"), 2),
             "vertido": b.get("vertido"),
             "comportas": f"{ab}A/{(tot or 0) - (ab or 0)}F",
@@ -230,6 +231,26 @@ def asthon_barragens():
                                 for c in b.get("comportas", []) or []),
         })
     return linhas
+
+
+BARRAGEM_FREEZE_MIN = 90   # medida_em mais velha que isto (min) = sensor congelado na fonte
+
+
+def barragens_congeladas(dams, agora):
+    """Barragens cujo `medida_em` (fonte Asthon) está mais velho que
+    BARRAGEM_FREEZE_MIN em relação a `agora` — sinal de sensor CONGELADO na origem.
+    A cadência normal é ~30 min, então >90 min parado é anômalo. Retorna lista de
+    (nome_completo, 'dd/mm HH:MM', minutos_de_atraso)."""
+    ag = agora.replace(tzinfo=None) if agora.tzinfo else agora
+    fora = []
+    for d in dams:
+        med = d.get("medida_em_dt")
+        if med is None:
+            continue
+        atraso = (ag - med).total_seconds() / 60.0
+        if atraso > BARRAGEM_FREEZE_MIN:
+            fora.append((d.get("barragem"), d.get("medida_em"), int(atraso)))
+    return fora
 
 
 def asthon_estacoes_live():
@@ -984,11 +1005,14 @@ def main():
             md += ["", "_Chuva-acima (contexto de barragem, fora do cj):_ "
                    + ", ".join(f"{k} {v:.1f}" for k, v in sorted(aci.items(), key=lambda kv: -kv[1]))]
     if dams:
+        cong = {nb for nb, _, _ in barragens_congeladas(dams, agora)}
         md += ["", "## Barragens (Asthon)", "",
-               "| Barragem | % uso | Comportas | Vertido | Montante |", "|---|---|---|---|---|"]
+               "| Barragem | % uso | Comportas | Vertido | Montante | Medida em |",
+               "|---|---|---|---|---|---|"]
         for d in dams:
+            frz = " ❄ CONGELADO" if d["barragem"] in cong else ""
             md.append(f"| {d['barragem']} | {d['percent_use']} | {d['comportas']} "
-                      f"| {d['vertido']} | {d['montante_local_m']} m |")
+                      f"| {d['vertido']} | {d['montante_local_m']} m | {d['medida_em']}{frz} |")
     # --- Fase 5: comparação de datum A(SDC) vs B(DC-RS) ---
     def _lin(e, base_):
         if not e:
@@ -1014,6 +1038,10 @@ def main():
     avisos = list(erros)
     if "indisponível" in ref["fonte"]:
         avisos.append(ref["obs"])
+    for nb, me, atr in barragens_congeladas(dams, agora):
+        avisos.append(f"{nb}: sensor possivelmente CONGELADO na fonte (Asthon) — "
+                      f"medida_em parada em {me} (~{atr} min; cadência normal ~30 min). "
+                      f"% e montante podem estar desatualizados.")
     if kz_congelado:
         avisos.append("Kanitz possivelmente congelada (medida_em inalterada) — só checagem")
     if stale:
