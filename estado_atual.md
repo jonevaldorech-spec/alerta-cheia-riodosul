@@ -1,13 +1,13 @@
-# Cheia — Rio do Sul (SC) — 2026-09-14 14:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-14 14:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.08 m — **ATENÇÃO** · tendência estável/caindo
-- SDC-00013: 5.24 m · DC-RS Dom Tito: 5.08 m · offset medido DC-RS−SDC: -0.16 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.07 m — **ATENÇÃO** · tendência estável/caindo
+- SDC-00013: 5.22 m · DC-RS Dom Tito: 5.07 m · offset medido DC-RS−SDC: -0.15 m
 **Chuva 24h máx (drivers):** 0.6 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~5.1 m (banda p10–p90 4.6–5.6 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
-- baseline = VALE do ato: 5.07 m em 14/09 13:35 (DC-RS) · subida até agora 0.01 m
+- baseline = VALE do ato: 5.07 m em 14/09 14:09 (DC-RS) · subida até agora 0.0 m
 - chuva-jusante do ato: 0.1 mm (drivers (divergiu -62% das ancoras); acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)) · chuva-acima 0.0 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 0.85) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.1 m (cj 0 mm · Δcj_lat−cj_v07 = -0.1 mm, n_laterais=4)
@@ -17,7 +17,7 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 65.1 → 64.94 | 0.0 | 0.71 | 5A/2F | 19.22 m |  |
+| Oeste | 64.94 → 64.86 | 0.0 | 0.71 | 5A/2F | 19.21 m |  |
 | Sul | 17.35 → 17.35 | 0.0 | 1.00 | 5A/0F | 18.7 m |  |
 
 ## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
@@ -42,18 +42,17 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.1, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 64.94 | 5A/2F | 0 | 19.22 m | 14/09 13:57 |
-| Barragem Sul Ituporanga | 17.35 | 5A/0F | 0 | 18.7 m | 14/09 13:57 |
+| Barragem Oeste Taió | 64.86 | 5A/2F | 0 | 19.21 m | 14/09 14:27 |
+| Barragem Sul Ituporanga | 17.35 | 5A/0F | 0 | 18.7 m | 14/09 14:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.16 m** · fallback -0.16 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.15 m** · fallback -0.16 m
 - **A) SDC-00013:** baseline 5.23 m · pico v1.0 ~5.2 m (banda 4.7–5.7) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 5.07 m · pico v1.0 ~5.1 m (banda 4.6–5.6) → **Atenção**
 - **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 5.24 m · DC-RS 5.08 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 5.1 m
+- nível atual: SDC 5.22 m · DC-RS 5.07 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 5.16 m
 
 ## ⚠ Avisos desta coleta
 
-- Kanitz possivelmente congelada (medida_em inalterada) — só checagem
 - Sensores TRAVADOS (descartados na fusão): 00022 (SDC-SC Rio do Oeste)
