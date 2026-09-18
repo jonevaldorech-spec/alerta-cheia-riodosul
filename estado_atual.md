@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-09-18 19:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-18 20:00 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.84 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.98 m · DC-RS Dom Tito: 3.84 m · offset medido DC-RS−SDC: -0.14 m
+- SDC-00013: 3.96 m · DC-RS Dom Tito: 3.84 m · offset medido DC-RS−SDC: -0.12 m
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🟢 não
 
@@ -27,16 +27,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.1, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 21.32 | 7A/0F | 0 | 12.94 m | 18/09 19:22 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 19:22 |
+| Barragem Oeste Taió | 21.09 | 7A/0F | 0 | 12.9 m | 18/09 19:52 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 19:52 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.14 m** · fallback -0.14 m
-- **A) SDC-00013:** baseline 3.98 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 3.84 m · pico v1.0 ~3.8 m (banda 3.4–4.3) → **Normal**
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.12 m** · fallback -0.14 m
+- **A) SDC-00013:** baseline 3.97 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 3.83 m · pico v1.0 ~3.8 m (banda 3.3–4.3) → **Normal**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.98 m · DC-RS 3.84 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.65 m
+- nível atual: SDC 3.96 m · DC-RS 3.84 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.65 m
 
 ## ⚠ Avisos desta coleta
 
