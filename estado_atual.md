@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-09-18 02:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-18 02:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.92 m — **Normal** · tendência estável/caindo
 - SDC-00013: 4.06 m · DC-RS Dom Tito: 3.92 m · offset medido DC-RS−SDC: -0.14 m
@@ -27,8 +27,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 0.0, Rio do Cam
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 28.89 | 7A/0F | 0 | 14.21 m | 18/09 01:52 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 01:52 |
+| Barragem Oeste Taió | 28.71 | 7A/0F | 0 | 14.18 m | 18/09 02:22 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 02:22 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
