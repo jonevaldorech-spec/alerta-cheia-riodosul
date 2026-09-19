@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-09-18 20:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-18 21:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.83 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.98 m · DC-RS Dom Tito: 3.83 m · offset medido DC-RS−SDC: -0.15 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.82 m — **Normal** · tendência estável/caindo
+- SDC-00013: 3.98 m · DC-RS Dom Tito: 3.82 m · offset medido DC-RS−SDC: -0.16 m
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🟢 não
 
@@ -21,22 +21,22 @@
 | Trombudo Central | 0.0 |
 | Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.1, Alfredo Wagner 0.0, Taio_montante 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 0.0, Rio do Campo 0.0, Taio_montante 0.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 20.93 | 7A/0F | 0 | 12.87 m | 18/09 20:22 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 20:22 |
+| Barragem Oeste Taió | 20.7 | 7A/0F | 0 | 12.83 m | 18/09 20:52 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/09 20:52 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.15 m** · fallback -0.14 m
-- **A) SDC-00013:** baseline 3.97 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 3.83 m · pico v1.0 ~3.8 m (banda 3.3–4.3) → **Normal**
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.16 m** · fallback -0.14 m
+- **A) SDC-00013:** baseline 3.96 m · pico v1.0 ~4.0 m (banda 3.5–4.5) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 3.82 m · pico v1.0 ~3.8 m (banda 3.3–4.3) → **Normal**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.98 m · DC-RS 3.83 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.65 m
+- nível atual: SDC 3.98 m · DC-RS 3.82 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.64 m
 
 ## ⚠ Avisos desta coleta
 
