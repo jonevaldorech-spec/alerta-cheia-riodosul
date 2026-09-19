@@ -1,34 +1,34 @@
-# Cheia — Rio do Sul (SC) — 2026-09-19 05:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-19 05:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.78 m — **Normal** · tendência estável/caindo
 - SDC-00013: 3.92 m · DC-RS Dom Tito: 3.78 m · offset medido DC-RS−SDC: -0.14 m
-**Chuva 24h máx (drivers):** 0.8 mm
+**Chuva 24h máx (drivers):** 1.4 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (2 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
-| Ituporanga | 0.5 |
+| Aurora | 0.4 |
+| Ituporanga | 0.3 |
+| Rio do Oeste | 0.2 |
+| Agronomica | 0.2 |
 | Taio | 0.1 |
-| Aurora | 0.1 |
 | Rio do Sul | 0.0 |
 | Salete | 0.0 |
-| Rio do Oeste | 0.0 |
 | Laurentino | 0.0 |
 | Pouso Redondo | 0.0 |
 | Agrolandia | 0.0 |
 | Trombudo Central | 0.0 |
-| Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 0.4, Alfredo Wagner 0.0, Rio do Campo 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 0.2, Alfredo Wagner 0.0, Rio do Campo 0.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 17.43 | 7A/0F | 0 | 12.23 m | 19/09 04:52 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 19/09 04:52 |
+| Barragem Oeste Taió | 17.22 | 7A/0F | 0 | 12.19 m | 19/09 05:22 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 19/09 05:22 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
