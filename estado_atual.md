@@ -1,8 +1,8 @@
-# Cheia — Rio do Sul (SC) — 2026-09-19 15:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-09-19 15:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.76 m — **Normal** · tendência subindo
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.76 m — **Normal** · tendência estável/caindo
 - SDC-00013: 3.88 m · DC-RS Dom Tito: 3.76 m · offset medido DC-RS−SDC: -0.12 m
-**Chuva 24h máx (drivers):** 14.1 mm
+**Chuva 24h máx (drivers):** 15.1 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (6 h, cobertura 100%)
@@ -10,25 +10,25 @@
 | Município | Chuva do ato (mm) |
 |---|---|
 | Rio do Sul | 9.7 |
-| Agrolandia | 9.7 |
 | Salete | 9.6 |
-| Taio | 8.1 |
-| Aurora | 7.4 |
-| Pouso Redondo | 7.4 |
-| Trombudo Central | 7.4 |
-| Ituporanga | 6.0 |
+| Agrolandia | 9.5 |
+| Taio | 7.8 |
+| Aurora | 7.7 |
+| Pouso Redondo | 7.0 |
+| Trombudo Central | 7.0 |
+| Ituporanga | 6.2 |
 | Rio do Oeste | 5.6 |
-| Agronomica | 5.2 |
-| Laurentino | 4.8 |
+| Laurentino | 5.0 |
+| Agronomica | 5.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 12.6, Taio_montante 9.4, Alfredo Wagner 6.3
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 12.5, Taio_montante 10.2, Alfredo Wagner 5.9
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 13.53 | 7A/0F | 0 | 11.45 m | 19/09 14:52 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 19/09 14:52 |
+| Barragem Oeste Taió | 13.34 | 7A/0F | 0 | 11.41 m | 19/09 15:22 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 19/09 15:22 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
@@ -40,4 +40,5 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 
 ## ⚠ Avisos desta coleta
 
+- Kanitz possivelmente congelada (medida_em inalterada) — só checagem
 - Sensores TRAVADOS (descartados na fusão): 00022 (SDC-SC Rio do Oeste)
