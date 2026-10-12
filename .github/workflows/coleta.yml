@@ -2,7 +2,13 @@ name: Coleta e alerta de cheia (Rio do Sul)
 
 # Roda na nuvem do GitHub — PC pode estar desligado.
 on:
-   workflow_dispatch:           # botão "Run workflow" para rodar na hora
+  # Agendamento NATIVO do GitHub (a cada 30 min, minutos 7 e 37 UTC — fora do
+  # pico de :00 que atrasa as filas do GitHub). Religado em 12/10/2026 porque o
+  # cron-job.org parou de disparar em 20/09 (401 no token). Se o cron-job.org
+  # voltar a funcionar, REMOVA este bloco para não duplicar coletas/e-mails.
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:           # botão "Run workflow" / disparo via API (cron-job.org)
     inputs:
       teste_email:
         description: "Enviar um e-mail de TESTE (mesmo sem evento)?"
