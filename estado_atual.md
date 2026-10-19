@@ -1,27 +1,27 @@
-# Cheia — Rio do Sul (SC) — 2026-10-18 22:03 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-10-19 03:01 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 2.6 m — **Normal** · tendência subindo
-- SDC-00013: 2.6 m · DC-RS Dom Tito: 2.6 m · offset medido DC-RS−SDC: 0.0 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 2.59 m — **Normal** · tendência estável/caindo
+- SDC-00013: 2.6 m · DC-RS Dom Tito: 2.59 m · offset medido DC-RS−SDC: -0.01 m
 **Chuva 24h máx (drivers):** 1.8 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~2.6 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.005 m/h (anterior -0.02 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~2.59 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.003 m/h (anterior 0.0 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: sem dado · Trombudo Central: sem dado · Agrolandia: sem dado · ⚠ sem confirmação de régua-líder
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 8.29 | 4A/3F | 0 | 10.27 m | 18/10 21:57 |
-| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 18/10 21:57 |
+| Barragem Oeste Taió | 7.18 | 4A/3F | 0 | 9.97 m | 19/10 02:57 |
+| Barragem Sul Ituporanga | 0.0 | 5A/0F | 0 | 4.0 m | 19/10 02:57 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **0.0 m** · fallback -0.05 m
-- **A) SDC-00013:** baseline 2.64 m · (estimador indisponível)
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.01 m** · fallback -0.045 m
+- **A) SDC-00013:** baseline 2.63 m · (estimador indisponível)
 - **B) DC-RS Dom Tito:** baseline 2.59 m · (estimador indisponível)
-- nível atual: SDC 2.6 m · DC-RS 2.6 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.42 m
+- nível atual: SDC 2.6 m · DC-RS 2.59 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.37 m
 
 ## ⚠ Avisos desta coleta
 
