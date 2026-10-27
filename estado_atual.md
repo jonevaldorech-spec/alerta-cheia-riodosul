@@ -1,27 +1,27 @@
-# Cheia — Rio do Sul (SC) — 2026-10-27 01:49 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-10-27 07:22 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.31 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.33 m · DC-RS Dom Tito: 3.31 m · offset medido DC-RS−SDC: -0.02 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.18 m — **Normal** · tendência estável/caindo
+- SDC-00013: 3.22 m · DC-RS Dom Tito: 3.18 m · offset medido DC-RS−SDC: -0.04 m
 **Chuva 24h máx (drivers):** 0.6 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.32 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.023 m/h (anterior -0.025 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.18 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.023 m/h (anterior -0.026 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: sem dado · Trombudo Central: sem dado · Agrolandia: sem dado · ⚠ sem confirmação de régua-líder
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 1.9 | 6A/1F | 0 | 7.25 m | 27/10 01:47 |
-| Barragem Sul Ituporanga | 0.0 | 4A/1F | 0 | 4.0 m | 27/10 01:47 |
+| Barragem Oeste Taió | 0.4 | 6A/1F | 0 | 4.8 m | 27/10 07:17 |
+| Barragem Sul Ituporanga | 0.0 | 4A/1F | 0 | 4.0 m | 27/10 07:17 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.02 m** · fallback -0.03 m
-- **A) SDC-00013:** baseline 3.34 m · (estimador indisponível)
-- **B) DC-RS Dom Tito:** baseline 3.31 m · (estimador indisponível)
-- nível atual: SDC 3.33 m · DC-RS 3.31 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.44 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.04 m** · fallback -0.03 m
+- **A) SDC-00013:** baseline 3.21 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 3.18 m · (estimador indisponível)
+- nível atual: SDC 3.22 m · DC-RS 3.18 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.3 m
 
 ## ⚠ Avisos desta coleta
 
