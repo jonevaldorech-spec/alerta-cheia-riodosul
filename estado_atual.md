@@ -1,42 +1,47 @@
-# Cheia — Rio do Sul (SC) — 2026-11-02 02:47 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-02 12:33 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 2.6 m — **Normal** · tendência estável/caindo
-- SDC-00013: 2.58 m · DC-RS Dom Tito: 2.6 m · offset medido DC-RS−SDC: 0.02 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 2.72 m — **Normal** · tendência subindo
+- SDC-00013: 2.73 m · DC-RS Dom Tito: 2.72 m · offset medido DC-RS−SDC: -0.01 m
 **Chuva 24h máx (drivers):** 28.0 mm
 **EVENTO ATIVO:** 🟢 não
 
-## Chuva-jusante fundida DO ATO — acumulado rolante ch72h do painel (histórico do ato insuficiente: 15 h, cobertura 20%)
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~2.72 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.012 m/h (anterior -0.028 m/h) · chuva-driver 2h 0.0 mm/h
+- réguas-líder: Pouso Redondo: sem dado · Trombudo Central: sem dado · Agrolandia: sem dado · ⚠ sem confirmação de régua-líder
+- o v1.0 vira **TETO** (~3.6 m); o número acima é o nowcast e DECIDE o alerta.
+
+## Chuva-jusante fundida DO ATO — acumulado rolante ch72h do painel (histórico do ato insuficiente: 16 h, cobertura 19%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
-| Salete | 42.4 |
-| Rio do Sul | 36.1 |
-| Laurentino | 30.4 |
-| Aurora | 29.2 |
-| Agronomica | 28.4 |
-| Trombudo Central | 24.6 |
-| Pouso Redondo | 23.8 |
-| Taio | 23.6 |
-| Rio do Oeste | 21.8 |
-| Agrolandia | 16.4 |
-| Ituporanga | 10.0 |
+| Salete | 28.2 |
+| Aurora | 25.6 |
+| Rio do Sul | 24.8 |
+| Agronomica | 24.8 |
+| Laurentino | 21.8 |
+| Pouso Redondo | 21.4 |
+| Trombudo Central | 20.8 |
+| Taio | 16.3 |
+| Rio do Oeste | 14.8 |
+| Agrolandia | 13.6 |
+| Ituporanga | 9.1 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 38.8, Rio do Campo 30.7, Alfredo Wagner 16.8
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 31.6, Rio do Campo 22.1, Alfredo Wagner 9.5
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 0.06 | 6A/1F | 0 | 3.4 m | 02/11 02:43 |
-| Barragem Sul Ituporanga | 0.0 | 4A/1F | 0 | 2.5 m | 02/11 02:43 |
+| Barragem Oeste Taió | 0.4 | 6A/1F | 0 | 4.8 m | 02/11 12:33 |
+| Barragem Sul Ituporanga | 0.0 | 4A/1F | 0 | 3.0 m | 02/11 12:33 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **0.02 m** · fallback 0.0 m
-- **A) SDC-00013:** baseline 2.59 m · pico v1.0 ~3.8 m (banda 3.3–4.3) → **Normal**
-- **B) DC-RS Dom Tito:** baseline 2.59 m · pico v1.0 ~3.8 m (banda 3.3–4.3) → **Normal**
-- **Δ pico (B − A): +0.00 m** · classe inalterada
-- nível atual: SDC 2.58 m · DC-RS 2.6 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.21 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.01 m** · fallback 0.035 m
+- **A) SDC-00013:** baseline 2.55 m · pico v1.0 ~3.5 m (banda 3.0–4.0) → **Normal**
+- **B) DC-RS Dom Tito:** baseline 2.59 m · pico v1.0 ~3.6 m (banda 3.1–4.1) → **Normal**
+- **Δ pico (B − A): +0.10 m** · classe inalterada
+- nível atual: SDC 2.73 m · DC-RS 2.72 m · Kanitz (checagem, offset→Dom Tito NÃO CALIBRADO): 2.38 m
 
 ## ⚠ Avisos desta coleta
 
