@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-05 14:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-05 14:36 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.27 m — **Normal** · tendência subindo
 - SDC-00013: 7.02 m · DC-RS Dom Tito: 3.27 m · offset medido DC-RS−SDC: -3.75 m
@@ -47,8 +47,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 112.4, Rio do C
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-3.75 m** · fallback -4.315 m
-- **A) SDC-00013:** baseline 7.43 m · pico v1.0 ~9.6 m (banda 9.1–10.1) → **Emergência**
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-3.75 m** · fallback -4.29 m
+- **A) SDC-00013:** baseline 7.4 m · pico v1.0 ~9.6 m (banda 9.1–10.1) → **Emergência**
 - **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~6.2 m (banda 5.7–6.7) → **Alerta**
 - **Δ pico (B − A): -3.40 m** · ⚠ MUDA A CLASSE: Emergência → Alerta
 - nível atual: SDC 7.02 m · DC-RS 3.27 m
