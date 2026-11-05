@@ -1,15 +1,15 @@
-# Cheia — Rio do Sul (SC) — 2026-11-05 19:48 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-05 20:00 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.27 m — **Normal** · tendência subindo
 - SDC-00013: 6.56 m · DC-RS Dom Tito: 3.27 m · offset medido DC-RS−SDC: -3.29 m
-**Chuva 24h máx (drivers):** 9.2 mm
+**Chuva 24h máx (drivers):** 8.6 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~6.3 m (banda p10–p90 5.8–6.8 m) → **Alerta**
 **Classe que dispara o alerta/e-mail: Alerta**
 - baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 0.16 m
-- chuva-jusante do ato: 42.5 mm (ancoras; soma horária desde o vale (37 h, cobertura 97%)) · chuva-acima 48.4 mm
-- cj efetiva 105 mm = cj 43 + trânsito-acima 2 (fração de comportas aberta 0.09) + pluviômetro-ΔV 61 (ΔV do ato 86.0 hm³)
+- chuva-jusante do ato: 42.5 mm (ancoras; soma horária desde o vale (38 h, cobertura 99%)) · chuva-acima 48.4 mm
+- cj efetiva 105 mm = cj 43 + trânsito-acima 2 (fração de comportas aberta 0.09) + pluviômetro-ΔV 61 (ΔV do ato 86.1 hm³)
 - sombra (cj_lat, c/ laterais): ~6.4 m (cj 45 mm · Δcj_lat−cj_v07 = 1.6 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.8 m → Alerta (só comparação)
 
@@ -17,10 +17,10 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 0.08 → 24.87 | 24.8 | 0.10 | 0A/7F | 13.55 m |  |
-| Sul | 0.0 → 58.81 | 61.2 | 0.07 | 0A/5F | 26.19 m |  |
+| Oeste | 0.08 → 24.93 | 24.8 | 0.10 | 0A/7F | 13.56 m |  |
+| Sul | 0.0 → 58.96 | 61.3 | 0.07 | 0A/5F | 26.21 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (37 h, cobertura 97%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (38 h, cobertura 99%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -42,12 +42,12 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 112.4, Rio do C
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 24.87 | 0A/7F | 0 | 13.55 m | 05/11 19:46 |
-| Barragem Sul Ituporanga | 58.81 | 0A/5F | 0 | 26.19 m | 05/11 19:46 |
+| Barragem Oeste Taió | 24.93 | 0A/7F | 0 | 13.56 m | 05/11 19:56 |
+| Barragem Sul Ituporanga | 58.96 | 0A/5F | 0 | 26.21 m | 05/11 19:56 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-3.29 m** · fallback -4.1 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-3.29 m** · fallback -4.095 m
 - **A) SDC-00013:** baseline 7.21 m · pico v1.0 ~9.5 m (banda 9.0–10.0) → **Emergência**
 - **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~6.3 m (banda 5.8–6.8) → **Alerta**
 - **Δ pico (B − A): -3.20 m** · ⚠ MUDA A CLASSE: Emergência → Alerta
