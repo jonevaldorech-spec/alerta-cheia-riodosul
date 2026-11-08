@@ -1,20 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-08 17:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-08 17:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 7.57 m — **EMERGÊNCIA** · tendência estável/caindo
 - SDC-00013: 7.81 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~7.66 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.033 m/h (anterior -0.007 m/h) · chuva-driver 2h 0.0 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~7.64 m → **EMERGÊNCIA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.04 m/h (anterior 0.013 m/h) · chuva-driver 2h 0.0 mm/h
+- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 68.61 | 0A/7F | 0 | 19.68 m | 08/11 16:56 |
-| Barragem Sul Ituporanga | 108.24 | 0A/5F | 0.82000732421875 | 31.82 m | 08/11 16:57 |
+| Barragem Oeste Taió | 68.93 | 0A/7F | 0 | 19.72 m | 08/11 17:26 |
+| Barragem Sul Ituporanga | 108.44 | 0A/5F | 0.839996337890625 | 31.84 m | 08/11 17:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
