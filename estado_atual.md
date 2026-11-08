@@ -1,20 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-08 00:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-08 00:30 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.725)):** 5.87 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 8.59 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-**Chuva 24h máx (drivers):** 102.0 mm
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.7)):** 5.87 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 8.57 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Chuva 24h máx (drivers):** 93.1 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.36 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.087 m/h (anterior 0.01 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.34 m → **EMERGÊNCIA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.047 m/h (anterior -0.046 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~10.1 m); o número acima é o nowcast e DECIDE o alerta.
 
-**Pico estimado (v1.0 (TETO — modo crista ativo)):** ~10.1 m (banda p10–p90 9.4–10.7 m) → **Emergência**
+**Pico estimado (v1.0 (TETO — modo crista ativo)):** ~10.1 m (banda p10–p90 9.4–10.8 m) → **Emergência**
 **Classe que dispara o alerta/e-mail: EMERGÊNCIA**
 - baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 2.76 m
 - chuva-jusante do ato: 141.9 mm (ancoras; soma horária desde o vale (90 h, cobertura 99%)) · chuva-acima 121.3 mm
-- cj efetiva 259 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 114 (ΔV do ato 160.2 hm³) · **VERTENDO** (+0.37 m)
+- cj efetiva 260 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 114 (ΔV do ato 161.3 hm³) · **VERTENDO** (+0.37 m)
 - sombra (cj_lat, c/ laterais): ~9.8 m (cj 127 mm · Δcj_lat−cj_v07 = -9.3 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~9.8 m → Emergência (só comparação)
 
@@ -22,8 +22,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 0.08 → 55.14 | 55.0 | 0.07 | 0A/7F | 17.96 m |  |
-| Sul | 0.0 → 101.08 | 105.2 | 0.07 | 0A/5F | 31.11 m | vertendo |
+| Oeste | 0.08 → 55.67 | 55.6 | 0.07 | 0A/7F | 18.03 m |  |
+| Sul | 0.0 → 101.58 | 105.7 | 0.07 | 0A/5F | 31.16 m | vertendo |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (90 h, cobertura 99%)
 
@@ -47,16 +47,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 179.4, Taio_mon
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 55.14 | 0A/7F | 0 | 17.96 m | 07/11 23:56 |
-| Barragem Sul Ituporanga | 101.08 | 0A/5F | 0.1099853515625 | 31.11 m | 07/11 23:57 |
+| Barragem Oeste Taió | 55.67 | 0A/7F | 0 | 18.03 m | 08/11 00:26 |
+| Barragem Sul Ituporanga | 101.58 | 0A/5F | 0.160003662109375 | 31.16 m | 08/11 00:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.725)** · offset medido DC-RS−SDC: **None m** · fallback -2.725 m
-- **A) SDC-00013:** baseline 5.83 m · pico v1.0 ~11.7 m (banda 10.9–12.3) → **Emergência**
-- **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~10.1 m (banda 9.4–10.7) → **Emergência**
+Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.7)** · offset medido DC-RS−SDC: **None m** · fallback -2.7 m
+- **A) SDC-00013:** baseline 5.81 m · pico v1.0 ~11.7 m (banda 10.9–12.3) → **Emergência**
+- **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~10.1 m (banda 9.4–10.8) → **Emergência**
 - **Δ pico (B − A): -1.60 m** · classe inalterada
-- nível atual: SDC 8.59 m · DC-RS None m
+- nível atual: SDC 8.57 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
