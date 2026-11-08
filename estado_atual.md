@@ -1,20 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-07 23:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-07 23:30 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.75)):** 5.9 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 8.65 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-**Chuva 24h máx (drivers):** 122.2 mm
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.73)):** 5.89 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 8.62 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Chuva 24h máx (drivers):** 118.0 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.41 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.074 m/h (anterior 0.049 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.39 m → **EMERGÊNCIA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.094 m/h (anterior 0.039 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~10.1 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~10.1 m (banda p10–p90 9.3–10.7 m) → **Emergência**
 **Classe que dispara o alerta/e-mail: EMERGÊNCIA**
-- baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 2.79 m
+- baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 2.78 m
 - chuva-jusante do ato: 141.9 mm (ancoras; soma horária desde o vale (89 h, cobertura 99%)) · chuva-acima 121.3 mm
-- cj efetiva 258 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 112 (ΔV do ato 158.2 hm³) · **VERTENDO** (+0.37 m)
+- cj efetiva 258 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 113 (ΔV do ato 159.2 hm³) · **VERTENDO** (+0.37 m)
 - sombra (cj_lat, c/ laterais): ~9.8 m (cj 127 mm · Δcj_lat−cj_v07 = -9.3 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~9.8 m → Emergência (só comparação)
 
@@ -22,8 +22,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 0.08 → 53.92 | 53.8 | 0.07 | 0A/7F | 17.8 m |  |
-| Sul | 0.0 → 100.38 | 104.4 | 0.07 | 0A/5F | 31.04 m | vertendo |
+| Oeste | 0.08 → 54.53 | 54.4 | 0.07 | 0A/7F | 17.88 m |  |
+| Sul | 0.0 → 100.77 | 104.8 | 0.07 | 0A/5F | 31.07 m | vertendo |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (89 h, cobertura 99%)
 
@@ -47,16 +47,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 179.4, Taio_mon
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 53.92 | 0A/7F | 0 | 17.8 m | 07/11 22:56 |
-| Barragem Sul Ituporanga | 100.38 | 0A/5F | 0.040008544921875 | 31.04 m | 07/11 22:57 |
+| Barragem Oeste Taió | 54.53 | 0A/7F | 0 | 17.88 m | 07/11 23:26 |
+| Barragem Sul Ituporanga | 100.77 | 0A/5F | 0.07000732421875 | 31.07 m | 07/11 23:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.75)** · offset medido DC-RS−SDC: **None m** · fallback -2.75 m
-- **A) SDC-00013:** baseline 5.86 m · pico v1.0 ~11.7 m (banda 10.9–12.3) → **Emergência**
+Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.73)** · offset medido DC-RS−SDC: **None m** · fallback -2.73 m
+- **A) SDC-00013:** baseline 5.84 m · pico v1.0 ~11.7 m (banda 10.9–12.3) → **Emergência**
 - **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~10.1 m (banda 9.3–10.7) → **Emergência**
 - **Δ pico (B − A): -1.60 m** · classe inalterada
-- nível atual: SDC 8.65 m · DC-RS None m
+- nível atual: SDC 8.62 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
