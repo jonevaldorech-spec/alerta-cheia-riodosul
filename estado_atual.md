@@ -1,20 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-07 22:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-07 22:30 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.785)):** 5.9 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 8.69 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-**Chuva 24h máx (drivers):** 125.8 mm
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-2.77)):** 5.89 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 8.66 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Chuva 24h máx (drivers):** 124.9 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.55 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.01 m/h (anterior 0.089 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~8.43 m → **EMERGÊNCIA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.047 m/h (anterior 0.059 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~9.7 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~9.7 m (banda p10–p90 9.2–10.2 m) → **Emergência**
 **Classe que dispara o alerta/e-mail: EMERGÊNCIA**
-- baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 2.79 m
+- baseline = VALE do ato: 3.11 m em 04/11 05:33 (DC-RS) · subida até agora 2.78 m
 - chuva-jusante do ato: 141.9 mm (ancoras; soma horária desde o vale (88 h, cobertura 99%)) · chuva-acima 121.3 mm
-- cj efetiva 256 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 111 (ΔV do ato 155.9 hm³)
+- cj efetiva 257 mm = cj 142 + trânsito-acima 4 (fração de comportas aberta 0.07) + pluviômetro-ΔV 111 (ΔV do ato 156.8 hm³)
 - sombra (cj_lat, c/ laterais): ~9.4 m (cj 127 mm · Δcj_lat−cj_v07 = -9.3 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~9.6 m → Emergência (só comparação)
 
@@ -22,8 +22,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 0.08 → 52.71 | 52.6 | 0.07 | 0A/7F | 17.64 m |  |
-| Sul | 0.0 → 99.32 | 103.3 | 0.07 | 0A/5F | 30.93 m |  |
+| Oeste | 0.08 → 53.32 | 53.2 | 0.07 | 0A/7F | 17.72 m |  |
+| Sul | 0.0 → 99.61 | 103.6 | 0.07 | 0A/5F | 30.96 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (88 h, cobertura 99%)
 
@@ -47,16 +47,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 179.4, Taio_mon
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 52.71 | 0A/7F | 0 | 17.64 m | 07/11 21:56 |
-| Barragem Sul Ituporanga | 99.32 | 0A/5F | 0 | 30.93 m | 07/11 21:57 |
+| Barragem Oeste Taió | 53.32 | 0A/7F | 0 | 17.72 m | 07/11 22:26 |
+| Barragem Sul Ituporanga | 99.61 | 0A/5F | 0 | 30.96 m | 07/11 22:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.785)** · offset medido DC-RS−SDC: **None m** · fallback -2.785 m
-- **A) SDC-00013:** baseline 5.89 m · pico v1.0 ~11.3 m (banda 10.8–11.8) → **Emergência**
+Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-2.77)** · offset medido DC-RS−SDC: **None m** · fallback -2.77 m
+- **A) SDC-00013:** baseline 5.88 m · pico v1.0 ~11.3 m (banda 10.8–11.8) → **Emergência**
 - **B) DC-RS Dom Tito:** baseline 3.11 m · pico v1.0 ~9.7 m (banda 9.2–10.2) → **Emergência**
 - **Δ pico (B − A): -1.60 m** · classe inalterada
-- nível atual: SDC 8.69 m · DC-RS None m
+- nível atual: SDC 8.66 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
