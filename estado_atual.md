@@ -1,27 +1,27 @@
-# Cheia — Rio do Sul (SC) — 2026-11-09 02:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-09 02:30 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 7.34 m — **EMERGÊNCIA** · tendência estável/caindo
-- SDC-00013: 7.58 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 7.32 m — **EMERGÊNCIA** · tendência estável/caindo
+- SDC-00013: 7.56 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~7.34 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.03 m/h (anterior -0.023 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~7.32 m → **EMERGÊNCIA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.03 m/h (anterior -0.026 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 72.99 | 0A/7F | 0 | 20.21 m | 09/11 01:56 |
-| Barragem Sul Ituporanga | 109.05 | 0A/5F | 0.899993896484375 | 31.9 m | 09/11 01:57 |
+| Barragem Oeste Taió | 73.16 | 0A/7F | 0 | 20.23 m | 09/11 02:26 |
+| Barragem Sul Ituporanga | 109.05 | 0A/5F | 0.899993896484375 | 31.9 m | 09/11 02:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-0.24)** · offset medido DC-RS−SDC: **None m** · fallback -0.24 m
-- **A) SDC-00013:** baseline 7.57 m · (estimador indisponível)
-- **B) DC-RS Dom Tito:** baseline 7.33 m · (estimador indisponível)
-- nível atual: SDC 7.58 m · DC-RS None m
+- **A) SDC-00013:** baseline 7.55 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 7.31 m · (estimador indisponível)
+- nível atual: SDC 7.56 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
