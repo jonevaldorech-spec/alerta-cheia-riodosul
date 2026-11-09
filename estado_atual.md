@@ -1,64 +1,26 @@
-# Cheia — Rio do Sul (SC) — 2026-11-09 13:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-09 14:00 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 6.97 m — **EMERGÊNCIA** · tendência estável/caindo
-- SDC-00013: 7.21 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-**Chuva 24h máx (drivers):** 0.1 mm
-**EVENTO ATIVO:** 🔴 SIM
-
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~6.97 m → **EMERGÊNCIA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.046 m/h (anterior -0.033 m/h) · chuva-driver 2h 0.0 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
-- o v1.0 vira **TETO** (~7.3 m); o número acima é o nowcast e DECIDE o alerta.
-
-**Pico estimado (v1.0 (TETO — modo crista ativo)):** ~7.3 m (banda p10–p90 6.6–8.0 m) → **Emergência**
-**Classe que dispara o alerta/e-mail: EMERGÊNCIA**
-- baseline = VALE do ato: 6.96 m em 09/11 13:24 (DC-RS) · subida até agora 0.01 m
-- chuva-jusante do ato: 0.0 mm (drivers (divergiu -73% das ancoras); acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)) · chuva-acima 0.0 mm
-- cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 0.00) + pluviômetro-ΔV 0 (ΔV do ato 0.1 hm³) · **VERTENDO** (+0.37 m)
-- sombra (cj_lat, c/ laterais): ~7.3 m (cj 0 mm · Δcj_lat−cj_v07 = 0.0 mm, n_laterais=4)
-- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~7.2 m → Emergência (só comparação)
-
-### Barragens no ato (desde o vale)
-
-| Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
-|---|---|---|---|---|---|---|
-| Oeste | 76.74 → 76.82 | 0.1 | 0.00 | 0A/7F | 20.67 m |  |
-| Sul | 108.95 → 108.95 | 0.0 | 0.00 | 0A/5F | 31.89 m | vertendo |
-
-## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
-
-| Município | Chuva do ato (mm) |
-|---|---|
-| Rio do Sul | 0.1 |
-| Ituporanga | 0.0 |
-| Taio | 0.0 |
-| Aurora | 0.0 |
-| Salete | 0.0 |
-| Rio do Oeste | 0.0 |
-| Laurentino | 0.0 |
-| Pouso Redondo | 0.0 |
-| Agrolandia | 0.0 |
-| Trombudo Central | 0.0 |
-| Agronomica | 0.0 |
-
-_Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 0.0, Rio do Campo 0.0, Taio_montante 0.0
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** None m — **?** · tendência estável/caindo
+- SDC-00013: None m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Chuva 24h máx (drivers):** 0 mm
+**EVENTO ATIVO:** 🟢 não
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 76.82 | 0A/7F | 0 | 20.67 m | 09/11 13:26 |
-| Barragem Sul Ituporanga | 108.95 | 0A/5F | 0.8900146484375 | 31.89 m | 09/11 13:26 |
+| Barragem Oeste Taió | 76.91 | 0A/7F | 0 | 20.68 m | 09/11 13:36 |
+| Barragem Sul Ituporanga | 108.95 | 0A/5F | 0.8900146484375 | 31.89 m | 09/11 13:36 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-0.24)** · offset medido DC-RS−SDC: **None m** · fallback -0.24 m
-- **A) SDC-00013:** baseline 7.2 m · pico v1.0 ~7.6 m (banda 6.8–8.2) → **Emergência**
-- **B) DC-RS Dom Tito:** baseline 6.96 m · pico v1.0 ~7.3 m (banda 6.6–8.0) → **Emergência**
-- **Δ pico (B − A): -0.30 m** · classe inalterada
-- nível atual: SDC 7.21 m · DC-RS None m
+- **A) SDC-00013:** baseline 7.16 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 6.92 m · (estimador indisponível)
+- nível atual: SDC None m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
+- estado(Qualle): HTTP Error 502: Bad Gateway
+- histórico SDC: HTTP Error 502: Bad Gateway
 - DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-- Sensores TRAVADOS (descartados na fusão): 00022 ()
