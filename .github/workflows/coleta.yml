@@ -55,9 +55,15 @@ jobs:
           fi
 
       # --- ALERTA POR E-MAIL (só em evento) ---------------------------------
+      # LIGA/DESLIGA: variável do repositório ALERTA_EMAIL (Settings > Secrets and
+      # variables > Actions > Variables). "off" = NÃO envia alerta de evento (a
+      # coleta continua normalmente). Qualquer outro valor ou variável ausente =
+      # envia. Desligado a pedido do usuário em 10/11/2026.
+      # Para retomar:  gh variable set ALERTA_EMAIL --body on
+      # O e-mail de TESTE manual (teste_email) funciona mesmo com "off".
       # Opção A: e-mail direto via Gmail (se você cadastrar os secrets — ver README)
       - name: E-mail de alerta (Gmail SMTP)
-        if: ${{ (steps.coleta.outputs.evento == 'SIM' || github.event.inputs.teste_email == 'true') && env.HAS_MAIL == 'true' }}
+        if: ${{ ((steps.coleta.outputs.evento == 'SIM' && vars.ALERTA_EMAIL != 'off') || github.event.inputs.teste_email == 'true') && env.HAS_MAIL == 'true' }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -73,7 +79,7 @@ jobs:
 
       # Opção B: sem SMTP configurado -> abre/atualiza issue (GitHub te manda e-mail)
       - name: Alerta via Issue (fallback sem SMTP)
-        if: steps.coleta.outputs.evento == 'SIM' && env.HAS_MAIL != 'true'
+        if: steps.coleta.outputs.evento == 'SIM' && vars.ALERTA_EMAIL != 'off' && env.HAS_MAIL != 'true'
         uses: actions/github-script@v7
         with:
           script: |
