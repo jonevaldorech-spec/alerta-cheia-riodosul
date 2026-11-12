@@ -1,17 +1,12 @@
-# Cheia — Rio do Sul (SC) — 2026-11-12 13:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-12 13:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.63 m — **ALERTA** · tendência estável/caindo
 - SDC-00013: 5.87 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 1.0 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.63 m → **ALERTA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.001 m/h (anterior 0.004 m/h) · chuva-driver 2h 0.0 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
-- o v1.0 vira **TETO** (~5.4 m); o número acima é o nowcast e DECIDE o alerta.
-
-**Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.4 m (banda p10–p90 4.9–5.9 m) → **Atenção**
-**Classe que dispara o alerta/e-mail: ALERTA**
+**Pico estimado (v1.0, OFICIAL):** ~5.4 m (banda p10–p90 4.9–5.9 m) → **Atenção**
+**Classe que dispara o alerta/e-mail: Atenção**
 - baseline = VALE do ato: 5.39 m em 11/11 14:32 (DC-RS) · subida até agora 0.24 m
 - chuva-jusante do ato: 0.1 mm (drivers (divergiu +18% das ancoras); soma horária desde o vale (23 h, cobertura 100%)) · chuva-acima 0.1 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
@@ -22,8 +17,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 72.57 → 61.6 | 0.0 | 1.00 | 7A/0F | 18.8 m |  |
-| Sul | 93.25 → 78.72 | 0.0 | 1.00 | 5A/0F | 28.69 m |  |
+| Oeste | 72.57 → 61.28 | 0.0 | 1.00 | 7A/0F | 18.76 m |  |
+| Sul | 93.25 → 78.38 | 0.0 | 1.00 | 5A/0F | 28.66 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (23 h, cobertura 100%)
 
@@ -47,8 +42,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 0.2, Alfredo Wag
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 61.6 | 7A/0F | 0 | 18.8 m | 12/11 12:56 |
-| Barragem Sul Ituporanga | 78.72 | 5A/0F | 0 | 28.69 m | 12/11 12:57 |
+| Barragem Oeste Taió | 61.28 | 7A/0F | 0 | 18.76 m | 12/11 13:26 |
+| Barragem Sul Ituporanga | 78.38 | 5A/0F | 0 | 28.66 m | 12/11 13:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
