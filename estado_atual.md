@@ -1,14 +1,14 @@
-# Cheia — Rio do Sul (SC) — 2026-11-12 09:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-12 10:00 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.62 m — **ALERTA** · tendência estável/caindo
 - SDC-00013: 5.86 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
-**Chuva 24h máx (drivers):** 1.6 mm
+**Chuva 24h máx (drivers):** 1.4 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~5.4 m (banda p10–p90 4.9–5.9 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
 - baseline = VALE do ato: 5.39 m em 11/11 14:32 (DC-RS) · subida até agora 0.23 m
-- chuva-jusante do ato: 0.1 mm (drivers (divergiu +18% das ancoras); soma horária desde o vale (19 h, cobertura 100%)) · chuva-acima 0.1 mm
+- chuva-jusante do ato: 0.1 mm (drivers (divergiu +18% das ancoras); soma horária desde o vale (20 h, cobertura 100%)) · chuva-acima 0.1 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 1.00) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.4 m (cj 0 mm · Δcj_lat−cj_v07 = 0.0 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.7 m → Alerta (só comparação)
@@ -17,10 +17,10 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 72.57 → 63.35 | 0.0 | 1.00 | 7A/0F | 19.02 m |  |
-| Sul | 93.25 → 81.0 | 0.0 | 1.00 | 5A/0F | 28.95 m |  |
+| Oeste | 72.57 → 63.11 | 0.0 | 1.00 | 7A/0F | 18.99 m |  |
+| Sul | 93.25 → 80.82 | 0.0 | 1.00 | 5A/0F | 28.92 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (19 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (20 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -42,8 +42,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 0.2, Alfredo Wag
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 63.35 | 7A/0F | 0 | 19.02 m | 12/11 09:27 |
-| Barragem Sul Ituporanga | 81.0 | 5A/0F | 0 | 28.95 m | 12/11 09:26 |
+| Barragem Oeste Taió | 63.11 | 7A/0F | 0 | 18.99 m | 12/11 09:57 |
+| Barragem Sul Ituporanga | 80.82 | 5A/0F | 0 | 28.92 m | 12/11 09:56 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
