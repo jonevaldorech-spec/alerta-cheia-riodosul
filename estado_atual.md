@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-11-13 20:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-13 21:00 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.53 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 5.77 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.52 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 5.76 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -12,8 +12,8 @@
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.6 m (banda p10–p90 5.1–6.1 m) → **Alerta**
 **Classe que dispara o alerta/e-mail: ALERTA**
-- baseline = VALE do ato: 5.39 m em 11/11 14:32 (DC-RS) · subida até agora 0.14 m
-- chuva-jusante do ato: 7.2 mm (drivers (divergiu -40% das ancoras); soma horária desde o vale (54 h, cobertura 100%)) · chuva-acima 0.8 mm
+- baseline = VALE do ato: 5.39 m em 11/11 14:32 (DC-RS) · subida até agora 0.13 m
+- chuva-jusante do ato: 7.2 mm (drivers (divergiu -40% das ancoras); soma horária desde o vale (55 h, cobertura 100%)) · chuva-acima 0.8 mm
 - cj efetiva 8 mm = cj 7 + trânsito-acima 0 (fração de comportas aberta 0.98) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.6 m (cj 6 mm · Δcj_lat−cj_v07 = -1.7 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.9 m → Alerta (só comparação)
@@ -22,10 +22,10 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 72.57 → 46.25 | 0.0 | 0.99 | 7A/1F | 16.76 m |  |
-| Sul | 93.25 → 58.29 | 0.0 | 0.98 | 5A/1F | 26.11 m |  |
+| Oeste | 72.57 → 46.1 | 0.0 | 0.99 | 7A/1F | 16.74 m |  |
+| Sul | 93.25 → 57.84 | 0.0 | 0.98 | 5A/1F | 26.06 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (54 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (55 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -47,8 +47,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Alfredo Wagner 2.2, Taio_monta
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 46.25 | 7A/1F | 0 | 16.76 m | 13/11 20:26 |
-| Barragem Sul Ituporanga | 58.29 | 5A/1F | 0 | 26.11 m | 13/11 20:26 |
+| Barragem Oeste Taió | 46.1 | 7A/1F | 0 | 16.74 m | 13/11 20:56 |
+| Barragem Sul Ituporanga | 57.84 | 5A/1F | 0 | 26.06 m | 13/11 20:56 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
@@ -56,7 +56,7 @@ Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-0.24)** · offset med
 - **A) SDC-00013:** baseline 5.63 m · pico v1.0 ~5.8 m (banda 5.3–6.3) → **Alerta**
 - **B) DC-RS Dom Tito:** baseline 5.39 m · pico v1.0 ~5.6 m (banda 5.1–6.1) → **Alerta**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 5.77 m · DC-RS None m
+- nível atual: SDC 5.76 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
