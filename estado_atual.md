@@ -1,16 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-14 18:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-14 18:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.3 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.54 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0 mm
 **EVENTO ATIVO:** 🔴 SIM
 
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.32 m → **ATENÇÃO** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.015 m/h (anterior -0.01 m/h) · chuva-driver 2h 0.0 mm/h
+- réguas-líder: Pouso Redondo: virou · Trombudo Central: subindo · Agrolandia: virou
+
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 36.07 | 8A/0F | 0 | 15.31 m | 14/11 17:56 |
-| Barragem Sul Ituporanga | 44.16 | 5A/1F | 0 | 24.05 m | 14/11 17:57 |
+| Barragem Oeste Taió | 35.66 | 8A/0F | 0 | 15.25 m | 14/11 18:26 |
+| Barragem Sul Ituporanga | 43.79 | 5A/1F | 0 | 23.99 m | 14/11 18:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
