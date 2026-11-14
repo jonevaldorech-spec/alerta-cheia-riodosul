@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-11-14 06:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-14 07:00 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.46 m — **ATENÇÃO** · tendência estável/caindo
-- SDC-00013: 5.7 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.44 m — **ATENÇÃO** · tendência estável/caindo
+- SDC-00013: 5.68 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0.2 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -9,15 +9,15 @@
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 41.63 | 7A/1F | 0 | 16.12 m | 14/11 06:26 |
-| Barragem Sul Ituporanga | 51.55 | 5A/1F | 0 | 25.17 m | 14/11 06:27 |
+| Barragem Oeste Taió | 41.49 | 7A/1F | 0 | 16.1 m | 14/11 06:56 |
+| Barragem Sul Ituporanga | 51.27 | 5A/1F | 0 | 25.13 m | 14/11 06:57 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-0.24)** · offset medido DC-RS−SDC: **None m** · fallback -0.24 m
 - **A) SDC-00013:** baseline 5.69 m · (estimador indisponível)
 - **B) DC-RS Dom Tito:** baseline 5.45 m · (estimador indisponível)
-- nível atual: SDC 5.7 m · DC-RS None m
+- nível atual: SDC 5.68 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
