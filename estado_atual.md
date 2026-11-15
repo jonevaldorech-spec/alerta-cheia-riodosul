@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-15 12:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-15 12:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.17 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.41 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
@@ -9,8 +9,8 @@
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 26.33 | 8A/0F | 0 | 13.79 m | 15/11 11:56 |
-| Barragem Sul Ituporanga | 32.65 | 5A/1F | 0 | 22.07 m | 15/11 11:57 |
+| Barragem Oeste Taió | 26.09 | 8A/0F | 0 | 13.75 m | 15/11 12:26 |
+| Barragem Sul Ituporanga | 32.23 | 5A/1F | 0 | 21.99 m | 15/11 12:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
