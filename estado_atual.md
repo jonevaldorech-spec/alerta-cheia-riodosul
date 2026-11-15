@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-15 04:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-15 04:03 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.22 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.46 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
@@ -13,7 +13,7 @@
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.3 m (banda p10–p90 4.8–5.8 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: ATENÇÃO**
 - baseline = VALE do ato: 5.23 m em 15/11 02:43 (DC-RS) · subida até agora -0.01 m
-- chuva-jusante do ato: 0.6 mm (drivers (divergiu -42% das ancoras); soma horária desde o vale (2 h, cobertura 100%)) · chuva-acima 2.2 mm
+- chuva-jusante do ato: 0.6 mm (drivers (divergiu -42% das ancoras); soma horária desde o vale (3 h, cobertura 100%)) · chuva-acima 2.2 mm
 - cj efetiva 1 mm = cj 1 + trânsito-acima 1 (fração de comportas aberta 0.92) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.3 m (cj 0 mm · Δcj_lat−cj_v07 = -0.2 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.5 m → Alerta (só comparação)
@@ -25,7 +25,7 @@
 | Oeste | 31.21 → 30.43 | 0.0 | 1.00 | 8A/0F | 14.45 m |  |
 | Sul | 38.67 → 37.64 | 0.0 | 0.83 | 5A/1F | 22.97 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (2 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (3 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
