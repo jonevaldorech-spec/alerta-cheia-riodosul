@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-15 06:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-15 06:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.21 m — **ATENÇÃO** · tendência estável/caindo
 - SDC-00013: 5.45 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
@@ -17,8 +17,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 29.66 → 29.4 | 0.0 | 1.00 | 8A/0F | 14.29 m |  |
-| Sul | 36.73 → 36.39 | 0.0 | 0.83 | 5A/1F | 22.74 m |  |
+| Oeste | 29.66 → 29.14 | 0.0 | 1.00 | 8A/0F | 14.25 m |  |
+| Sul | 36.73 → 36.04 | 0.0 | 0.83 | 5A/1F | 22.68 m |  |
 
 ## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
 
@@ -42,8 +42,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 4.2, Alfredo Wag
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 29.4 | 8A/0F | 0 | 14.29 m | 15/11 05:56 |
-| Barragem Sul Ituporanga | 36.39 | 5A/1F | 0 | 22.74 m | 15/11 05:57 |
+| Barragem Oeste Taió | 29.14 | 8A/0F | 0 | 14.25 m | 15/11 06:26 |
+| Barragem Sul Ituporanga | 36.04 | 5A/1F | 0 | 22.68 m | 15/11 06:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
