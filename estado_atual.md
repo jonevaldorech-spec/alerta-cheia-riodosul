@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-16 12:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-16 12:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.58 m — **ALERTA** · tendência estável/caindo
 - SDC-00013: 5.82 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
@@ -6,8 +6,8 @@
 **EVENTO ATIVO:** 🔴 SIM
 
 **🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.58 m → **ALERTA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.046 m/h (anterior -0.02 m/h) · chuva-driver 2h 0.1 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.036 m/h (anterior -0.016 m/h) · chuva-driver 2h 0.1 mm/h
+- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
 - o v1.0 vira **TETO** (~5.8 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.8 m (banda p10–p90 5.3–6.3 m) → **Alerta**
@@ -22,7 +22,7 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 24.75 → 18.59 | 0.0 | 1.00 | 8A/0F | 12.45 m |  |
+| Oeste | 24.75 → 18.48 | 0.0 | 1.00 | 8A/0F | 12.43 m |  |
 | Sul | 30.23 → 19.03 | 0.0 | 0.96 | 6A/0F | 19.13 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (21 h, cobertura 100%)
@@ -47,8 +47,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 19.1, Taio_montan
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 18.59 | 8A/0F | 0 | 12.45 m | 16/11 11:56 |
-| Barragem Sul Ituporanga | 19.03 | 6A/0F | 0 | 19.13 m | 16/11 11:57 |
+| Barragem Oeste Taió | 18.48 | 8A/0F | 0 | 12.43 m | 16/11 12:26 |
+| Barragem Sul Ituporanga | 19.03 | 6A/0F | 0 | 19.13 m | 16/11 12:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
