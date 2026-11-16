@@ -1,13 +1,13 @@
-# Cheia — Rio do Sul (SC) — 2026-11-16 08:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-16 08:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.58 m — **ALERTA** · tendência estável/caindo
 - SDC-00013: 5.82 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 42.8 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.61 m → **ALERTA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.049 m/h (anterior 0.026 m/h) · chuva-driver 2h 0.2 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.58 m → **ALERTA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.064 m/h (anterior 0.016 m/h) · chuva-driver 2h 0.2 mm/h
+- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
 - o v1.0 vira **TETO** (~5.8 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.8 m (banda p10–p90 5.3–6.3 m) → **Alerta**
@@ -22,8 +22,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 24.75 → 20.02 | 0.0 | 1.00 | 8A/0F | 12.71 m |  |
-| Sul | 30.23 → 18.99 | 0.0 | 0.95 | 6A/0F | 19.13 m |  |
+| Oeste | 24.75 → 19.85 | 0.0 | 1.00 | 8A/0F | 12.68 m |  |
+| Sul | 30.23 → 18.74 | 0.0 | 0.95 | 6A/0F | 19.04 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (17 h, cobertura 100%)
 
@@ -35,20 +35,20 @@
 | Aurora | 20.5 |
 | Agrolandia | 17.8 |
 | Agronomica | 17.2 |
-| Ituporanga | 15.9 |
+| Ituporanga | 15.8 |
 | Rio do Oeste | 10.2 |
 | Salete | 9.4 |
 | Laurentino | 9.4 |
 | Trombudo Central | 7.7 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 19.2, Taio_montante 13.0, Alfredo Wagner 1.4
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 19.1, Taio_montante 13.2, Alfredo Wagner 1.4
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 20.02 | 8A/0F | 0 | 12.71 m | 16/11 07:56 |
-| Barragem Sul Ituporanga | 18.99 | 6A/0F | 0 | 19.13 m | 16/11 07:57 |
+| Barragem Oeste Taió | 19.85 | 8A/0F | 0 | 12.68 m | 16/11 08:26 |
+| Barragem Sul Ituporanga | 18.74 | 6A/0F | 0 | 19.04 m | 16/11 08:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
