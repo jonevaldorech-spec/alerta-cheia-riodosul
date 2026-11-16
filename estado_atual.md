@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-15 23:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-15 23:30 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.56 m — **ALERTA** · tendência estável/caindo
 - SDC-00013: 5.8 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
@@ -9,7 +9,7 @@
 **Classe que dispara o alerta/e-mail: Alerta**
 - baseline = VALE do ato: 5.16 m em 15/11 15:45 (DC-RS) · subida até agora 0.4 m
 - chuva-jusante do ato: 18.3 mm (drivers (divergiu -37% das ancoras); soma horária desde o vale (8 h, cobertura 100%)) · chuva-acima 11.1 mm
-- cj efetiva 23 mm = cj 18 + trânsito-acima 4 (fração de comportas aberta 0.94) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
+- cj efetiva 23 mm = cj 18 + trânsito-acima 4 (fração de comportas aberta 0.95) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.7 m (cj 16 mm · Δcj_lat−cj_v07 = -2.2 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~6.2 m → Alerta (só comparação)
 
@@ -17,8 +17,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 24.75 → 22.67 | 0.0 | 1.00 | 8A/0F | 13.18 m |  |
-| Sul | 30.23 → 25.4 | 0.0 | 0.88 | 6A/0F | 20.62 m |  |
+| Oeste | 24.75 → 22.56 | 0.0 | 1.00 | 8A/0F | 13.16 m |  |
+| Sul | 30.23 → 24.95 | 0.0 | 0.89 | 6A/0F | 20.53 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (8 h, cobertura 100%)
 
@@ -42,8 +42,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 19.0, Taio_montan
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 22.67 | 8A/0F | 0 | 13.18 m | 15/11 22:56 |
-| Barragem Sul Ituporanga | 25.4 | 6A/0F | 0 | 20.62 m | 15/11 22:57 |
+| Barragem Oeste Taió | 22.56 | 8A/0F | 0 | 13.16 m | 15/11 23:26 |
+| Barragem Sul Ituporanga | 24.95 | 6A/0F | 0 | 20.53 m | 15/11 23:27 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
