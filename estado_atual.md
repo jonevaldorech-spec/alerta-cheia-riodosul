@@ -1,27 +1,27 @@
-# Cheia — Rio do Sul (SC) — 2026-11-16 20:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-16 21:00 (local −03)
 
-**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.53 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 5.77 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
+**Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** 5.52 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 5.76 m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.56 m → **ALERTA** · crista em ~0 h
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.039 m/h (anterior 0.067 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.56 m → **ALERTA** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.019 m/h (anterior 0.077 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 15.57 | 8A/0F | 0 | 11.87 m | 16/11 20:26 |
-| Barragem Sul Ituporanga | 13.17 | 6A/0F | 0 | 17.5 m | 16/11 20:27 |
+| Barragem Oeste Taió | 15.42 | 8A/0F | 0 | 11.84 m | 16/11 20:56 |
+| Barragem Sul Ituporanga | 13.17 | 6A/0F | 0 | 17.5 m | 16/11 20:57 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
 Referência ATIVA: **SDC+offset (DC-RS indisponível, off=-0.24)** · offset medido DC-RS−SDC: **None m** · fallback -0.24 m
 - **A) SDC-00013:** baseline 5.58 m · (estimador indisponível)
 - **B) DC-RS Dom Tito:** baseline 5.34 m · (estimador indisponível)
-- nível atual: SDC 5.77 m · DC-RS None m
+- nível atual: SDC 5.76 m · DC-RS None m
 
 ## ⚠ Avisos desta coleta
 
