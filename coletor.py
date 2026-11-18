@@ -150,14 +150,30 @@ def _num(x, c=None):
 
 
 def _dt_local_naive(ts_iso):
-    """timestamp UTC do estado -> datetime NAIVE em horário local (-03)."""
+    """timestamp do estado/Asthon -> datetime NAIVE em horário local (-03).
+    Com fuso (Z/+00:00) converte para local; SEM fuso já é horário local (o
+    Tags_data do estado passou a vir assim em 17/11/2026) e é mantido como está —
+    antes ele era convertido pelo fuso da máquina (UTC no GitHub → 3 h de atraso)."""
     if not ts_iso:
         return None
     t = ts_iso.strip().replace(" ", "T").replace("Z", "+00:00")
     try:
-        return datetime.fromisoformat(t).astimezone(LOCAL).replace(tzinfo=None)
+        dt = datetime.fromisoformat(t)
     except ValueError:
         return None
+    if dt.tzinfo is None:
+        return dt
+    return dt.astimezone(LOCAL).replace(tzinfo=None)
+
+
+def _niv_hist(item):
+    """Nível de um item do Historic. Em 17/11/2026 o campo 'rio_nivel' virou
+    'rio_nivel_arbitrario' — aceita os dois."""
+    for k in ("rio_nivel", "rio_nivel_arbitrario"):
+        v = item.get(k)
+        if isinstance(v, (int, float)):
+            return float(v)
+    return None
 
 
 # 17/11/2026: o servidor estadual passou a aceitar SÓ as consultas do guia da API
@@ -767,14 +783,13 @@ def baseline_rds(horas=48):
     """Baseline pré-evento = MÍNIMO do nível de Rio do Sul nas últimas `horas`."""
     fim = datetime.now(timezone.utc)
     ini = fim - timedelta(hours=horas)
-    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    iso = lambda t: t.astimezone(LOCAL).strftime("%Y-%m-%dT%H:%M:%S.000-03:00")   # 17/11/2026: Historic só aceita horário local com offset (formato do site); "Z" dá vazio/502
     d = _post(GQL, {"operationName": "Historic", "query": _HIST_Q,
                     "variables": {"stationCode": "DCSC-00013",
                                   "startDate": iso(ini), "endDate": iso(fim),
                                   "interval": "HOUR_1"}})
     itens = ((d.get("data") or {}).get("historic") or {}).get("items", []) or []
-    niveis = [i.get("rio_nivel") for i in itens
-              if isinstance(i.get("rio_nivel"), (int, float))]
+    niveis = [_niv_hist(i) for i in itens if _niv_hist(i) is not None]
     return round(min(niveis), 2) if niveis else None
 
 
@@ -1035,7 +1050,7 @@ def historico_sdc(horas=VALE_MAX_H):
     """[(dt_local_naive, nivel)] do DCSC-00013 (Historic HOUR_1) nas últimas `horas`."""
     fim = datetime.now(timezone.utc)
     ini = fim - timedelta(hours=horas)
-    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    iso = lambda t: t.astimezone(LOCAL).strftime("%Y-%m-%dT%H:%M:%S.000-03:00")   # 17/11/2026: Historic só aceita horário local com offset (formato do site); "Z" dá vazio/502
     d = _post(GQL, {"operationName": "Historic", "query": _HIST_Q,
                     "variables": {"stationCode": "DCSC-00013",
                                   "startDate": iso(ini), "endDate": iso(fim),
@@ -1043,7 +1058,7 @@ def historico_sdc(horas=VALE_MAX_H):
     itens = ((d.get("data") or {}).get("historic") or {}).get("items", []) or []
     out = []
     for i in itens:
-        v = i.get("rio_nivel")
+        v = _niv_hist(i)
         t = i.get("timestamp") or i.get("data") or i.get("date")
         if not isinstance(v, (int, float)):
             continue
