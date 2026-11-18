@@ -1,42 +1,43 @@
-# Cheia — Rio do Sul (SC) — 2026-11-18 16:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-18 16:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.14 m — **Normal** · tendência subindo
-- SDC-00013: 3.59 m · DC-RS Dom Tito: 3.14 m · offset medido DC-RS−SDC: -0.45 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.16 m — **Normal** · tendência subindo
+- SDC-00013: 3.57 m · DC-RS Dom Tito: 3.16 m · offset medido DC-RS−SDC: -0.41 m
 **Chuva 24h máx (drivers):** 8.6 mm
 **EVENTO ATIVO:** 🟢 não
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (2 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (3 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
 | Taio | 4.6 |
-| Rio do Oeste | 0.4 |
-| Agronomica | 0.4 |
+| Rio do Oeste | 1.0 |
+| Agronomica | 0.8 |
 | Rio do Sul | 0.0 |
 | Ituporanga | 0.0 |
 | Aurora | 0.0 |
 | Salete | 0.0 |
+| Laurentino | 0.0 |
 | Pouso Redondo | 0.0 |
 | Agrolandia | 0.0 |
 | Trombudo Central | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 7.2, Rio do Campo 1.4, Alfredo Wagner 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 7.4, Rio do Campo 1.4, Alfredo Wagner 0.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 1.49 | 7A/1F | 0 | 6.8 m | 18/11 15:50 |
-| Barragem Sul Ituporanga | 0.0 | 5A/1F | 0 | 4.0 m | 18/11 15:50 |
+| Barragem Oeste Taió | 1.49 | 7A/1F | 0 | 6.8 m | 18/11 16:20 |
+| Barragem Sul Ituporanga | 0.0 | 5A/1F | 0 | 4.0 m | 18/11 16:20 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.45 m** · fallback -0.24 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.41 m** · fallback -0.24 m
 - **A) SDC-00013:** baseline 3.34 m · pico v1.0 ~3.4 m (banda 2.9–3.9) → **Normal**
 - **B) DC-RS Dom Tito:** baseline 3.1 m · pico v1.0 ~3.2 m (banda 2.7–3.7) → **Normal**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.59 m · DC-RS 3.14 m
+- nível atual: SDC 3.57 m · DC-RS 3.16 m
 
 ## ⚠ Avisos desta coleta
 
-- Sensores TRAVADOS (descartados na fusão): 00022 (), 00031 (SDC-SC Laurentino)
+- Sensores TRAVADOS (descartados na fusão): 00022 ()
