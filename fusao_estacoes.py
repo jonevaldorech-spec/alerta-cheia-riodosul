@@ -102,7 +102,8 @@ def fundir_chuva(municipio: str,
             log.append(f"{c}: sem dado -> fora")
             continue
         if _travada(l, ref_frescor, lag_max_min):
-            log.append(f"{c}: TRAVADA ({l.atualizado:%d/%m %H:%M}) -> fora")
+            log.append(f"{c}: TRAVADA ({l.atualizado:%d/%m %H:%M}) -> fora" if l.atualizado
+                       else f"{c}: SEM LEITURA (sem horário) -> fora")
             continue
         vivos.append((c, l.chuva_mm))
 
