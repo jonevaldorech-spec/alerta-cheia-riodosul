@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-18 06:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-18 06:01 (local −03)
 
 **Rio do Sul (SDC+offset (DC-RS indisponível, off=-0.24)):** None m — **?** · tendência estável/caindo
 - SDC-00013: None m · DC-RS Dom Tito: None m · offset medido DC-RS−SDC: None m · ⚠ DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
