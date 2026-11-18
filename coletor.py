@@ -160,11 +160,576 @@ def _dt_local_naive(ts_iso):
         return None
 
 
-_TAGS_Q = ('query Tags_data { tags_data(clients: ["%s"]) { qualle_meteorologia '
-           '{ codigo name { general local } timestamp data { rio { rio_nivel '
-           '{ value } rio_nivel_tendencia { value } } chuva { acumulado { '
-           'h001 { value } h006 { value } h024 { value } h048 { value } '
-           'h072 { value } } } } } } }') % CLIENT
+# 17/11/2026: o servidor estadual passou a aceitar SÓ as consultas do guia da API
+# (erro 400 QUERY_NOT_ALLOWED para qualquer outro texto). Esta é a consulta
+# Tags_data EXATA usada pelo próprio site (extraída do bundle JS do
+# monitoramento.defesacivil.sc.gov.br). NÃO enxugar campos — o servidor recusa.
+# Se voltar a dar QUERY_NOT_ALLOWED: recapturar o texto no site (ver PLAYBOOK).
+_TAGS_Q = '''
+  query Tags_data {
+    tags_data(clients: ["secretaria-de-defesa-civil"]) {
+      qualle_meteorologia {
+        codigo
+        name {
+          prefix
+          general
+          local
+        }
+        show
+        timestamp
+        position {
+          bacia
+          latitude
+          longitude
+          regiao
+          altitude
+        }
+        data {
+          rio {
+            rio_nome {
+              value
+            }
+            rio_nivel {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            rio_nivel_tendencia {
+              value
+              show { value }
+            }
+            rio_area_drenagem {
+              value
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+          }
+          chuva {
+            acumulado {
+              min005 { value show { value } format { value } unit { value } }
+              h001 { value show { value } format { value } unit { value } }
+              h003 { value show { value } format { value } unit { value } }
+              h006 { value show { value } format { value } unit { value } }
+              h012 { value show { value } format { value } unit { value } }
+              h024 { value show { value } format { value } unit { value } }
+              h168 { value show { value } format { value } unit { value } }
+              s015 { value show { value } format { value } unit { value } }
+              min010 { value show { value } format { value } unit { value } }
+              min015 { value show { value } format { value } unit { value } }
+              h048 { value show { value } format { value } unit { value } }
+              h072 { value show { value } format { value } unit { value } }
+              h096 { value show { value } format { value } unit { value } }
+              h120 { value show { value } format { value } unit { value } }
+              h144 { value show { value } format { value } unit { value } }
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+          }
+          pressaoatmos {
+            atual {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            tendencia {
+              value
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+            historico {
+              h001 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+              h168 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+            }
+          }
+          senstermica {
+            atual {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            historico {
+              h001 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+              h168 {
+                maxima {
+                  value
+                }
+                minima {
+                  value
+                }
+                media {
+                  value
+                }
+              }
+            }
+            tendencia {
+              value
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+          }
+          temperatura {
+            atual {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            historico {
+              h001 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+              h168 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+            }
+            tendencia {
+              value
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+          }
+          umidade {
+            atual {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            tendencia {
+              value
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+            historico {
+              h001 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+              h168 {
+                maxima {
+                  value
+                }
+                media {
+                  value
+                }
+                minima {
+                  value
+                }
+              }
+            }
+          }
+          vento {
+            direcao {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            velocidade_maxima {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            velocidade_media {
+              value
+              show { value }
+              format { value }
+              unit { value }
+            }
+            homologacao {
+              relacao {
+                valido {
+                  value
+                }
+              }
+            }
+          }
+          barramento {
+            nivel {
+              percentual {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+              montante {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+              jusante {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+              vertido {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+              extravasor {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+            }
+            capacidade {
+              atual {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+              maxima {
+                value
+                show { value }
+                format { value }
+                unit { value }
+              }
+            }
+            comportas {
+              comporta_1 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_2 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_3 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_4 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_5 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_6 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_7 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_8 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_9 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+              comporta_10 {
+                estado {
+                  value
+                }
+                habilitada {
+                  value
+                }
+                nome {
+                  value
+                  label {
+                    value
+                  }
+                  show {
+                    value
+                  }
+                  format {
+                    value
+                  }
+                  unit {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+        type
+        filter {
+          relacao {
+            tem_chuva_acumulada
+            tem_nivel_do_rio
+            tem_pressao_atmosferica
+            tem_sensacao_termica
+            tem_umidade
+            tem_vazao_do_rio
+            tem_vento
+            tem_barragem
+          }
+        }
+      }
+      proximaAtualizacaoEm
+    }
+  }
+'''
 
 _HIST_Q = ('query Historic($stationCode: String!, $startDate: String!, '
            '$endDate: String!, $interval: QueryInterval) { historic('
@@ -846,6 +1411,15 @@ def main():
     live = asthon_estacoes_live()
     dom_live = live.get(DOMTITO_UUID, {}).get("level")
     dom_hist = asthon_nivel_hist(DOMTITO_UUID, VALE_MAX_H)
+    # 17/11/2026: a Asthon tirou o radar DC-RS (f6360951) do /stations/live e da
+    # lista (o nome "Ponte Dom Tito Buss" passou para a estação SDC d2f60af1), mas o
+    # /station-history dele segue vivo. Sem leitura ao vivo -> usa o último ponto do
+    # histórico, se tiver no máximo 30 min.
+    if dom_live is None and dom_hist:
+        _ag = agora.replace(tzinfo=None)
+        _dt, _v = dom_hist[-1]
+        if (_ag - _dt) <= timedelta(minutes=30):
+            dom_live = round(_v, 2)
     sdc_niv = raw.get("00013", {}).get("nivel")
     sdc_tend = raw.get("00013", {}).get("tend")
     try:
