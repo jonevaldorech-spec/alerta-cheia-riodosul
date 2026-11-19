@@ -1,11 +1,11 @@
-# Cheia — Rio do Sul (SC) — 2026-11-19 06:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-19 06:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.51 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.6 m · DC-RS Dom Tito: 3.51 m · offset medido DC-RS−SDC: -0.09 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.49 m — **Normal** · tendência estável/caindo
+- SDC-00013: 3.59 m · DC-RS Dom Tito: 3.49 m · offset medido DC-RS−SDC: -0.1 m
 **Chuva 24h máx (drivers):** 37.4 mm
 **EVENTO ATIVO:** 🟢 não
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (16 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (17 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -32,11 +32,11 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 8.0, Rio do Camp
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.09 m** · fallback -0.22 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.1 m** · fallback -0.22 m
 - **A) SDC-00013:** baseline 3.32 m · pico v1.0 ~3.9 m (banda 3.4–4.4) → **Normal**
 - **B) DC-RS Dom Tito:** baseline 3.1 m · pico v1.0 ~3.7 m (banda 3.2–4.2) → **Normal**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.6 m · DC-RS 3.51 m
+- nível atual: SDC 3.59 m · DC-RS 3.49 m
 
 ## ⚠ Avisos desta coleta
 
