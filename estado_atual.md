@@ -1,24 +1,9 @@
-# Cheia — Rio do Sul (SC) — 2026-11-19 05:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-19 06:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.51 m — **Normal** · tendência subindo
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.51 m — **Normal** · tendência estável/caindo
 - SDC-00013: 3.6 m · DC-RS Dom Tito: 3.51 m · offset medido DC-RS−SDC: -0.09 m
 **Chuva 24h máx (drivers):** 37.4 mm
-**EVENTO ATIVO:** 🔴 SIM
-
-**Pico estimado (v1.0, OFICIAL):** ~3.7 m (banda p10–p90 3.2–4.2 m) → **Normal**
-**Classe que dispara o alerta/e-mail: Normal**
-- baseline = VALE do ato: 3.1 m em 18/11 14:32 (DC-RS) · subida até agora 0.41 m
-- chuva-jusante do ato: 16.7 mm (drivers (divergiu +65% das ancoras); soma horária desde o vale (16 h, cobertura 100%)) · chuva-acima 4.0 mm
-- cj efetiva 18 mm = cj 17 + trânsito-acima 1 (fração de comportas aberta 0.85) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
-- sombra (cj_lat, c/ laterais): ~3.7 m (cj 15 mm · Δcj_lat−cj_v07 = -1.2 mm, n_laterais=4)
-- modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~4.3 m → Normal (só comparação)
-
-### Barragens no ato (desde o vale)
-
-| Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
-|---|---|---|---|---|---|---|
-| Oeste | 1.49 → 0.05 | 0.0 | 0.88 | 7A/1F | 3.3 m |  |
-| Sul | 0.0 → 0.0 | 0.0 | 0.83 | 5A/1F | 4.0 m |  |
+**EVENTO ATIVO:** 🟢 não
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (16 h, cobertura 100%)
 
