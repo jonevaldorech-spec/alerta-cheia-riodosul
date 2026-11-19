@@ -1,13 +1,13 @@
-# Cheia — Rio do Sul (SC) — 2026-11-19 07:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-19 08:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.39 m — **Normal** · tendência estável/caindo
-- SDC-00013: 3.59 m · DC-RS Dom Tito: 3.39 m · offset medido DC-RS−SDC: -0.2 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.37 m — **Normal** · tendência estável/caindo
+- SDC-00013: 3.58 m · DC-RS Dom Tito: 3.37 m · offset medido DC-RS−SDC: -0.21 m
 **Chuva 24h máx (drivers):** 37.4 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.4 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.059 m/h (anterior 0.02 m/h) · chuva-driver 2h 0.0 mm/h
-- réguas-líder: Pouso Redondo: subindo · Trombudo Central: virou · Agrolandia: virou
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.38 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.072 m/h (anterior 0.003 m/h) · chuva-driver 2h 0.0 mm/h
+- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~3.7 m); o número acima é o nowcast e DECIDE o alerta.
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (18 h, cobertura 100%)
@@ -37,14 +37,14 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 8.0, Rio do Camp
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.2 m** · fallback -0.22 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.21 m** · fallback -0.22 m
 - **A) SDC-00013:** baseline 3.32 m · pico v1.0 ~3.9 m (banda 3.4–4.4) → **Normal**
 - **B) DC-RS Dom Tito:** baseline 3.1 m · pico v1.0 ~3.7 m (banda 3.2–4.2) → **Normal**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 3.59 m · DC-RS 3.39 m
+- nível atual: SDC 3.58 m · DC-RS 3.37 m
 
 ## ⚠ Avisos desta coleta
 
-- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~140 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~140 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~170 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~170 min; cadência normal ~30 min). % e montante podem estar desatualizados.
 - Sensores TRAVADOS (descartados na fusão): 00022 ()
