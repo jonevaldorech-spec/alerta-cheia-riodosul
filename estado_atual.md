@@ -1,16 +1,16 @@
-# Cheia — Rio do Sul (SC) — 2026-11-19 08:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-19 08:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.37 m — **Normal** · tendência estável/caindo
 - SDC-00013: 3.58 m · DC-RS Dom Tito: 3.37 m · offset medido DC-RS−SDC: -0.21 m
 **Chuva 24h máx (drivers):** 37.4 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.38 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.072 m/h (anterior 0.003 m/h) · chuva-driver 2h 0.0 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~3.37 m → **Normal** · crista já atingida/passando
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.065 m/h (anterior 0.0 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~3.7 m); o número acima é o nowcast e DECIDE o alerta.
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (18 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (19 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -18,7 +18,6 @@
 | Aurora | 27.4 |
 | Rio do Oeste | 26.2 |
 | Agronomica | 22.8 |
-| Agrolandia | 20.8 |
 | Rio do Sul | 17.6 |
 | Trombudo Central | 13.7 |
 | Taio | 11.7 |
@@ -32,8 +31,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Taio_montante 8.0, Rio do Camp
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 0.05 | 7A/1F | 0 | 3.3 m | 19/11 05:10 ❄ CONGELADO |
-| Barragem Sul Ituporanga | 0.0 | 5A/1F | 0 | 4.0 m | 19/11 05:10 ❄ CONGELADO |
+| Barragem Oeste Taió | 0.06 | 7A/1F | 0 | 3.4 m | 19/11 08:20 |
+| Barragem Sul Ituporanga | 0.0 | 5A/1F | 0 | 4.0 m | 19/11 08:20 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
@@ -45,6 +44,4 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 
 ## ⚠ Avisos desta coleta
 
-- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~170 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 19/11 05:10 (~170 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Sensores TRAVADOS (descartados na fusão): 00022 ()
+- Sensores TRAVADOS (descartados na fusão): 00022 (), 00025 (SDC-SC Agrolândia)
