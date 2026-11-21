@@ -1,20 +1,20 @@
-# Cheia — Rio do Sul (SC) — 2026-11-21 01:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-21 01:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.74 m — **ATENÇÃO** · tendência subindo
-- SDC-00013: 4.99 m · DC-RS Dom Tito: 4.74 m · offset medido DC-RS−SDC: -0.25 m
-**Chuva 24h máx (drivers):** 62.9 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.76 m — **ATENÇÃO** · tendência subindo
+- SDC-00013: 5.0 m · DC-RS Dom Tito: 4.76 m · offset medido DC-RS−SDC: -0.24 m
+**Chuva 24h máx (drivers):** 62.7 mm
 **EVENTO ATIVO:** 🔴 SIM
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.74 m → **ATENÇÃO** · crista em ~0 h
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.03 m/h (anterior 0.05 m/h) · chuva-driver 2h 0.3 mm/h
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.76 m → **ATENÇÃO** · crista em ~0 h
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.027 m/h (anterior 0.046 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~4.7 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~4.7 m (banda p10–p90 4.2–5.2 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: ATENÇÃO**
-- baseline = VALE do ato: 3.32 m em 20/11 09:46 (DC-RS) · subida até agora 1.42 m
-- chuva-jusante do ato: 37.9 mm (drivers (divergiu +12% das ancoras); soma horária desde o vale (16 h, cobertura 100%)) · chuva-acima 34.0 mm
-- cj efetiva 43 mm = cj 38 + trânsito-acima 0 (fração de comportas aberta 0.03) + pluviômetro-ΔV 5 (ΔV do ato 7.0 hm³)
+- baseline = VALE do ato: 3.32 m em 20/11 09:46 (DC-RS) · subida até agora 1.44 m
+- chuva-jusante do ato: 37.9 mm (drivers (divergiu +12% das ancoras); soma horária desde o vale (17 h, cobertura 100%)) · chuva-acima 34.0 mm
+- cj efetiva 43 mm = cj 38 + trânsito-acima 0 (fração de comportas aberta 0.02) + pluviômetro-ΔV 5 (ΔV do ato 7.0 hm³)
 - sombra (cj_lat, c/ laterais): ~4.7 m (cj 36 mm · Δcj_lat−cj_v07 = -1.4 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.6 m → Alerta (só comparação)
 
@@ -23,9 +23,9 @@
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
 | Oeste | 1.15 → 7.43 | 6.3 | 0.00 | 0A/8F | 9.98 m |  |
-| Sul | 0.0 → 0.72 | 0.7 | 0.05 | 0A/6F | 9.8 m |  |
+| Sul | 0.0 → 0.72 | 0.7 | 0.04 | 0A/6F | 9.8 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (16 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (17 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -47,16 +47,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 45.2, Alfredo Wag
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 7.43 | 0A/8F | 0 | 9.98 m | 21/11 00:50 |
-| Barragem Sul Ituporanga | 0.72 | 0A/6F | 0 | 9.8 m | 21/11 00:50 |
+| Barragem Oeste Taió | 7.43 | 0A/8F | 0 | 9.98 m | 21/11 01:20 |
+| Barragem Sul Ituporanga | 0.72 | 0A/6F | 0 | 9.8 m | 21/11 01:20 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.25 m** · fallback -0.23 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.24 m** · fallback -0.23 m
 - **A) SDC-00013:** baseline 3.55 m · pico v1.0 ~4.9 m (banda 4.4–5.4) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 3.32 m · pico v1.0 ~4.7 m (banda 4.2–5.2) → **Atenção**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 4.99 m · DC-RS 4.74 m
+- nível atual: SDC 5.0 m · DC-RS 4.76 m
 
 ## ⚠ Avisos desta coleta
 
