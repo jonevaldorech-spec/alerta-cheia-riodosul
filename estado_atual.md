@@ -1,11 +1,11 @@
-# Cheia — Rio do Sul (SC) — 2026-11-22 03:29 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-22 03:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.26 m — **Normal** · tendência estável/caindo
 - SDC-00013: 4.34 m · DC-RS Dom Tito: 4.26 m · offset medido DC-RS−SDC: -0.08 m
 **Chuva 24h máx (drivers):** 24.2 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.27 m → **Normal** · crista já atingida/passando
+**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.26 m → **Normal** · crista já atingida/passando
 - método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.033 m/h (anterior -0.039 m/h) · chuva-driver 2h 0.0 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~4.5 m); o número acima é o nowcast e DECIDE o alerta.
