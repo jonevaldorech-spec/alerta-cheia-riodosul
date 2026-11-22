@@ -1,16 +1,11 @@
-# Cheia — Rio do Sul (SC) — 2026-11-22 01:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-22 01:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.34 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.45 m · DC-RS Dom Tito: 4.34 m · offset medido DC-RS−SDC: -0.11 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.32 m — **Normal** · tendência estável/caindo
+- SDC-00013: 4.43 m · DC-RS Dom Tito: 4.32 m · offset medido DC-RS−SDC: -0.11 m
 **Chuva 24h máx (drivers):** 24.2 mm
 **EVENTO ATIVO:** 🟢 não
 
-**🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~4.36 m → **Normal** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.033 m/h (anterior -0.023 m/h) · chuva-driver 2h 0.0 mm/h
-- réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: subindo
-- o v1.0 vira **TETO** (~4.5 m); o número acima é o nowcast e DECIDE o alerta.
-
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (9 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (10 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -32,8 +27,8 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.2, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 14.97 | 0A/8F | 0 | 11.75 m | 22/11 00:50 |
-| Barragem Sul Ituporanga | 3.84 | 0A/6F | 0 | 13.3 m | 22/11 00:50 |
+| Barragem Oeste Taió | 14.97 | 0A/8F | 0 | 11.75 m | 22/11 01:20 |
+| Barragem Sul Ituporanga | 3.84 | 0A/6F | 0 | 13.3 m | 22/11 01:20 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
@@ -41,7 +36,7 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 - **A) SDC-00013:** baseline 4.42 m · pico v1.0 ~4.7 m (banda 4.2–5.2) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 4.17 m · pico v1.0 ~4.5 m (banda 4.0–5.0) → **Normal**
 - **Δ pico (B − A): -0.20 m** · ⚠ MUDA A CLASSE: Atenção → Normal
-- nível atual: SDC 4.45 m · DC-RS 4.34 m
+- nível atual: SDC 4.43 m · DC-RS 4.32 m
 
 ## ⚠ Avisos desta coleta
 
