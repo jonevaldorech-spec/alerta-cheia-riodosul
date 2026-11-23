@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-22 22:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-22 22:31 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.04 m — **ATENÇÃO** · tendência subindo
 - SDC-00013: 5.33 m · DC-RS Dom Tito: 5.04 m · offset medido DC-RS−SDC: -0.29 m
