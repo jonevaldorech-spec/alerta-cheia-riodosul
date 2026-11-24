@@ -1,4 +1,4 @@
-# Cheia — Rio do Sul (SC) — 2026-11-23 20:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-23 21:00 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 4.08 m — **Normal** · tendência estável/caindo
 - SDC-00013: None m · DC-RS Dom Tito: 4.08 m · offset medido DC-RS−SDC: None m
@@ -23,5 +23,5 @@ Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SD
 
 - estado(Qualle): The read operation timed out
 - histórico SDC: The read operation timed out
-- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~150 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~150 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~180 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~180 min; cadência normal ~30 min). % e montante podem estar desatualizados.
