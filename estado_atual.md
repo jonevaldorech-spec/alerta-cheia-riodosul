@@ -1,8 +1,8 @@
-# Cheia — Rio do Sul (SC) — 2026-11-24 07:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-24 07:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.69 m — **Normal** · tendência estável/caindo
-- SDC-00013: 4.42 m · DC-RS Dom Tito: 3.69 m · offset medido DC-RS−SDC: -0.73 m
-**Chuva 24h máx (drivers):** 0.6 mm
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.65 m — **Normal** · tendência estável/caindo
+- SDC-00013: None m · DC-RS Dom Tito: 3.65 m · offset medido DC-RS−SDC: None m
+**Chuva 24h máx (drivers):** 0 mm
 **EVENTO ATIVO:** 🟢 não
 
 ## Barragens (Asthon)
@@ -14,14 +14,14 @@
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.73 m** · fallback -0.29 m
-- **A) SDC-00013:** baseline 3.98 m · (estimador indisponível)
-- **B) DC-RS Dom Tito:** baseline 3.69 m · (estimador indisponível)
-- nível atual: SDC 4.42 m · DC-RS 3.69 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **None m** · fallback -0.29 m
+- **A) SDC-00013:** baseline 3.94 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 3.65 m · (estimador indisponível)
+- nível atual: SDC None m · DC-RS 3.65 m
 
 ## ⚠ Avisos desta coleta
 
+- estado(Qualle): The read operation timed out
 - histórico SDC: The read operation timed out
-- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~780 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~780 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Sensores TRAVADOS (descartados na fusão): 00022 ()
+- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~810 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~810 min; cadência normal ~30 min). % e montante podem estar desatualizados.
