@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-11-24 01:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-24 01:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.97 m — **Normal** · tendência estável/caindo
-- SDC-00013: None m · DC-RS Dom Tito: 3.97 m · offset medido DC-RS−SDC: None m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 3.95 m — **Normal** · tendência estável/caindo
+- SDC-00013: None m · DC-RS Dom Tito: 3.95 m · offset medido DC-RS−SDC: None m
 **Chuva 24h máx (drivers):** 0 mm
 **EVENTO ATIVO:** 🟢 não
 
@@ -14,14 +14,14 @@
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **None m** · fallback -0.28 m
-- **A) SDC-00013:** baseline 4.25 m · (estimador indisponível)
-- **B) DC-RS Dom Tito:** baseline 3.97 m · (estimador indisponível)
-- nível atual: SDC None m · DC-RS 3.97 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **None m** · fallback -0.285 m
+- **A) SDC-00013:** baseline 4.24 m · (estimador indisponível)
+- **B) DC-RS Dom Tito:** baseline 3.95 m · (estimador indisponível)
+- nível atual: SDC None m · DC-RS 3.95 m
 
 ## ⚠ Avisos desta coleta
 
 - estado(Qualle): The read operation timed out
 - histórico SDC: The read operation timed out
-- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~420 min; cadência normal ~30 min). % e montante podem estar desatualizados.
-- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~420 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Oeste Taió: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~450 min; cadência normal ~30 min). % e montante podem estar desatualizados.
+- Barragem Sul Ituporanga: sensor possivelmente CONGELADO na fonte (Asthon) — medida_em parada em 23/11 18:00 (~450 min; cadência normal ~30 min). % e montante podem estar desatualizados.
