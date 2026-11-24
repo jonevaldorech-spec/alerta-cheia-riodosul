@@ -2121,3 +2121,4 @@ coleta_local,dc_rs_m,sdc_00013_m,offset_medido_m,fonte,obs
 2026-11-24 11:30,3.41,3.76,-0.35,DC-RS (Asthon Ponte Dom Tito),
 2026-11-24 12:00,3.39,3.76,-0.37,DC-RS (Asthon Ponte Dom Tito),
 2026-11-24 12:30,3.38,3.75,-0.37,DC-RS (Asthon Ponte Dom Tito),
+2026-11-24 13:00,,3.74,,"SDC+offset (DC-RS indisponível, off=-0.3)",DC-RS Ponte Dom Tito indisponível nesta coleta — usando SDC+offset
