@@ -1,12 +1,12 @@
-# Cheia — Rio do Sul (SC) — 2026-11-26 09:12 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-26 09:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.89 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 6.05 m · DC-RS Dom Tito: 5.89 m · offset medido DC-RS−SDC: -0.16 m
+- SDC-00013: 6.04 m · DC-RS Dom Tito: 5.89 m · offset medido DC-RS−SDC: -0.15 m
 **Chuva 24h máx (drivers):** 0.5 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.9 m → **ALERTA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual 0.004 m/h (anterior 0.039 m/h) · chuva-driver 2h 0.2 mm/h
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.006 m/h (anterior 0.043 m/h) · chuva-driver 2h 0.2 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: virou · Agrolandia: virou
 - o v1.0 vira **TETO** (~5.1 m); o número acima é o nowcast e DECIDE o alerta.
 
@@ -47,16 +47,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 38.74 | 7A/1F | 0 | 15.7 m | 26/11 09:05 |
-| Barragem Sul Ituporanga | 38.44 | 5A/1F | 0 | 23.11 m | 26/11 09:05 |
+| Barragem Oeste Taió | 38.74 | 7A/1F | 0 | 15.7 m | 26/11 09:25 |
+| Barragem Sul Ituporanga | 38.44 | 5A/1F | 0 | 23.11 m | 26/11 09:25 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.16 m** · fallback -0.21 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.15 m** · fallback -0.21 m
 - **A) SDC-00013:** baseline 5.33 m · pico v1.0 ~5.3 m (banda 4.8–5.8) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 5.12 m · pico v1.0 ~5.1 m (banda 4.6–5.6) → **Atenção**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 6.05 m · DC-RS 5.89 m
+- nível atual: SDC 6.04 m · DC-RS 5.89 m
 
 ## ⚠ Avisos desta coleta
 
