@@ -1,14 +1,14 @@
-# Cheia — Rio do Sul (SC) — 2026-11-26 20:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-26 20:30 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 6.0 m — **ALERTA** · tendência subindo
-- SDC-00013: 6.09 m · DC-RS Dom Tito: 6.0 m · offset medido DC-RS−SDC: -0.09 m
+- SDC-00013: 6.08 m · DC-RS Dom Tito: 6.0 m · offset medido DC-RS−SDC: -0.08 m
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~5.1 m (banda p10–p90 4.6–5.6 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
 - baseline = VALE do ato: 5.12 m em 25/11 15:43 (DC-RS) · subida até agora 0.88 m
-- chuva-jusante do ato: 0.1 mm (drivers (divergiu -32% das ancoras); soma horária desde o vale (29 h, cobertura 100%)) · chuva-acima 0.2 mm
+- chuva-jusante do ato: 0.1 mm (drivers (divergiu -32% das ancoras); soma horária desde o vale (30 h, cobertura 100%)) · chuva-acima 0.2 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 0.72) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.1 m (cj 0 mm · Δcj_lat−cj_v07 = 0.0 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.4 m → Atenção (só comparação)
@@ -20,7 +20,7 @@
 | Oeste | 38.74 → 35.52 | 0.0 | 0.68 | 7A/1F | 15.23 m |  |
 | Sul | 44.04 → 32.86 | 0.0 | 0.76 | 5A/1F | 22.11 m |  |
 
-## Chuva-jusante fundida DO ATO — soma horária desde o vale (29 h, cobertura 100%)
+## Chuva-jusante fundida DO ATO — soma horária desde o vale (30 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -42,16 +42,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 35.52 | 7A/1F | 0 | 15.23 m | 26/11 19:55 |
-| Barragem Sul Ituporanga | 32.86 | 5A/1F | 0 | 22.11 m | 26/11 19:55 |
+| Barragem Oeste Taió | 35.52 | 7A/1F | 0 | 15.23 m | 26/11 20:25 |
+| Barragem Sul Ituporanga | 32.86 | 5A/1F | 0 | 22.11 m | 26/11 20:25 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.09 m** · fallback -0.2 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.08 m** · fallback -0.2 m
 - **A) SDC-00013:** baseline 5.32 m · pico v1.0 ~5.3 m (banda 4.8–5.8) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 5.12 m · pico v1.0 ~5.1 m (banda 4.6–5.6) → **Atenção**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 6.09 m · DC-RS 6.0 m
+- nível atual: SDC 6.08 m · DC-RS 6.0 m
 
 ## ⚠ Avisos desta coleta
 
