@@ -1,13 +1,13 @@
-# Cheia — Rio do Sul (SC) — 2026-11-26 18:51 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-26 19:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.96 m — **ALERTA** · tendência subindo
-- SDC-00013: 6.08 m · DC-RS Dom Tito: 5.96 m · offset medido DC-RS−SDC: -0.12 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.97 m — **ALERTA** · tendência subindo
+- SDC-00013: 6.08 m · DC-RS Dom Tito: 5.97 m · offset medido DC-RS−SDC: -0.11 m
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **Pico estimado (v1.0, OFICIAL):** ~5.1 m (banda p10–p90 4.6–5.6 m) → **Atenção**
 **Classe que dispara o alerta/e-mail: Atenção**
-- baseline = VALE do ato: 5.12 m em 25/11 15:43 (DC-RS) · subida até agora 0.84 m
+- baseline = VALE do ato: 5.12 m em 25/11 15:43 (DC-RS) · subida até agora 0.85 m
 - chuva-jusante do ato: 0.1 mm (drivers (divergiu -32% das ancoras); soma horária desde o vale (28 h, cobertura 100%)) · chuva-acima 0.2 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 0.71) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.1 m (cj 0 mm · Δcj_lat−cj_v07 = 0.0 mm, n_laterais=4)
@@ -42,16 +42,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 35.8 | 7A/1F | 0 | 15.27 m | 26/11 18:45 |
-| Barragem Sul Ituporanga | 33.39 | 5A/1F | 0 | 22.21 m | 26/11 18:45 |
+| Barragem Oeste Taió | 35.8 | 7A/1F | 0 | 15.27 m | 26/11 18:55 |
+| Barragem Sul Ituporanga | 33.39 | 5A/1F | 0 | 22.21 m | 26/11 18:55 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.12 m** · fallback -0.2 m
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.11 m** · fallback -0.2 m
 - **A) SDC-00013:** baseline 5.32 m · pico v1.0 ~5.3 m (banda 4.8–5.8) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 5.12 m · pico v1.0 ~5.1 m (banda 4.6–5.6) → **Atenção**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 6.08 m · DC-RS 5.96 m
+- nível atual: SDC 6.08 m · DC-RS 5.97 m
 
 ## ⚠ Avisos desta coleta
 
