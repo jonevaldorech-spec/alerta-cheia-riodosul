@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-11-27 17:00 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-27 17:30 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.63 m — **ALERTA** · tendência subindo
-- SDC-00013: 5.87 m · DC-RS Dom Tito: 5.63 m · offset medido DC-RS−SDC: -0.24 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.65 m — **ALERTA** · tendência subindo
+- SDC-00013: 5.87 m · DC-RS Dom Tito: 5.65 m · offset medido DC-RS−SDC: -0.22 m
 **Chuva 24h máx (drivers):** 0.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -9,15 +9,15 @@
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 28.58 | 0A/8F | 0 | 14.18 m | 27/11 16:55 |
-| Barragem Sul Ituporanga | 21.66 | 0A/6F | 0 | 19.74 m | 27/11 16:55 |
+| Barragem Oeste Taió | 28.7 | 0A/8F | 0 | 14.18 m | 27/11 17:25 |
+| Barragem Sul Ituporanga | 21.68 | 0A/6F | 0 | 19.74 m | 27/11 17:25 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.24 m** · fallback -0.15 m
-- **A) SDC-00013:** baseline 5.76 m · (estimador indisponível)
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.22 m** · fallback -0.145 m
+- **A) SDC-00013:** baseline 5.75 m · (estimador indisponível)
 - **B) DC-RS Dom Tito:** baseline 5.61 m · (estimador indisponível)
-- nível atual: SDC 5.87 m · DC-RS 5.63 m
+- nível atual: SDC 5.87 m · DC-RS 5.65 m
 
 ## ⚠ Avisos desta coleta
 
