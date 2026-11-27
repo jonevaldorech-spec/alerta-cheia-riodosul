@@ -1,7 +1,7 @@
-# Cheia — Rio do Sul (SC) — 2026-11-27 02:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-27 03:00 (local −03)
 
 **Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 6.03 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 6.06 m · DC-RS Dom Tito: 6.03 m · offset medido DC-RS−SDC: -0.03 m
+- SDC-00013: 6.05 m · DC-RS Dom Tito: 6.03 m · offset medido DC-RS−SDC: -0.02 m
 **Chuva 24h máx (drivers):** 0.4 mm
 **EVENTO ATIVO:** 🔴 SIM
 
@@ -17,8 +17,8 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 38.74 → 33.67 | 0.0 | 0.71 | 7A/1F | 14.95 m |  |
-| Sul | 44.04 → 29.53 | 0.0 | 0.77 | 5A/1F | 21.47 m |  |
+| Oeste | 38.74 → 33.35 | 0.0 | 0.72 | 7A/1F | 14.9 m |  |
+| Sul | 44.04 → 29.05 | 0.0 | 0.77 | 5A/1F | 21.37 m |  |
 
 ## Chuva-jusante fundida DO ATO — soma horária desde o vale (36 h, cobertura 100%)
 
@@ -42,16 +42,16 @@ _Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.8, Alfredo Wagn
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 33.67 | 7A/1F | 0 | 14.95 m | 27/11 02:25 |
-| Barragem Sul Ituporanga | 29.53 | 5A/1F | 0 | 21.47 m | 27/11 02:20 |
+| Barragem Oeste Taió | 33.35 | 7A/1F | 0 | 14.9 m | 27/11 02:55 |
+| Barragem Sul Ituporanga | 29.05 | 5A/1F | 0 | 21.37 m | 27/11 02:55 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.03 m** · fallback -0.195 m
-- **A) SDC-00013:** baseline 5.32 m · pico v1.0 ~5.3 m (banda 4.8–5.8) → **Atenção**
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.02 m** · fallback -0.19 m
+- **A) SDC-00013:** baseline 5.31 m · pico v1.0 ~5.3 m (banda 4.8–5.8) → **Atenção**
 - **B) DC-RS Dom Tito:** baseline 5.12 m · pico v1.0 ~5.1 m (banda 4.6–5.6) → **Atenção**
 - **Δ pico (B − A): -0.20 m** · classe inalterada
-- nível atual: SDC 6.06 m · DC-RS 6.03 m
+- nível atual: SDC 6.05 m · DC-RS 6.03 m
 
 ## ⚠ Avisos desta coleta
 
