@@ -1,19 +1,19 @@
-# Cheia — Rio do Sul (SC) — 2026-11-27 12:30 (local −03)
+# Cheia — Rio do Sul (SC) — 2026-11-27 13:00 (local −03)
 
-**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.67 m — **ALERTA** · tendência estável/caindo
-- SDC-00013: 5.94 m · DC-RS Dom Tito: 5.67 m · offset medido DC-RS−SDC: -0.27 m
+**Rio do Sul (DC-RS (Asthon Ponte Dom Tito)):** 5.69 m — **ALERTA** · tendência estável/caindo
+- SDC-00013: 5.92 m · DC-RS Dom Tito: 5.69 m · offset medido DC-RS−SDC: -0.23 m
 **Chuva 24h máx (drivers):** 0.3 mm
 **EVENTO ATIVO:** 🔴 SIM
 
 **🎯 MODO CRISTA (nowcast — chuva encerrada, réguas-líder viradas):** pico ~5.69 m → **ALERTA** · crista já atingida/passando
-- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.047 m/h (anterior -0.046 m/h) · chuva-driver 2h 0.1 mm/h
+- método: projeção da trajetória (decaimento linear da taxa, validado −0,03/+0,02 nos ev.15/16). Taxa atual -0.033 m/h (anterior -0.043 m/h) · chuva-driver 2h 0.1 mm/h
 - réguas-líder: Pouso Redondo: virou · Trombudo Central: subindo · Agrolandia: virou
 - o v1.0 vira **TETO** (~5.7 m); o número acima é o nowcast e DECIDE o alerta.
 
 **Pico estimado (v1.0 (TETO — modo crista ativo)):** ~5.7 m (banda p10–p90 5.2–6.2 m) → **Alerta**
 **Classe que dispara o alerta/e-mail: ALERTA**
-- baseline = VALE do ato: 5.67 m em 27/11 12:25 (DC-RS) · subida até agora 0.0 m
-- chuva-jusante do ato: 0.0 mm (drivers (divergiu -73% das ancoras); acumulado rolante ch6h do painel (histórico do ato insuficiente: 0 h, cobertura 0%)) · chuva-acima 0.1 mm
+- baseline = VALE do ato: 5.67 m em 27/11 12:25 (DC-RS) · subida até agora 0.02 m
+- chuva-jusante do ato: 0.0 mm (drivers (divergiu -73% das ancoras); acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)) · chuva-acima 0.0 mm
 - cj efetiva 0 mm = cj 0 + trânsito-acima 0 (fração de comportas aberta 0.85) + pluviômetro-ΔV 0 (ΔV do ato 0.0 hm³)
 - sombra (cj_lat, c/ laterais): ~5.7 m (cj 0 mm · Δcj_lat−cj_v07 = 0.0 mm, n_laterais=4)
 - modelo antigo v0.9 (conservador, sem crédito de retenção, chuva do ato): ~5.8 m → Alerta (só comparação)
@@ -22,10 +22,10 @@
 
 | Barragem | % no vale → agora | ΔV retido (hm³) | Fração aberta (média) | Comportas | Montante | Obs |
 |---|---|---|---|---|---|---|
-| Oeste | 30.24 → 30.24 | 0.0 | 0.88 | 7A/1F | 14.42 m |  |
-| Sul | 24.24 → 24.24 | 0.0 | 0.83 | 5A/1F | 20.35 m |  |
+| Oeste | 30.24 → 29.91 | 0.0 | 0.87 | 7A/1F | 14.37 m |  |
+| Sul | 24.24 → 23.7 | 0.0 | 0.83 | 5A/1F | 20.23 m |  |
 
-## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 0 h, cobertura 0%)
+## Chuva-jusante fundida DO ATO — acumulado rolante ch6h do painel (histórico do ato insuficiente: 1 h, cobertura 100%)
 
 | Município | Chuva do ato (mm) |
 |---|---|
@@ -41,22 +41,22 @@
 | Trombudo Central | 0.0 |
 | Agronomica | 0.0 |
 
-_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.5, Alfredo Wagner 0.0, Taio_montante 0.0
+_Chuva-acima (contexto de barragem, fora do cj):_ Rio do Campo 0.1, Alfredo Wagner 0.0, Taio_montante 0.0
 
 ## Barragens (Asthon)
 
 | Barragem | % uso | Comportas | Vertido | Montante | Medida em |
 |---|---|---|---|---|---|
-| Barragem Oeste Taió | 30.24 | 7A/1F | 0 | 14.42 m | 27/11 12:25 |
-| Barragem Sul Ituporanga | 24.24 | 5A/1F | 0 | 20.35 m | 27/11 12:25 |
+| Barragem Oeste Taió | 29.91 | 7A/1F | 0 | 14.37 m | 27/11 12:55 |
+| Barragem Sul Ituporanga | 23.7 | 5A/1F | 0 | 20.23 m | 27/11 12:55 |
 
 ## Referência de nível — DC-RS Dom Tito (troca de datum)
 
-Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.27 m** · fallback -0.145 m
-- **A) SDC-00013:** baseline 5.81 m · pico v1.0 ~5.8 m (banda 5.3–6.3) → **Alerta**
+Referência ATIVA: **DC-RS (Asthon Ponte Dom Tito)** · offset medido DC-RS−SDC: **-0.23 m** · fallback -0.15 m
+- **A) SDC-00013:** baseline 5.82 m · pico v1.0 ~5.8 m (banda 5.3–6.3) → **Alerta**
 - **B) DC-RS Dom Tito:** baseline 5.67 m · pico v1.0 ~5.7 m (banda 5.2–6.2) → **Alerta**
 - **Δ pico (B − A): -0.10 m** · classe inalterada
-- nível atual: SDC 5.94 m · DC-RS 5.67 m
+- nível atual: SDC 5.92 m · DC-RS 5.69 m
 
 ## ⚠ Avisos desta coleta
 
